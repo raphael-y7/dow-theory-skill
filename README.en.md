@@ -111,95 +111,47 @@ This skill pack was produced with the RIA-TV++ pipeline of **[cangjie-skill](htt
 
 ## Testing and verification
 
-This repository ships the test material from the generation process: `evals/` holds 13 trigger prompt files (`test-prompts__<slug>.json`) and three per-item scoring reports, including the failures and the rework, not just the passes.
+This repository ships the test material from the generation process: the trigger prompts live in `test-prompts.json` under each skill directory (`pack/` ships one per promoted skill, 68 cases in total), and the three per-item scoring reports sit at the repository root (`test-results-u01-u05.md`, `test-results-u06-u09.md`, `test-results-u10-u13.md`), including the failures and the rework, not just the passes.
 
-- **Trigger and boundary cases**: 127 in total (9–10 per card: should_trigger, should_not_trigger decoys, edge_case). Triggers 56 / 57, decoys 38 / 39, edge cases 31 / 31
+- **Trigger and boundary cases**: 127 designed in this round (9–10 per card: should_trigger, should_not_trigger decoys, edge_case), of which 68 (the 7 promoted skills) ship with the repository; the round-wide result was triggers 56 / 57, decoys 38 / 39, edge cases 31 / 31
 - **One decoy violation**: `bull-top-exit-signals` snt-03 was routed to a neighbouring card — recorded as it happened, not polished
 - **Output evaluation**: 13 units × normal / boundary scenarios, mechanical assertions 115 / 115 passed
 - **Stop conditions**: all 13 stop points passed — refuse when refusal is right, ask when asking is right, never force a conclusion
 - **No-skill baseline**: 13 same-question comparisons without the skill, recording where the cards produced directional differences (e.g. "blue chips resist declines" vs "quality stocks are more fragile", "do not enter while unconfirmed" vs "probe with a small position")
 
-> A limitation worth stating: the trigger judgements in those three reports are **main-flow fallback self-assessments**, not independent blind tests, and each report says so. Output evaluation and stop conditions are assertion-style checks and are less affected by that bias. Once a sub-agent is available, re-run an independent blind test using `evals/test-prompts__*.json` unchanged.
+> A limitation worth stating: the trigger judgements in those three reports are **main-flow fallback self-assessments**, not independent blind tests, and each report says so. Output evaluation and stop conditions are assertion-style checks and are less affected by that bias. Once a sub-agent is available, re-run an independent blind test using the `test-prompts.json` in each skill directory unchanged.
 
 ## Repository structure
 
 ```text
 dow-theory-skill/
-├── README.md                      ← the Chinese original
-├── README.en.md                   ← you are reading this
-├── LICENSE                        ← MIT
-├── BOOK_OVERVIEW.md               ← whole-book understanding (Adler four-step, stage 0 output)
-├── verified.md                    ← triple-verification conclusions for the 13 capability units
-├── INDEX.md                       ← skill map: capability table / dependencies / loading order
-├── TEST_SUMMARY.md                ← stage 4 stress-test summary (scope / structure check / results / next actions)
-├── CANGJIE_ADAPTATION.md          ← Cangjie adaptation notes (text state / distillation goals / evidence rules / boundaries)
-├── candidates/                    ← stage 1 candidate methodology units (5 categories, 201 items)
-│   ├── framework.md               ← framework candidates, 21
-│   ├── principle.md               ← principle candidates, 90
-│   ├── case.md                    ← case candidates, 42
-│   ├── counter-example.md         ← counter-example candidates, 22
-│   ├── glossary.md                ← terminology candidates, 26
-│   ├── verified-A.yaml            ← triple-verification results: frameworks + terminology (47)
-│   ├── verified-B.yaml            ← triple-verification results: principles (90)
-│   └── verified-C.yaml            ← triple-verification results: cases + counter-examples (64)
-├── bundle/                        ← compilation source: cards and verification manifest
-│   ├── verified.yaml              ← canonical definition of the 13 cards (title, intents, importance, destination, also_read)
-│   ├── cards/                     ← the 13 capability cards (six RIA++ sections)
-│   └── book/                      ← overview.md (condensed whole-book view), glossary.md (terminology)
-├── single/                        ← single-entry mode
-│   └── dow-theory-skill/
-│       ├── SKILL.md               ← entry: trigger conditions + router table + loading rules
-│       ├── BUILD_MANIFEST.json    ← build manifest and file hashes
-│       └── references/
-│           ├── overview.md        ← whole-book overview
-│           ├── capability-index.md  ← full intent and keyword index
-│           ├── cheatsheet.md      ← decision-rule quick reference
-│           ├── glossary.md        ← glossary
-│           └── capabilities/      ← the 13 capability cards
-├── pack/                          ← multi-entry mode (compact pack)
-│   ├── BUILD_MANIFEST.json
-│   ├── capability-destinations.json
-│   ├── dow-theory-skill-router/
-│   │   ├── SKILL.md               ← source router entry
-│   │   └── references/            ← the 13 cards + indexes, loaded by the router
-│   ├── primary-trend-identification-skill/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← trigger cases for this card (10)
-│   ├── dual-index-confirmation-filter-skill/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← trigger cases for this card (10)
-│   ├── secondary-reaction-assessment-skill/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← trigger cases for this card (10)
-│   ├── line-formation-reading-skill/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← trigger cases for this card (10)
-│   ├── bear-bottom-checklist-skill/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← trigger cases for this card (9)
-│   ├── bull-top-exit-signals-skill/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← trigger cases for this card (9)
-│   └── trading-discipline-rules-skill/
-│       ├── SKILL.md
-│       └── test-prompts.json      ← trigger cases for this card (10)
-└── evals/                          ← trigger cases and per-item scoring reports
-    ├── test-prompts__primary-trend-identification.json
-    ├── test-prompts__dual-index-confirmation-filter.json
-    ├── test-prompts__secondary-reaction-assessment.json
-    ├── test-prompts__line-formation-reading.json
-    ├── test-prompts__volume-price-health.json
-    ├── test-prompts__bull-bear-stage-positioning.json
-    ├── test-prompts__bear-bottom-checklist.json
-    ├── test-prompts__bull-top-exit-signals.json
-    ├── test-prompts__stock-preflight-market-check.json
-    ├── test-prompts__trading-discipline-rules.json
-    ├── test-prompts__forecast-self-training.json
-    ├── test-prompts__secondary-reaction-stat-baseline.json
-    ├── test-prompts__pseudo-signal-troubleshooting.json
-    ├── test-results-u01-u05.md    ← per-item scoring and failure/rework records
-    ├── test-results-u06-u09.md
-    └── test-results-u10-u13.md
+├── README.md                ← Chinese version
+├── README.en.md             ← you are reading this
+├── LICENSE                  ← MIT
+├── BOOK_OVERVIEW.md         ← stage 0 output: Adler whole-book analysis
+├── INDEX.md                 ← stage 3 output: skill map + dependencies
+├── verified.md              ← 174 units that passed triple verification
+├── TEST_SUMMARY.md          ← stage 4 output: stress-test summary
+├── CANGJIE_ADAPTATION.md    ← cangjie adaptation notes
+├── GITHUB_REPO.md           ← repository metadata
+├── test-results-u01-u05.md  ← test result records: batch u01–u05
+├── test-results-u06-u09.md  ← test result records: batch u06–u09
+├── test-results-u10-u13.md  ← test result records: batch u10–u13
+├── candidates/              ← stage 1 output: raw candidate pool (201 entries)
+│   ├── frameworks.md        ← framework and method candidates
+│   ├── principles.md        ← principle / rule / calculation candidates
+│   ├── cases.md             ← case candidates from the book
+│   ├── counter-examples.md  ← counter-example and boundary candidates
+│   └── glossary.md          ← terminology candidates
+├── rejected/                ← stage 1.5 output: rejected units + reasons
+├── bundle/                  ← compilation source of truth
+│   ├── verified.yaml        ← capability metadata, criteria and destinations
+│   ├── cards/               ← capability card sources (six sections)
+│   └── book/                ← overview.md + glossary.md
+├── single/                  ← single-mode build (one entry + all capability cards)
+│   └── dow-theory-skill/SKILL.md  ← entry: triggers + routing table + loading rules
+└── pack/                    ← pack-mode build (one router + 7 promoted skills)
+    └── */SKILL.md           ← 8 skills; the 7 promoted ones each ship a test-prompts.json
 ```
 
 ## How to use
