@@ -1,0 +1,51 @@
+{
+  "tool": "cangjie-tools v2.5.0",
+  "published_hashes": {
+    "bear-bottom-checklist-skill\\SKILL.md": "c00a171f4fac55254e8ec13578e984048901049c9c138c7f8489ce025491432d",
+    "bull-top-exit-signals-skill\\SKILL.md": "8e108e3e97a44c9de7fc81fd6b2d6838e4c8cf207e18f4ce3f63a8d2ed690057",
+    "capability-destinations.json": "2fbdd627f1cbf5a3edc12d159a80fe5acd6fdc50ea79e3de06e0a63ed3258b69",
+    "dow-theory-skill-router\\references\\capabilities\\bear-bottom-checklist-skill.md": "6c7226466a686fa2b24d2ff9768e1f31393ffecd3e15e1fcf66af7f94c8a3f15",
+    "dow-theory-skill-router\\references\\capabilities\\bull-bear-stage-positioning.md": "3a35fcb32c59b2c00c0ca906d62f987946fbd750d7a6b08e0a76901943400bc3",
+    "dow-theory-skill-router\\references\\capabilities\\bull-top-exit-signals-skill.md": "81ba86fc6557918b772f5edf75f06266d4741356315b75b36d678bc3a2fc3091",
+    "dow-theory-skill-router\\references\\capabilities\\dual-index-confirmation-filter-skill.md": "9a4766f0acbcc40c19875ecae9ef9772311bd9c9023296dcf3a72aab46184640",
+    "dow-theory-skill-router\\references\\capabilities\\forecast-self-training.md": "dfb6ab0de9a823978c0acd148dcdd6b0a35235509766a265acbee35005df1e98",
+    "dow-theory-skill-router\\references\\capabilities\\line-formation-reading-skill.md": "a11a1f13ebfba03f583d9be89db2f67a92041bb48c686ef2e850ac30a0086cd6",
+    "dow-theory-skill-router\\references\\capabilities\\primary-trend-identification-skill.md": "5662222560a1eaaa7d4975e8b6f4064b5ce3febc8fb1421b33fdd1dc97a47b4f",
+    "dow-theory-skill-router\\references\\capabilities\\pseudo-signal-troubleshooting.md": "ff52e6e5294133b46d3c46712228440d82dcba1846f60e2eb570253d7bf98549",
+    "dow-theory-skill-router\\references\\capabilities\\secondary-reaction-assessment-skill.md": "6f99c64135e1161d8c51cd3152e02c0a9261e9c92dc9fb973d53f9856bb189fc",
+    "dow-theory-skill-router\\references\\capabilities\\secondary-reaction-stat-baseline.md": "83dbee9cdcf2cca75f6856536f9be78d9cde821b138fc802e6f643bf6d856944",
+    "dow-theory-skill-router\\references\\capabilities\\stock-preflight-market-check.md": "e00667a398b085e37c2ae64a75e44b66bdae1f902cd20b0e2e63281940402b35",
+    "dow-theory-skill-router\\references\\capabilities\\trading-discipline-rules-skill.md": "687174da53bd9cc09bd0d4b1cae1b2d2b118859872a7f1bd676e6dcd6ea457a9",
+    "dow-theory-skill-router\\references\\capabilities\\volume-price-health.md": "2bee0ae73e797352028624de9b24f401efeafbb232a75644ec5ce082b12bf862",
+    "dow-theory-skill-router\\references\\capability-index.md": "d864f867b81ae100b1641b71cdff2985573b603c095df5f6c2a7388093e78a0f",
+    "dow-theory-skill-router\\references\\cheatsheet.md": "294638e454a39885bc0f4f8ceab099c42ac3c95d6fc3b8a7cc9bbc81575632d0",
+    "dow-theory-skill-router\\references\\glossary.md": "87a30e7fc0a8715da0e03b594f000e11cd092b49ec7a35dbff5471a5ddc2119e",
+    "dow-theory-skill-router\\references\\overview.md": "ddbd6c81c09e8f9c9fb916381e5eec4f5fb27aa03ba307ea370a46cc3784d355",
+    "dow-theory-skill-router\\SKILL.md": "fe0b792d60d4083415760d44170f6eab236c8ecc4e3a86fe386619a0a43bdeb6",
+    "dual-index-confirmation-filter-skill\\SKILL.md": "bb78655155581ee088c172495e1752e13dbc5cad2d3293bc1d3522b253ab2122",
+    "line-formation-reading-skill\\SKILL.md": "52cb5ac5d2271b0b8ee31fe21418b5d6fd965ad9b533a1ab3902950b392ed8df",
+    "primary-trend-identification-skill\\SKILL.md": "4fff10efb795e2f6d7a54a9dc10a62e2cfa76b69e0ced3b79de0053d643d1d00",
+    "secondary-reaction-assessment-skill\\SKILL.md": "dce4043caea9a292d33697abffcae4b650045ead2df0b2eae60c1b54f58f60e7",
+    "trading-discipline-rules-skill\\SKILL.md": "fa0712a0c31d91087f817acea927e7d81baa699282ace14a88eb6777fd49df32"
+  },
+  "note": "update/重编译前比对 published_hashes；检测到本地手改不得静默覆盖",
+  "bundle_id": "bundle.dow-theory-skill",
+  "bundle_sha256": "ef8704e058a28514892329ef7c2e09a18ca9a1899d16bc9a614512d803451bca",
+  "variant": "pack",
+  "run_id": "run-20261012-011147-e685e7",
+  "decision": {
+    "schema_version": 1,
+    "requested": "pack",
+    "selected": "pack",
+    "decision_policy": "single-first-v1",
+    "skill_budget": 8,
+    "promoted_count": 7,
+    "capability_count": 13,
+    "reasons": [
+      "用户显式选择 pack，auto 决策器不覆盖用户选择"
+    ],
+    "alternative": "single（1 个入口 + 13 张内部能力卡）",
+    "user_confirmed": true,
+    "preserve_strategy_on_update": true
+  }
+}

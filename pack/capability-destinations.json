@@ -1,0 +1,61 @@
+{
+  "generated_by": "cangjie-tools v2.5.0",
+  "bundle_id": "bundle.dow-theory-skill",
+  "router_entrypoint": "dow-theory-skill-router",
+  "entrypoint_count": 8,
+  "capability_count": 13,
+  "destinations": {
+    "cap.dow-theory-skill.primary-trend-identification-skill": {
+      "promoted_to": "primary-trend-identification-skill",
+      "router_view": "dow-theory-skill-router/references/capabilities/primary-trend-identification-skill.md"
+    },
+    "cap.dow-theory-skill.dual-index-confirmation-filter-skill": {
+      "promoted_to": "dual-index-confirmation-filter-skill",
+      "router_view": "dow-theory-skill-router/references/capabilities/dual-index-confirmation-filter-skill.md"
+    },
+    "cap.dow-theory-skill.secondary-reaction-assessment-skill": {
+      "promoted_to": "secondary-reaction-assessment-skill",
+      "router_view": "dow-theory-skill-router/references/capabilities/secondary-reaction-assessment-skill.md"
+    },
+    "cap.dow-theory-skill.line-formation-reading-skill": {
+      "promoted_to": "line-formation-reading-skill",
+      "router_view": "dow-theory-skill-router/references/capabilities/line-formation-reading-skill.md"
+    },
+    "cap.dow-theory-skill.volume-price-health": {
+      "served_by": "dow-theory-skill-router",
+      "card": "dow-theory-skill-router/references/capabilities/volume-price-health-skill.md"
+    },
+    "cap.dow-theory-skill.bull-bear-stage-positioning": {
+      "served_by": "dow-theory-skill-router",
+      "card": "dow-theory-skill-router/references/capabilities/bull-bear-stage-positioning-skill.md"
+    },
+    "cap.dow-theory-skill.bear-bottom-checklist-skill": {
+      "promoted_to": "bear-bottom-checklist-skill",
+      "router_view": "dow-theory-skill-router/references/capabilities/bear-bottom-checklist-skill.md"
+    },
+    "cap.dow-theory-skill.bull-top-exit-signals-skill": {
+      "promoted_to": "bull-top-exit-signals-skill",
+      "router_view": "dow-theory-skill-router/references/capabilities/bull-top-exit-signals-skill.md"
+    },
+    "cap.dow-theory-skill.stock-preflight-market-check": {
+      "served_by": "dow-theory-skill-router",
+      "card": "dow-theory-skill-router/references/capabilities/stock-preflight-market-check-skill.md"
+    },
+    "cap.dow-theory-skill.trading-discipline-rules-skill": {
+      "promoted_to": "trading-discipline-rules-skill",
+      "router_view": "dow-theory-skill-router/references/capabilities/trading-discipline-rules-skill.md"
+    },
+    "cap.dow-theory-skill.forecast-self-training": {
+      "served_by": "dow-theory-skill-router",
+      "card": "dow-theory-skill-router/references/capabilities/forecast-self-training-skill.md"
+    },
+    "cap.dow-theory-skill.secondary-reaction-stat-baseline": {
+      "served_by": "dow-theory-skill-router",
+      "card": "dow-theory-skill-router/references/capabilities/secondary-reaction-stat-baseline-skill.md"
+    },
+    "cap.dow-theory-skill.pseudo-signal-troubleshooting": {
+      "served_by": "dow-theory-skill-router",
+      "card": "dow-theory-skill-router/references/capabilities/pseudo-signal-troubleshooting-skill.md"
+    }
+  }
+}
