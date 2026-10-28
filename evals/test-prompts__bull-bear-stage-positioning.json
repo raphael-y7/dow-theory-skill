@@ -1,0 +1,76 @@
+{
+  "skill": "bull-bear-stage-positioning",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这轮牛市都涨快两年了，我总担心自己是接在最后一段上。帮我看看现在市场到底走到牛市第几个阶段了？",
+      "expected_behavior": "调用 bull-bear-stage-positioning（经路由入口可达），以三锚对照定位阶段并附对应风险态度",
+      "notes": "正面场景：牛市进程定位"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "最近新闻里全是谁谁开户、邻居借钱炒股的消息，家里人也劝我满仓。我有点慌：这是不是牛市末期那种投机猖獗的阶段？我整体该不该转向保守？",
+      "expected_behavior": "调用 bull-bear-stage-positioning，对照'靠希望与期盼上涨/投机猖獗'锚，输出阶段＋风险态度（是否应转保守）",
+      "notes": "正面场景：牛三特征＋风险态度校准"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "熊市跌了一年多了，坏消息天天有，但听说现在往往是绝望抛售、优质股被贱卖的那一段。这轮熊市走到哪一步了？我现在该保守还是可以胆子大一点？",
+      "expected_behavior": "调用 bull-bear-stage-positioning，按熊市三锚定位（被迫变现贱卖优质股＝熊三、接近底部端点）并输出风险态度",
+      "notes": "正面场景：熊市进程定位"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "手上这笔钱到底该激进还是该保守，我想先搞清楚这轮周期现在走到哪一步了再定，帮我给市场定个位。",
+      "expected_behavior": "调用 bull-bear-stage-positioning，输出阶段定位＋对应风险态度",
+      "notes": "正面场景：风险态度校准诉求"
+    },
+    {
+      "id": "should-trigger-05",
+      "type": "should_trigger",
+      "prompt": "帮我做个价值测试：指数平均价格除以股息回报的倍数，前年约 6 倍、去年 11 倍、今年已经 17 倍了。是不是说明价格已经跑到价值线之上了？",
+      "expected_behavior": "调用 bull-bear-stage-positioning 的价值测试：倍数逐年对照表，逐年抬升＝价格趋向超出价值的警标（只看抬升方向）",
+      "notes": "正面场景：价值量化锚"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "牛市涨了这么多，最近反弹一次比一次弱，成交量也越来越小，我是不是该清仓离场了？",
+      "expected_behavior": "不应调用 bull-bear-stage-positioning；应路由到 bull-top-exit-signals-skill（清仓信号分级）。阶段定位只给风险态度，不给买卖动作",
+      "notes": "跨skill诱饵：清仓信号诉求归 u08"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我判断一下大盘现在到底是牛市还是熊市？我连方向都还没搞清楚。",
+      "expected_behavior": "不应调用 bull-bear-stage-positioning；应路由到 primary-trend-identification-skill（方向未定先判趋势）",
+      "notes": "跨skill诱饵：方向判定归 u01"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "帮我查一下今天上证指数收盘多少点，再帮我算算 10 万元按年化 4% 存五年本息一共多少。",
+      "expected_behavior": "纯信息查询与算术，不应调用任何道氏理论能力",
+      "notes": "无关诱饵：信息检索/算术"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "市场这几天连着大涨大跌，你帮我定位一下现在算是牛市第几阶段？",
+      "expected_behavior": "不得凭几天走势硬给阶段编号：若调用，必须声明阶段定位需一段时间验证、数日走势不可定位；若拒绝调用并说明时间尺度不符（本卡尺度为数月至数年）也算通过",
+      "notes": "边界：卡内 B 段明言禁止凭几天走势定位阶段"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "方向我说不清，有人说是反弹有人说牛市开始了。你别管方向了，直接告诉我现在是熊市第几阶段。",
+      "expected_behavior": "若调用，必须先执行 E 段步骤 1 判停：输出'阶段定位须以趋势确认为前提'，要求先确认方向（或先跑主要趋势判定）；直接硬给'熊几'编号则不通过",
+      "notes": "边界：必需输入（趋势方向）缺失时的判停"
+    }
+  ]
+}

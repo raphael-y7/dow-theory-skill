@@ -21,11 +21,11 @@
       "promoted_to": "line-formation-reading-skill",
       "router_view": "dow-theory-skill-router/references/capabilities/line-formation-reading-skill.md"
     },
-    "cap.dow-theory-skill.volume-price-health": {
+    "cap.dow-theory-skill.volume-price-health-skill": {
       "served_by": "dow-theory-skill-router",
       "card": "dow-theory-skill-router/references/capabilities/volume-price-health-skill.md"
     },
-    "cap.dow-theory-skill.bull-bear-stage-positioning": {
+    "cap.dow-theory-skill.bull-bear-stage-positioning-skill": {
       "served_by": "dow-theory-skill-router",
       "card": "dow-theory-skill-router/references/capabilities/bull-bear-stage-positioning-skill.md"
     },
@@ -37,7 +37,7 @@
       "promoted_to": "bull-top-exit-signals-skill",
       "router_view": "dow-theory-skill-router/references/capabilities/bull-top-exit-signals-skill.md"
     },
-    "cap.dow-theory-skill.stock-preflight-market-check": {
+    "cap.dow-theory-skill.stock-preflight-market-check-skill": {
       "served_by": "dow-theory-skill-router",
       "card": "dow-theory-skill-router/references/capabilities/stock-preflight-market-check-skill.md"
     },
@@ -45,15 +45,15 @@
       "promoted_to": "trading-discipline-rules-skill",
       "router_view": "dow-theory-skill-router/references/capabilities/trading-discipline-rules-skill.md"
     },
-    "cap.dow-theory-skill.forecast-self-training": {
+    "cap.dow-theory-skill.forecast-self-training-skill": {
       "served_by": "dow-theory-skill-router",
       "card": "dow-theory-skill-router/references/capabilities/forecast-self-training-skill.md"
     },
-    "cap.dow-theory-skill.secondary-reaction-stat-baseline": {
+    "cap.dow-theory-skill.secondary-reaction-stat-baseline-skill": {
       "served_by": "dow-theory-skill-router",
       "card": "dow-theory-skill-router/references/capabilities/secondary-reaction-stat-baseline-skill.md"
     },
-    "cap.dow-theory-skill.pseudo-signal-troubleshooting": {
+    "cap.dow-theory-skill.pseudo-signal-troubleshooting-skill": {
       "served_by": "dow-theory-skill-router",
       "card": "dow-theory-skill-router/references/capabilities/pseudo-signal-troubleshooting-skill.md"
     }

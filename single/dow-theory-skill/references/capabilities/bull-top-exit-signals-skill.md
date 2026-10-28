@@ -132,8 +132,8 @@
 
 ## 相关 skills（阶段 3 填充）
 
-- depends-on: primary-trend-identification-skill（u01）、dual-index-confirmation-filter-skill（u02，破位须双指数确认）
-- contrasts-with: bear-bottom-checklist-skill（u07）
+- depends-on: primary-trend-identification（u01）、dual-index-confirmation-filter（u02，破位须双指数确认）
+- contrasts-with: bear-bottom-checklist（u07）
 - composes-with: volume-price-health（u05，过度活跃警报）、bull-bear-stage-positioning（u06，牛三背景）
 
 ---

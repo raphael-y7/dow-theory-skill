@@ -126,14 +126,14 @@
 
 ## 相关 skills（阶段 3 填充）
 
-- depends-on: primary-trend-identification-skill（u01）
-- contrasts-with: bear-bottom-checklist-skill（u07）、bull-top-exit-signals-skill（u08）
+- depends-on: primary-trend-identification（u01）
+- contrasts-with: bear-bottom-checklist（u07）、bull-top-exit-signals（u08）
 - composes-with: secondary-reaction-stat-baseline（u12，时长背景）
 
 ---
 
 ## 审计信息
 
-- **来源**：verified.yaml cap.dow-theory-skill.bull-bear-stage-positioning；候选 f07、g23、p35、p36、p37、p86、p87、c32、c39
+- **来源**：verified.yaml cap.dow-theory-skill.bull-bear-stage-positioning-skill；候选 f07、g23、p35、p36、p37、p86、p87、c32、c39
 - **引文核对**：R 段三处引文均经合并转写稿 grep 逐字核对（L647、L568、L4018）
 - **蒸馏时间**：2026-10-11

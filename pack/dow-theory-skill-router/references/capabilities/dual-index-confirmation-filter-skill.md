@@ -81,9 +81,9 @@
 
 - 与 `primary-trend-identification-skill`（u01）的区别: u01 输出趋势方向结论；本卡只做单信号有效性判定（三态），是"过滤器"不是"方向判断器"。方向问题→u01；信号可信度问题→本卡。
 - 与 `line-formation-reading-skill`（u04）的区别: u04 专门处理"两指数同时窄幅横盘"的线形识别与突破判读；本卡处理任意新高/新低/破位事件的确认过滤。线形突破后仍须回到本卡的三态判定。
-- 与 `pseudo-signal-troubleshooting`（u13）的区别: u13 排查双顶底形态、庄家归因、头条跟风等伪信号来源；本卡只做指数之间的确认过滤。
-- 与 `stock-preflight-market-check`（u09）的区别: 确认规则**不适用于个股**；个股操作前的大盘检查是另一张卡。
-- 与 `volume-price-health`（u05）的区别: 量能是第二位证据、从属于指数判读，与本卡的"指数间确认"是两套不同证据，不得互相替代。
+- 与 `pseudo-signal-troubleshooting-skill`（u13）的区别: u13 排查双顶底形态、庄家归因、头条跟风等伪信号来源；本卡只做指数之间的确认过滤。
+- 与 `stock-preflight-market-check-skill`（u09）的区别: 确认规则**不适用于个股**；个股操作前的大盘检查是另一张卡。
+- 与 `volume-price-health-skill`（u05）的区别: 量能是第二位证据、从属于指数判读，与本卡的"指数间确认"是两套不同证据，不得互相替代。
 
 ---
 
@@ -128,7 +128,7 @@
 
 ### 容易混淆的邻近方法论
 
-- "量价确认"（成交量配合）：位序与证据类型都不同，见 `volume-price-health`。
+- "量价确认"（成交量配合）：位序与证据类型都不同，见 `volume-price-health-skill`。
 - u04 的线形突破：线形是特殊形态，突破确认仍走本卡三态。
 - 相关性/协整等统计检验：本书只给选择逻辑（成分交叉少、权重分散、单日波动不可被一家公司事件解释），不给统计检验程序——后者是现代补充，须标注非原书方法。
 
@@ -137,8 +137,8 @@
 ## 相关 skills (阶段 3 填充)
 
 - depends-on: 无（过滤器自足）；被 u01/u04/u08 依赖
-- contrasts-with: primary-trend-identification-skill, pseudo-signal-troubleshooting
-- composes-with: line-formation-reading-skill, volume-price-health
+- contrasts-with: primary-trend-identification, pseudo-signal-troubleshooting
+- composes-with: line-formation-reading, volume-price-health
 
 ---
 

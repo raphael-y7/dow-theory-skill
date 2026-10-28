@@ -1,0 +1,79 @@
+{
+  "skill": "secondary-reaction-stat-baseline",
+  "version": "0.1.0",
+  "capability_id": "cap.dow-theory-skill.secondary-reaction-stat-baseline",
+  "unit": "u12",
+  "destination": "router",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "历史上牛市里的次级回调一般会跌多深、持续多长时间？有没有统计分布？",
+      "expected_behavior": "调用 secondary-reaction-stat-baseline：输出基准表（牛市回调58.9%、熊市反弹55.8%、合并57.6%；次级均值52.2天；73%于55个交易日内结束；分布7.1%/18.8%/26.7%/8.5%/14%），每个数字带口径标签与出处。",
+      "notes": "正面场景：分布查询（A2信号1）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我看的指数从高点已经回撤了44%，历史上这种深度正常吗？处于什么位置？",
+      "expected_behavior": "调用 secondary-reaction-stat-baseline，校准预期：44%落在分布中段（33%~66%众数区间内），只作分布位置校准、不给操作指令；并提示分布极宽（7.1%止于10%~25%、14%超85%）。",
+      "notes": "正面场景：位置校准（A2信号2）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "恐慌性暴跌之后一般能反弹收复多少跌幅？",
+      "expected_behavior": "调用 secondary-reaction-stat-baseline：真恐慌后反弹约收复跌幅40%~60%，随后二次缓跌、摆动如钟摆递减收敛（1907年实测 19.62→9.15→3.95→2.74→1.24 点），并注明使用前须验证\"真恐慌\"前提（ce18）。",
+      "notes": "正面场景：恐慌专项（A2信号3）"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "牛市和熊市一般各持续多少个月？",
+      "expected_behavior": "调用 secondary-reaction-stat-baseline：牛市约25个月、熊市约17个月，注明出处（1921年汉密尔顿统计），并注明书内多口径并存、引用须注明（B-13）。",
+      "notes": "正面场景：牛熊时长（A2信号5）"
+    },
+    {
+      "id": "should-trigger-05",
+      "type": "should_trigger",
+      "prompt": "我想按雷亚的方法自己复算次级运动统计，输入数据要什么口径？拆股失真怎么处理？",
+      "expected_behavior": "调用 secondary-reaction-stat-baseline 数据基建：两指数每日收盘价+日成交量=全部所需材料（L328）；表1—3两段式记录表字段（照录L930）；除数法只引用\"3065.5÷12.7＝240.98与旧法241.11衔接一致\"事实、禁抄\"乘以20\"讹式（B-3/C-11）。",
+      "notes": "正面场景：数据基建（A2信号4）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我判断一下这波下跌是次级回调还是趋势反转？我想知道现在该不该走。",
+      "expected_behavior": "不调用 secondary-reaction-stat-baseline（统计分布不作触发器；性质判定转u03，E段判停点明示）；应路由到 secondary-reaction-assessment-skill（u03）。",
+      "notes": "跨skill诱饵：性质判定归u03（promoted近邻，最易混淆）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我仓位太重睡不着了，你说我该减多少？",
+      "expected_behavior": "不调用 secondary-reaction-stat-baseline（管统计预期不管仓位行为）；应路由到 trading-discipline-rules-skill（u10）。",
+      "notes": "跨skill诱饵：仓位纪律归u10"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "查一下今天上证指数收盘多少点、涨跌幅多少，发我就行。",
+      "expected_behavior": "不调用任何能力卡（纯行情信息查询，13能力均无此意图）。",
+      "notes": "无关诱饵：纯信息查询"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "书里说回调平均57.6%，那我定个规则：每次指数回撤到57.6%就满仓抄底，这个策略行不行？",
+      "expected_behavior": "触发但命中E段判停分支：统计分布不作触发器/目标位/止损位（p33/p88），拒绝该用法并把\"这次该不该买\"转u03性质判定；不得回答\"行\"。",
+      "notes": "边界：统计当触发器（判停分支正向验证）"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "我把1897到1931年美股的这些统计数字直接用在创业板上，可以吗？",
+      "expected_behavior": "触发但必须警告：手工筛选、样本几十个、无稳健性检验，1897—1931美股参数迁移当代/A股必须用新数据重算；不得回答\"可以直接用\"。",
+      "notes": "边界：迁移风险（B段）"
+    }
+  ]
+}

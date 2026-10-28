@@ -1,6 +1,6 @@
 # 次级反应统计基准与数据基建（35 年分布预期＋记录模板＋除数法）
 
-> 能力单元 u12（cap.dow-theory-skill.secondary-reaction-stat-baseline）｜来源：《道氏理论（专业解读版）》罗伯特·雷亚著，谢飞译。
+> 能力单元 u12（cap.dow-theory-skill.secondary-reaction-stat-baseline-skill）｜来源：《道氏理论（专业解读版）》罗伯特·雷亚著，谢飞译。
 > 本卡所有引文均出自**谢飞译本**（合并转写稿），出处标注为"（第X章）"或"（〈华尔街日报/巴伦周刊〉YYYY年M月D日专栏）"。
 > **口径警戒**：本卡数字一律以转写稿原文格式照录；下列三个编译时更正为硬约束——①p32 的"49.5%"禁用，只可使用经表 2/表 3 实算精确验证的 **55.8%／58.9%／57.6%**（并注明"49.5% 待回查英文原著"）；②p85 除数法**禁抄**转写稿"乘以 20"除式，只引用"3065.5÷12.7＝240.98 与旧法 241.11 衔接一致"这一事实；③雷亚手工筛选的 1897—1931 美股参数迁移当代市场必须重算。
 
@@ -67,7 +67,7 @@
 - 与 `secondary-reaction-assessment-skill`（u03）的区别：u03 判定"**这次**反向运动是次级还是反转"（性质判定）；本卡只给"**一般**次级运动多深多久"（分布预期）。同一数字（57.6% 等）在 u03 用于判性质，在本卡只用于校准预期。
 - 与 `bear-bottom-checklist-skill`（u07）/`bull-top-exit-signals-skill`（u08）的区别：底/顶部靠信号清单（结构＋确认），统计值（牛熊时长、42%/44% 跌幅）只是背景参考，不得当抄底/逃顶触发器。
 - 与 `trading-discipline-rules-skill`（u10）的区别：u10 管仓位与行为纪律；本卡的数字**禁止**被用作止损位或目标位。
-- 与 `forecast-self-training`（u11）的区别：u11 的第 4 步"统计基准检验"调用本卡数字与数据模板——canonical 在本卡，两者为组合关系。
+- 与 `forecast-self-training-skill`（u11）的区别：u11 的第 4 步"统计基准检验"调用本卡数字与数据模板——canonical 在本卡，两者为组合关系。
 
 ---
 
@@ -129,9 +129,9 @@
 
 ## 相关 skills（阶段 3 填充）
 
-- depends-on: 无硬依赖（分布数字与模板自足；为 secondary-reaction-assessment-skill、bear-bottom-checklist-skill、bull-top-exit-signals-skill、forecast-self-training 提供数字与模板）
-- contrasts-with: secondary-reaction-assessment-skill（分布预期 vs 性质判定）
-- composes-with: forecast-self-training（数据模板）、bear-bottom-checklist-skill（"统计非触发器"边界互参）
+- depends-on: 无硬依赖（分布数字与模板自足；为 secondary-reaction-assessment、bear-bottom-checklist、bull-top-exit-signals、forecast-self-training 提供数字与模板）
+- contrasts-with: secondary-reaction-assessment（分布预期 vs 性质判定）
+- composes-with: forecast-self-training（数据模板）、bear-bottom-checklist（"统计非触发器"边界互参）
 
 ---
 

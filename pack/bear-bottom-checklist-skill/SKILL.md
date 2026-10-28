@@ -148,9 +148,9 @@ metadata:
 
 ## 相关 skills（阶段 3 填充）
 
-- depends-on: primary-trend-identification-skill（u01，熊转牛判据）、dual-index-confirmation-filter-skill（u02，未确认新低=假象）
-- contrasts-with: bull-top-exit-signals-skill（u08）
-- composes-with: secondary-reaction-assessment-skill（u03）、secondary-reaction-stat-baseline（u12）
+- depends-on: primary-trend-identification（u01，熊转牛判据）、dual-index-confirmation-filter（u02，未确认新低=假象）
+- contrasts-with: bull-top-exit-signals（u08）
+- composes-with: secondary-reaction-assessment（u03）、secondary-reaction-stat-baseline（u12）
 
 ---
 

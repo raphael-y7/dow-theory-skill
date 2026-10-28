@@ -77,8 +77,8 @@
 - 与 `dual-index-confirmation-filter-skill`（u02）的区别: u02 只回答"单个指数的某个信号可不可信"（三态确认判定），不输出趋势方向；本卡输出牛熊方向结论。问"这个突破可信吗"→u02；问"趋势是什么"→本卡。
 - 与 `secondary-reaction-assessment-skill`（u03）的区别: u03 评估"反向运动是次级还是反转"的性质与幅度；本卡维护牛熊状态本身。问"这波回调正常吗、多深"→u03。
 - 与 `line-formation-reading-skill`（u04）的区别: u04 处理两指数同时窄幅横盘的线形与突破方向；本卡处理阶梯与反转判据，横盘期方向结论为"待确认"。
-- 与 `bull-bear-stage-positioning`（u06）的区别: u06 定位处于牛（熊）市第几阶段并给风险态度；本卡只判方向。
-- 与 `stock-preflight-market-check`（u09）的区别: u09 是个股操作前的大盘闸门，消费本卡输出；本卡不涉及个股。
+- 与 `bull-bear-stage-positioning-skill`（u06）的区别: u06 定位处于牛（熊）市第几阶段并给风险态度；本卡只判方向。
+- 与 `stock-preflight-market-check-skill`（u09）的区别: u09 是个股操作前的大盘闸门，消费本卡输出；本卡不涉及个股。
 
 ---
 
@@ -134,9 +134,9 @@
 
 ## 相关 skills (阶段 3 填充)
 
-- depends-on: dual-index-confirmation-filter-skill（确认动作）
-- contrasts-with: secondary-reaction-assessment-skill, line-formation-reading-skill, bull-bear-stage-positioning
-- composes-with: stock-preflight-market-check, bear-bottom-checklist-skill, bull-top-exit-signals-skill
+- depends-on: dual-index-confirmation-filter（确认动作）
+- contrasts-with: secondary-reaction-assessment, line-formation-reading, bull-bear-stage-positioning
+- composes-with: stock-preflight-market-check, bear-bottom-checklist, bull-top-exit-signals
 
 ---
 

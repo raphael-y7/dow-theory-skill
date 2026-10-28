@@ -1,0 +1,79 @@
+{
+  "skill": "forecast-self-training",
+  "version": "0.1.0",
+  "capability_id": "cap.dow-theory-skill.forecast-self-training",
+  "unit": "u11",
+  "destination": "router",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我想认真学道氏理论，但光看书记不住也不会用，有没有系统的练习方法？",
+      "expected_behavior": "调用 forecast-self-training：给出盖图预测训练环四步（选日期→盖图→写预测和理由→对照归因）及配套要求（先通读专栏、从1910年起入手、自绘含成交量两指数图表）。",
+      "notes": "正面场景：自学训练（A2信号1）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我去年9月判断大盘要回调，结果继续涨了半年，想认真复盘一下当时为什么会看错，帮我做归因。",
+      "expected_behavior": "调用 forecast-self-training，失误归因复盘五步：定位结论时点→回溯先验立场→检查信号合法性→统计基准检验→归因\"解读错误\"而非理论失效（1926标本路径）。",
+      "notes": "正面场景：失误归因（A2信号2）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "听说汉密尔顿的老专栏可以当练习题：盖住图先自己预测再对照他的评论，具体怎么操作？",
+      "expected_behavior": "调用 forecast-self-training：给出盖图训练环操作（第20章选预测日期→图表定位盖住其后数据→只凭此前走势写预测和理由→揭开对照逐条归因，第1章 L288）。",
+      "notes": "正面场景：盖图训练（A2信号3）"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "我最近连续三次预测都蒙对了，是不是说明我已经掌握道氏理论了？可以放大仓位了吧？",
+      "expected_behavior": "调用 forecast-self-training，命中 ce12 新手运气与错误归因：\"错误的时候蒙出了正确的结果，这其实更糟糕\"（第2章 L334）；第2章第四模式：蒙对几次便自认掌握必胜法随即放大仓位——须归因纪律校准，不得背书放大仓位。",
+      "notes": "正面场景：运气vs能力（A2信号5）"
+    },
+    {
+      "id": "should-trigger-05",
+      "type": "should_trigger",
+      "prompt": "我想建一个自己的预测档案：每次判断都留底，事后对答案，防止事后自我欺骗。这个流程该怎么搭？",
+      "expected_behavior": "调用 forecast-self-training：预测档案字段（日期｜预测｜规则依据｜对照文本结论｜差异｜归因分类｜例外标记）+留档防自我欺骗+\"标出例外并从错误操作中吸取教训\"（L332）。",
+      "notes": "正面场景：建档流程（A2信号4）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "你直接告诉我，现在A股主要趋势到底是牛市还是熊市？我该按哪个方向做？",
+      "expected_behavior": "不调用 forecast-self-training（训练法不是预测器，B段明示\"当下判市转u01/u03\"）；应路由到 primary-trend-identification-skill。",
+      "notes": "跨skill诱饵：当下判市归u01"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我这笔交易浮亏15%了，帮我看看该止损还是补仓摊平？",
+      "expected_behavior": "不调用 forecast-self-training（管学习与归因流程，不管交易行为）；应路由到 trading-discipline-rules-skill（u10）。",
+      "notes": "跨skill诱饵：交易行为纪律归u10"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "历史上次级回调一般跌多深、持续多久？有统计数字吗？",
+      "expected_behavior": "不调用 forecast-self-training（统计分布canonical在u12，本卡仅在其第4步调用u12数字）；应路由到 secondary-reaction-stat-baseline（u12）。",
+      "notes": "跨skill诱饵：统计基准归u12（u11与u12为组合关系，验证不抢占）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我上个月看多结果跌了。不过说实话我是听了个消息才买的，也没写预测记录。帮我归因一下这次错在哪？",
+      "expected_behavior": "触发但命中E段必需输入③：无预测留档→如实输出\"未留档，无法归因\"并建议从现在起建档；不得强行编造归因；消息依据可顺带提示u13排查。",
+      "notes": "边界：无留档的归因请求（E段③判停）"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "你这个训练法能做成量化回测吗？帮我统计一下汉密尔顿历年预测的命中率。",
+      "expected_behavior": "触发后按B段纠正：全书没有对汉密尔顿预测的系统性命中率统计，单案例对勘式训练≠量化回测（不做参数优化、不产生策略）；不得承诺命中率数字。",
+      "notes": "边界：误当统计/回测工具"
+    }
+  ]
+}

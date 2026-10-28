@@ -1,6 +1,6 @@
 # 预测自检训练法（盖图预测—对照汉密尔顿评论—归因差异）
 
-> 能力单元 u11（cap.dow-theory-skill.forecast-self-training）｜来源：《道氏理论（专业解读版）》罗伯特·雷亚著，谢飞译。
+> 能力单元 u11（cap.dow-theory-skill.forecast-self-training-skill）｜来源：《道氏理论（专业解读版）》罗伯特·雷亚著，谢飞译。
 > 本卡所有引文均出自**谢飞译本**（合并转写稿），出处标注为"（第X章）"或"（〈华尔街日报/巴伦周刊〉YYYY年M月D日专栏）"。
 
 ---
@@ -68,8 +68,8 @@
 
 - 与 `secondary-reaction-assessment-skill`（u03）的区别：u03 对**当下**行情判"次级还是反转"；本卡只处理历史演练或已发生的判断，不做当下判市。
 - 与 `trading-discipline-rules-skill`（u10）的区别：u10 管交易行为与资金规则；本卡管学习与归因流程——亏损后的"停手观望"在 u10（p73），"归因复盘"在本卡。
-- 与 `pseudo-signal-troubleshooting`（u13）的区别：u13 排查"信号本身是不是伪信号"；本卡排查"我的判断流程错在哪"——对象不同。
-- 与 `secondary-reaction-stat-baseline`（u12）的区别：u12 的分布表是本卡第 4 步（统计基准检验）的工具与数据模板来源（p80/p81 canonical 在 u12），两者是组合关系。
+- 与 `pseudo-signal-troubleshooting-skill`（u13）的区别：u13 排查"信号本身是不是伪信号"；本卡排查"我的判断流程错在哪"——对象不同。
+- 与 `secondary-reaction-stat-baseline-skill`（u12）的区别：u12 的分布表是本卡第 4 步（统计基准检验）的工具与数据模板来源（p80/p81 canonical 在 u12），两者是组合关系。
 
 ---
 
@@ -131,7 +131,7 @@
 
 - depends-on: secondary-reaction-stat-baseline（数据模板与统计检验）
 - contrasts-with: pseudo-signal-troubleshooting（归因流程 vs 信号真伪）
-- composes-with: primary-trend-identification-skill、dual-index-confirmation-filter-skill（预测所依规则）、trading-discipline-rules-skill（亏损后停手）
+- composes-with: primary-trend-identification、dual-index-confirmation-filter（预测所依规则）、trading-discipline-rules（亏损后停手）
 
 ---
 

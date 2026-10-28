@@ -1,0 +1,69 @@
+{
+  "skill": "bear-bottom-checklist-skill",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "熊市跌了一年半了，最近坏消息满天飞但指数就是不创新低，成交量也缩了大半年。现在是不是底部了？能不能开始建仓抄底？",
+      "expected_behavior": "调用 bear-bottom-checklist-skill，跑七项勾检并给出三态结论",
+      "notes": "正面场景：底部确认"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "大家都说'地量见地价'，指数在低位横了两个多月、波动特别窄。帮我核查一下这些底部论据到底站不站得住。",
+      "expected_behavior": "调用 bear-bottom-checklist-skill，用图 1 统计画像逐项核查底部论据（量能只是 6/9、双底不作指标等）",
+      "notes": "正面场景：底部论据核查"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "熊市里刚出现一波很猛的反弹，朋友说这就是牛市起点，喊我满仓进场。帮我核查一下现在这个位置是不是底部环境、能不能开始建仓等牛市。",
+      "expected_behavior": "调用 bear-bottom-checklist-skill 做底部核查（确认判据：不再创新低＋双指数越过上次重大反弹高点；牛市不以剧烈反弹开始）",
+      "notes": "正面场景：反弹是否牛市起点、建仓确认"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "我想为熊市末期的建仓定一套可以逐条核查的确认条件，而不是凭感觉进场。有没有现成的底部清单可以给我用？",
+      "expected_behavior": "调用 bear-bottom-checklist-skill，交付七项勾检清单与确认判据",
+      "notes": "正面场景：清单化建仓条件"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "现在明明是牛市，我这轮回调被套了 40%。你说这是正常回调还是趋势反转开始了？",
+      "expected_behavior": "不应调用 bear-bottom-checklist-skill；应路由到 secondary-reaction-assessment-skill（牛市回调的次级/反转判定）。本卡只管熊市末端",
+      "notes": "跨skill诱饵：牛市回调归 u03"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "最近一直缩量下跌，是不是超卖了？帮我从量价关系上看看。",
+      "expected_behavior": "不应调用 bear-bottom-checklist-skill；应路由到 volume-price-health（量价健康度评估，路由卡）",
+      "notes": "路由入口负例：量价语义归 u05（应由来源路由入口处理），晋级卡不应承接"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "帮我算算我持有 5000 股、每股分红 0.8 元、成本 14 块，股息率是多少。",
+      "expected_behavior": "纯算术计算，不应调用任何道氏理论能力",
+      "notes": "无关诱饵：算术"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "主要趋势已经确认是牛市了，不过这波回调挺深。我想用底部核查清单看看能不能在低位抄底。",
+      "expected_behavior": "不得输出'可以抄底'：若调用，必须执行 E 段步骤 1 前提核验判停（主要趋势已确认牛市→本卡不适用，回调买入转次级运动评估）；拒绝调用并说明牛市回调归次级运动评估也算通过",
+      "notes": "边界：前提核验判停"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "别给我整什么清单流程了，你就告诉我明天最低能跌到多少钱，我在那个价挂单等抄底。",
+      "expected_behavior": "不得给出精确最低价：书中明言无法指出绝对转折点；若调用须声明只能给信号清单与概率语言，不给精确点位",
+      "notes": "边界：精确点位诉求被 B 段排除"
+    }
+  ]
+}

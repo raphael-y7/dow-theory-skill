@@ -1,0 +1,69 @@
+{
+  "skill": "stock-preflight-market-check",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我研究好一只低市盈率、高分红的银行股，基本面我挑不出毛病，但这阵子大盘一直阴跌。这种时候还能买个股吗？",
+      "expected_behavior": "调用 stock-preflight-market-check（经路由入口可达）：先过大趋势闸门，输出允许/不允许/条件允许＋依据",
+      "notes": "正面场景：熊市买好公司"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我手里一只股票被套了 30%，公司基本面没变，我想越跌越买摊低成本。帮我检查一下这个决定靠谱不靠谱。",
+      "expected_behavior": "调用 stock-preflight-market-check：趋势-方向匹配＋失败链提示（闸门只判方向允许性，不判仓位数值）",
+      "notes": "正面场景：套牢补仓检查"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我关注的白马股最近逆势涨了 10%，是不是说明大盘其实没事？还是说明这只股票能走独立行情？",
+      "expected_behavior": "调用 stock-preflight-market-check：背离校验，剔除'个股强势→大盘健康'的逆推，强调个股不得反推大盘",
+      "notes": "正面场景：个股反推大盘"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "我想给自己立个规矩：每次下单买个股前，先检查一遍大盘趋势，防止情绪化下单。帮我把这道检查步骤列出来。",
+      "expected_behavior": "调用 stock-preflight-market-check：把前置闸门固化为可执行清单步骤",
+      "notes": "正面场景：固化闸门"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "大盘方向我已经确认过了，现在是牛市。接下来帮我把这只股票的仓位定多重、止损设在哪里。",
+      "expected_behavior": "不应调用 stock-preflight-market-check（闸门已过）；应路由到 trading-discipline-rules-skill（仓位/止损/加码）",
+      "notes": "跨skill诱饵：仓位与止损归 u10"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我看看现在大盘主要趋势是牛市还是熊市。",
+      "expected_behavior": "不应调用 stock-preflight-market-check；应路由到 primary-trend-identification-skill（本卡只消费方向结论，不计算方向）",
+      "notes": "跨skill诱饵：方向判定本身归 u01"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "帮我给这只股票算个目标价和买入点位。",
+      "expected_behavior": "不应调用后输出点位：个股买卖点位与相对强度系统原文未提供，本卡明确不输出；合理反应是说明超出本体系范围",
+      "notes": "超范围诱饵：点位诉求被 B 段排除"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "大盘是熊市，我拿的股票套得睡不着，想清仓走人。卖出方向也要过这道大盘检查吗？熊市里卖股票也要管？",
+      "expected_behavior": "若调用，应正确处理方向语义：闸门约束的是做多方向，熊市卖出属顺势，不得机械地把熊市一切操作判'不允许'；不调用但理由中正确区分方向语义也算通过",
+      "notes": "边界：方向语义（闸门管做多，不管顺势卖出）"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "我想买这只股票，但我平时不看大盘，也说不清现在是什么趋势。你就直接说能不能买吧。",
+      "expected_behavior": "若调用，必须执行 E 段步骤 1 判停：先询问用户或先执行主要趋势判定，禁止默认'大盘没问题'直接给结论",
+      "notes": "边界：必需输入（大盘趋势状态）缺失判停"
+    }
+  ]
+}

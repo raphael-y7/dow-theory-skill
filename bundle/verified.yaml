@@ -1,0 +1,1019 @@
+schema_version: 1
+bundle_id: bundle.dow-theory-skill
+notes: 全部候选的 V2 验证为纸面演练（walkthrough，替代指数对沪深300＋中证流通仅为演练媒介）， 阶段 4 须以真实输出另测，未做前不得声称"已实测"。 p32（needs_review）未入池；其已确证数字（55.8%/58.9%/57.6%）由
+  u12 按"49.5% 待回查英文原著"口径先行使用。 needs-review.md 登记的编译时更正事项（A-1~A-4、B-2~B-15、C-1~C-12、D-1/D-2）已写入各能力 notes
+  字段， 编译时逐条执行。26 条 reference（含 g26 译者类比）不入能力池，阶段 3 落入 book/overview 参考区。
+book:
+  title: 道氏理论（专业解读版）THE DOW THEORY
+  author: 【美】罗伯特·雷亚（Robert Rhea）著，谢飞译（理论主体为雷亚对道与汉密尔顿思想的整理）
+  source_pack: 道氏理论（专业解读版）_合并转写稿.md
+  baseline_tag: dow-theory-1932-rhea-cn-2015-professional
+  overview: book/overview.md
+  glossary: book/glossary.md
+entry:
+  name: dow-theory-skill
+  description: 道氏理论（专业解读版）单入口：仅凭两种平均价格指数的市场行为（三种运动、相互确认、 线态窄幅盘整、量价关系、牛熊三阶段等规则）判断股市主要趋势方向与转折，辅助 A 股投资分析。
+    本入口承接整书语境：三大前提（指数反映一切、主要运动不可操纵、道氏理论并非真理）、 十二项读者任务的路由与能力卡导读。
+  core_principles:
+  - 平均价格指数反映一切（不可抗力除外）——不接受此前提者不应使用本体系
+  - 两种指数必须相互确认；未被确认的新高新低几乎是假象
+  - 市场同时存在主要运动、次级运动与日间波动，判读前先锁定运动层级
+  - 主要运动绝不可被人为操纵；日间波动很可能受操纵、次级运动所受影响有限
+  - 道氏理论是实践科学而非不败体系；方向可判、持续时间不可预测
+  out_of_scope:
+  - 日内与短线交易信号（道氏理论时间尺度为主要趋势层级）
+  - 个股买卖点位推荐与个股相对强度系统（指数不指导个股）
+  - 精确逃顶/抄底点位预测（只有信号分级与统计预期）
+  - 经济预测宏大叙事与 1903-1929 历史时评（作为 Boundary 与案例背景保留）
+  - 预测次日或短期涨跌（"明天涨还是跌"类问题超出晴雨表分辨率，一律不受理）
+  stop_conditions:
+  - 信号矛盾或不可读，输出空仓观望直至信号清晰
+  - 单指数未确认，按"等待确认/假象"处理，不入场也不反向
+  - 统计分布（33%~66%、40%~60% 等）仅作预期校准，不得当作买卖触发器
+  - 3%/5% 等阈值为讨论单位而非交易阈值，高位须按点位百分比放宽
+router_entry:
+  name: dow-theory-skill-router
+  description: 道氏理论（专业解读版）来源路由入口：当用户请求属于本书知识但未命中任何晋级 Skill 时由此进入。 手持 6 张 router 能力卡——量价关系健康度评估、牛熊三阶段定位、个股操作大盘前置检查、
+    预测自检训练法、次级反应统计基准与数据基建、伪信号与归因排查——并可将请求转交 7 个晋级能力（主要趋势判定、双指数确认过滤、次级运动评估、线态盘整判读、 熊市底部核查、顶部信号与清仓、交易纪律原则包）。
+promotion_budget: 8
+capabilities:
+- capability_id: cap.dow-theory-skill.primary-trend-identification-skill
+  revision: 1
+  status: active
+  slug: primary-trend-identification-skill
+  title: 主要趋势判定（高低点阶梯＋3%净逆转＋牛熊反转判据）
+  importance: critical
+  importance_rationale: 承载 task-01（BOOK_OVERVIEW 读者任务重要性排序第 1）；落位候选 22 条（全书最多之一）； 第 7 章"正确判断主要运动的方向，是成功操作的关键因素"，误判方向＝逆势操作。
+  one_liner: 以两指数高低点阶梯＋3%净逆转切分运动并经相互确认，输出牛市/熊市/待确认的方向结论； 结论按"信号持续到被抵销或增强"维护，牛转熊与熊转牛各有二值判据。
+  intents:
+  - 判断当前股市主要趋势是牛市还是熊市
+  - Is the primary trend bull or bear right now?
+  - 指数创新高/新低后趋势是否已经反转
+  - 这次反弹/下跌要不要改变趋势判断
+  keywords:
+  - 主要趋势
+  - 牛市
+  - 熊市
+  - 高低点阶梯
+  - 3%净逆转
+  - 净逆转
+  - 趋势反转
+  - 牛转熊
+  - 熊转牛
+  - 道氏理论
+  - primary-trend
+  also_read:
+  - dual-index-confirmation-filter-skill
+  - secondary-reaction-assessment-skill
+  - bear-bottom-checklist-skill
+  - bull-top-exit-signals-skill
+  card: cards/primary-trend-identification-skill.md
+  resources: []
+  frontmatter:
+    description: 判定股市主要趋势方向（牛市/熊市/待确认）的程序：以任一指数净逆转超3%切分回升与下跌，记录两指数高低点阶梯——反弹连续超过前高且回落不破前低＝牛市信号，反之为熊市；一切信号须经两指数相互确认（不必同日甚至同周）。牛转熊＝合理时间内不创新高＋双指数跌破前期次级低点；熊转牛＝不再创新低＋双指数越过上次重大反弹高点；已确认信号持续有效直到被明确确认行为抵销或增强。当用户问"现在是什么趋势/牛市还是熊市/bull
+      or bear""创新高(新低)是不是反转/has the trend reversed"时使用。不适用于：日内与个股方向、精确点位与持续时间预测、仅单指数数据时的强行判定（转双指数确认过滤卡）。
+    tags:
+    - 道氏理论
+    - 技术分析
+    - 股票投资
+    - 趋势判断
+    - 牛熊
+  source_evidence:
+  - source_id: dow-theory-merged-transcript
+    location: 第2章（L364）；第7章（L560）；第13章（L1169-1185）
+  promotion:
+    destination: promoted
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 五判据全过，预算排名第 1（调用频率与独特性最高）。用户目的（A 股投资分析）的第一意图。
+  covered_tasks:
+  - task-01
+  candidate_ids:
+  - f01
+  - f03
+  - f18
+  - g11
+  - g12
+  - p06
+  - p07
+  - p11
+  - p13
+  - p17
+  - p18
+  - p19
+  - p20
+  - p21
+  - p43
+  - p74
+  - p83
+  - c26
+  - c29
+  - c31
+  - ce04
+  - ce14
+  notes: 编译时更正：f18 副项(2) 改标 1928-12-12 且数字例按基准稿存疑处理或删除（A-3）； p83 按"仅取原则、不抄讹误算例"处置（B-2）；p19 对应专栏更正为《巴伦周刊》1928-06-25（B-7）；
+    p13"同日同周只是巧合"日期待核（约 1924-08，B-10）；c29 高点两栏 105.25/105.20 并存照录（C-7）。 边界：3% 为讨论单位非买卖阈值、与图 1"振幅 3%"系两处不同用法；确认细则与
+    u02 互参；统计时长背景与 u12 互参。 | A1 案例取名册 bound_to：c26（1904 时间不对称判定）、c29（1908-09 新高阶梯确认，C-7 两栏 105.25/105.20
+    照录）、 c31（1919 可证伪条件）。E 段判停分支：单指数数据→不可判定；指数对失真→暂停输出。 编译时更正已执行：A-3（f18 副项(2) 数字例删除，仅保留"按百分比衡量"原则）、B-2（p83
+    不抄讹误算例）、 B-7（牛转熊判据专栏更正〈巴伦周刊〉1928-06-25）、B-10（"同日同周只是巧合"日期待核，卡内未引用该句）。 g12 的 3% 净逆转与图 1"振幅 3%"两处用法已在卡内注明区分。R
+    段引文核对行号：L219/L1169/L1175/L1177。
+- capability_id: cap.dow-theory-skill.dual-index-confirmation-filter-skill
+  revision: 1
+  status: active
+  slug: dual-index-confirmation-filter-skill
+  title: 双指数相互确认过滤器（未确认信号＝假象）
+  importance: critical
+  importance_rationale: 承载 task-04（BOOK_OVERVIEW 排序第 1，与 task-01 并列核心）；第 12 章"道氏理论最有用的部分， 甚至一天都不能忘记的部分"；未被确认的新高新低"几乎是假象"。
+  one_liner: 任何单指数信号先判确认状态——另一指数跟进（不必同日）则采信、暂未跟进则等待、 始终未确认则按假象忽略；仅一方信号按无信号处理，两指数都失守才可断言趋势改变； 附带指数数据质量门槛（剔除失真期与公司行为机械位移、禁用失真替代指数）。
+  intents:
+  - 这个新高/突破可信吗，另一个指数确认了吗
+  - Is this new high confirmed by the other index?
+  - 只有一个指数发出信号，能不能操作
+  - A股怎么选双指数替代组合
+  keywords:
+  - 相互确认
+  - 双指数
+  - 未确认假象
+  - 消极保险
+  - 确认纪律
+  - 指数失真
+  - 替代指数
+  - 信号过滤
+  - confirmation
+  also_read:
+  - primary-trend-identification-skill
+  - line-formation-reading-skill
+  - pseudo-signal-troubleshooting-skill
+  card: cards/dual-index-confirmation-filter-skill.md
+  resources: []
+  frontmatter:
+    description: 双指数相互确认过滤器：任何单指数的新高/新低/突破信号先判确认状态——另一指数跟进（不必同日甚至同周）→已确认可采信；暂未跟进→等待确认、按兵不动；始终未确认→按假象忽略。仅一方给出信号按无信号处理（消极保险）；两指数都失守才可断言趋势改变。附带数据质量门槛：剔除分红除息/拆股/调样的机械位移，剔除制度性失真期，禁用受个别股票左右的替代指数；A股替代指数对须先做联动性检验。当用户问"这个信号可信吗/confirmed
+      by the other index""单指数能不能操作""用哪两个指数确认"时使用。不适用于：个股与日内信号（确认规则不适用）、趋势方向判断（见主要趋势判定卡）。
+    tags:
+    - 道氏理论
+    - 技术分析
+    - 股票投资
+    - 指数确认
+    - 信号过滤
+  source_evidence:
+  - source_id: dow-theory-merged-transcript
+    location: 第12章（L1097-1159）；第2章（L215、L362）；第13章（L1169-1175）
+  promotion:
+    destination: promoted
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 五判据全过，预算排名第 2。f02 三态逻辑自足运行；与 u01 的触发竞争在阶段 4 以近邻负例消解。
+  covered_tasks:
+  - task-04
+  candidate_ids:
+  - f02
+  - g10
+  - p09
+  - p10
+  - p12
+  - p14
+  - p15
+  - p16
+  - c13
+  - c35
+  - c36
+  - c42
+  - ce02
+  - ce05
+  - ce06
+  notes: 编译时更正：c42 除式禁抄——只引用"新法 3065.5/12.7=240.98 与旧法 241.11 衔接一致"这一事实， 不得照抄"乘以 20"讹误（C-11，与 B-3/p85
+    同源）；p16 的 1923-08-29 日期待核（B-11）。 边界：A 股替代指数对选择为落地前置缺口（选择逻辑 c13、排除标准 ce05/ce06、数据质量规则 p16 已具备， 最终选择需外部联动性检验）；g26
+    译者类比仅作线索级标注，不升格为雷亚规则；p11/p13 操作细则互参 u01。 | A1 案例取名册 bound_to：c36（1927 滞后确认）、c35（1926 通用汽车股息剔除——数据质量门槛判例）、
+    c13（经济循环思想实验，worked_example 已如实标注）。E 段判停分支：对照指数受单一变量主导→不可判读； 仅一方信号→按无信号处理；等待超时→按假象归档。编译时更正已执行：C-11（c42
+    除式禁抄，卡内只引 "新法 3065.5/12.7=240.98 与旧法 241.11 衔接一致"事实）、B-11（1923-08-29 日期待核）。 g26 译者类比维持线索级。确认时间窗口无量化规则，按次级运动
+    3 周~数月口径设观察期并明示为约定。 R 段引文核对行号：L1101/L1131/L1135/L1151/L3857。
+- capability_id: cap.dow-theory-skill.secondary-reaction-assessment-skill
+  revision: 1
+  status: active
+  slug: secondary-reaction-assessment-skill
+  title: 次级运动识别与幅度评估（33%~66%＋速度不对称＋完成序列）
+  importance: critical
+  importance_rationale: 承载 task-02（BOOK_OVERVIEW 排序第 2）；次级运动"最具欺骗性"（第 10 章）， 误把次级当反转是亏损主因；1926 年汉密尔顿错误为全书头号反面判例（第
+    5 章整章复盘）。
+  one_liner: 判定当前反向运动是次级运动还是趋势反转：3 周至数月、通常回撤前一主要运动的 33%~66% （区间极宽）、速度快于主要运动；牛市回调完成须四条件量价序列齐备； 回撤超 85%
+    或双指数破位则疑似反转，按趋势程序确认。
+  intents:
+  - 这次回调是次级运动还是趋势反转
+  - Is this pullback a secondary reaction or a reversal?
+  - 回调会跌多深、持续多久
+  - 熊市里这波反弹能追吗
+  keywords:
+  - 次级运动
+  - 次级回调
+  - 33%~66%
+  - 回撤区间
+  - 速度不对称
+  - 反转区分
+  - 恐慌后反弹
+  - 量价完成序列
+  - secondary-reaction
+  also_read:
+  - primary-trend-identification-skill
+  - secondary-reaction-stat-baseline-skill
+  - volume-price-health-skill
+  card: cards/secondary-reaction-assessment-skill.md
+  resources: []
+  frontmatter:
+    description: 判定反向运动是次级运动还是趋势反转并评估其幅度：次级运动持续3周至数月、通常回撤前一主要运动的33%~66%（分布极宽，仅作统计预期）、速度快于主要运动（牛市不以剧烈反弹开始、熊市反弹猛烈短促）；牛市回调完成须四条件量价序列（低点巨量→一两日反弹→再跌不破前低→下跌量缩）；回撤超85%或双指数破位→疑似反转，转趋势判定程序确认；真恐慌后约收复40%~60%再二次缓跌、摆动递减收敛。当用户问"回调还是反转/secondary
+      or reversal""会跌多深多久/how deep""熊市反弹能追吗"时使用。不适用于：日内回调、个股回调、把统计区间当精确止损或目标位（原文明言注定失败）。
+    tags:
+    - 道氏理论
+    - 技术分析
+    - 股票投资
+    - 次级运动
+    - 回调
+  source_evidence:
+  - source_id: dow-theory-merged-transcript
+    location: 第10章（L691-759，含表1-3）；第13章（L1179）；第5章（L494-520）
+  promotion:
+    destination: promoted
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 五判据全过，预算排名第 3。统计明细（分布、时长口径）canonical 在 u12，卡内互参。
+  covered_tasks:
+  - task-02
+  candidate_ids:
+  - f04
+  - f10
+  - f11
+  - p05
+  - p22
+  - p24
+  - p25
+  - p26
+  - p27
+  - p28
+  - p39
+  - c03
+  - c06
+  - c07
+  - c08
+  - c18
+  - c27
+  - c28
+  - c33
+  - c38
+  - ce01
+  - ce18
+  notes: 编译时更正：c03 摘要归属偏差——下游引用以引文及 L3677 原文为准（铁路侧双顶 113.12/111.36＋工业新高 160.53 未获确认），不得沿用候选摘要表述（C-10）；c33
+    3 月低点日期两栏自相矛盾保留疑点（C-3）； c08 低点 202.65/202.56 书内差异照录（C-6）；ce01 引文措辞出入语义一致（C-12）。 边界：p22 须考虑交易量并以 u12
+    的分布（p33）否定硬边界；f10 恐慌判别前提（"真恐慌"定义）与 ce18 联动。 | A1 案例取名册 bound_to：c08（1928 牛市次级回调，C-6 低点 202.65/202.56
+    照录）、c06（1931 熊市反弹演算）、 c03（1926 反面判例——已按 C-10 以 L3677 原文表述：铁路侧双顶 113.12/111.36＋工业新高 160.53 未获确认， 未沿用候选摘要的"工业双顶"归属）。E
+    段判停分支：回撤超 85% 或双指数破位→疑似反转转 u01； "真恐慌"前提无法验证→不适用恐慌剧本（ce18 联动）。统计均值引用仅用已确证数字（55.8%/58.9%/57.6%）， p32
+    的 49.5% 禁用（needs_review 未入池，canonical 在 u12）。C-3（c33 日期两存）、C-12（ce01 措辞）保留疑点。 R 段引文核对行号：L207/L691/L695/L711/L723/L1641。
+- capability_id: cap.dow-theory-skill.line-formation-reading-skill
+  revision: 1
+  status: active
+  slug: line-formation-reading-skill
+  title: 线态窄幅盘整判读（吸筹/派发推断与突破方向）
+  importance: high
+  importance_rationale: 承载 task-03（BOOK_OVERVIEW 排序第 3）；书中自评该规则"已被证明相当可靠，甚至可以称其为真理" （第 14 章）；是底部/顶部识别的关键工具；判例覆盖
+    1909-1925 七组线形。
+  one_liner: 两指数均在约 5% 幅度内波动两三周以上即为线态盘整——形成期不预判性质， 等双指数同时突破定吸筹/派发方向；单指数的"线"或单指数突破不可下结论。
+  intents:
+  - 指数横盘窄幅震荡是吸筹还是派发
+  - Is this narrow line accumulation or distribution?
+  - 横盘会往哪边突破
+  - 只有单个指数横盘可靠吗
+  keywords:
+  - 线态窄幅盘整
+  - line
+  - 吸筹
+  - 派发
+  - 突破方向
+  - 横盘
+  - 盘整
+  - 窄幅震荡
+  - narrow-range
+  also_read:
+  - dual-index-confirmation-filter-skill
+  - primary-trend-identification-skill
+  - bull-top-exit-signals-skill
+  card: cards/line-formation-reading-skill.md
+  resources: []
+  frontmatter:
+    description: 线态窄幅盘整（line）判读：两指数均在约5%幅度内波动两三周以上即成线，代表吸筹或派发（高位按点位百分比放宽区间）。形成期间禁止预判性质——判断是买还是卖是世界上最难的事，唯一动作是等突破：双指数同时向上突破＝吸筹、预示更高价，同时向下突破＝派发、预示继续下跌；单指数的线或单指数突破不可下结论；顶部破位后反弹未收复上次高点前上涨信号不成立。当用户问"横盘是吸筹还是派发/accumulation
+      or distribution""会往哪边突破/breakout""单指数横盘可靠吗"时使用。不适用于：个股横盘、日内窄幅波动、把5%当精确阈值机械执行；主要趋势方向结论归主要趋势判定卡。
+    tags:
+    - 道氏理论
+    - 技术分析
+    - 股票投资
+    - 盘整
+    - 吸筹派发
+  source_evidence:
+  - source_id: dow-theory-merged-transcript
+    location: 第14章（L1197-1241）；第2章（L223、L366）
+  promotion:
+    destination: promoted
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 五判据全过，预算排名第 4（书中自评最可靠的可操作规则，触发意图"横盘怎么看"独立性强）。
+  covered_tasks:
+  - task-03
+  candidate_ids:
+  - f05
+  - g08
+  - p44
+  - p45
+  - p46
+  - p47
+  - p48
+  - c19
+  - c20
+  - c21
+  - c22
+  - c23
+  - c24
+  - c25
+  notes: 编译时更正：c21 铁路窄幅时长上篇"20 个交易日"与下篇"40 天"两存，保留疑点（C-4）； c24 专栏日期系按体例推定（1922-5-8/5-22），引用时标注（C-5）。 边界：高位放宽无量化公式（1926/1929
+    仅示范性放宽）；单指数怀疑由 p46 承载、阈值边界 ce14 在 u01 互参； c25 兼作指数口径受外部扭曲判例，与 u02 数据质量门槛互参；p49（破位修复条件）canonical 在
+    u08。 | A1 案例取名册 bound_to：c20（1912 吸筹线形）、c19（1911 派发线形，outcome 含"该低点后成为熊市终点"照录）、 c22（1913 单指数假突破对峙——演示判停，outcome"未说明"）。E
+    段判停分支：三要素任一不满足（尤其单指数成线） →不可下结论；单指数突破→按 u02 未确认信号处理。编译时更正已执行：C-4（c21 时长"20 个交易日/40 天"两存注明）、 C-5（c24
+    日期推定注明）；p49 破位修复门槛 canonical 在 u08，本卡 E 段互参执行。高位放宽无量化公式为原文固有， 卡内明示为约定（按宽度百分比＋前期波动率校准）。R 段引文核对行号：L223/L1151/L1197/L1199/L1233/L1235。
+- capability_id: cap.dow-theory-skill.volume-price-health-skill
+  revision: 1
+  status: active
+  slug: volume-price-health-skill
+  title: 量价关系健康度评估（超买超卖与沉闷/活跃语义）
+  importance: high
+  importance_rationale: 承载 task-05（BOOK_OVERVIEW 排序第 4）；雷亚明确要求"所有学者都应专心研究成交量与价格运动之间的关系" （第 15 章），系雷亚补足汉密尔顿的关键增量；A
+    股量价数据齐全、适配成本最低。
+  one_liner: 指数永远第一位、成交量第二位——量能信号不得推翻指数判读；以升缓跌活/跌缓升活判定超买超卖， 量缩回调＝超卖预示反弹、量增价滞＝过度活跃警报；"绝不在沉闷市场做空"须按趋势语境条件化。
+  intents:
+  - 量价配合吗，是不是量价背离
+  - Do volume and price agree or diverge?
+  - 现在超买还是超卖
+  - 缩量下跌/放量滞涨说明什么
+  keywords:
+  - 量价关系
+  - 超买
+  - 超卖
+  - 缩量
+  - 放量
+  - 成交量
+  - 沉闷
+  - 活跃
+  - 量价背离
+  - volume
+  also_read:
+  - primary-trend-identification-skill
+  - bull-top-exit-signals-skill
+  - trading-discipline-rules-skill
+  card: cards/volume-price-health-skill.md
+  resources: []
+  frontmatter:
+    description: 量价关系健康度评估：指数永远第一位、成交量第二位——量能信号不得推翻指数判读。超买＝上升迟缓而下跌活跃，超卖＝下跌迟缓而上升活跃；牛市回调量缩＝超卖、预示反弹将临，熊市反弹沉闷而下跌活跃；牛市通常终止于过度活跃（量增而价推进甚微），新高新低须成交量配合；"绝不在沉闷市场做空"须条件化（牛市回调后沉闷＝买点，熊市反弹后转沉闷＝做空时机）。当用户问"量价配合吗/背离了吗/volume-price
+      divergence""超买还是超卖/overbought or oversold""缩量下跌说明什么"时使用。不适用于：唯量判市直接定买卖、个股量价、现代量能指标体系（OBV等）；指数阶梯缺失时先补趋势判读。
+    tags:
+    - 道氏理论
+    - 技术分析
+    - 股票投资
+    - 量价
+    - 超买超卖
+  source_evidence:
+  - source_id: dow-theory-merged-transcript
+    location: 第15章（L1245-1299）；第8章（L574）；第10章（L697、L723）
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 五判据全过，但按预算排序（第 10）降为能力卡：触发可分性弱（与通用量价分析知识竞争）、 交付以定性清单为主且从属"量永远第二位"。经来源路由入口访问；split-on-evidence
+      通道保留。
+  covered_tasks:
+  - task-05
+  candidate_ids:
+  - f06
+  - f12
+  - p50
+  - p51
+  - p52
+  - p53
+  - p54
+  - p55
+  - p56
+  - c30
+  - ce13
+  - ce19
+  notes: 编译时更正：p55 的 1921-12-30 引文出自 ch10 与 ch13（候选章节注记略偏，更正）（B-8）； p52 蒸汽类比专栏日期 ch15 作 1909-01-21、ch20
+    尾注 1909-02-12，引用以 ch15 为准并保留差异（B-12）。 边界（D-1）：雷亚量价统计所用数据年限未明确、汉密尔顿时代几无日成交量序列；规则定性为主无量化阈值。 f12 沉闷期时机与
+    u03/u10 互参。 | 本单元名册内仅 1 个 c 类案例（c30，1910 熊市反弹判读系列）——A1 已用满，另补一条**明确标记的合成演练** （方法论允许：标注"合成演练，非书中案例"，按规则可复算）。E
+    段判停分支：无指数状态（唯量）→判停输出 "证据不足"。编译时更正已执行：B-8（1921-12-30 引文出自第10章 L715 与第13章 L1171，R 段按此标注）、 B-12（"过度活跃"专栏日期以第15章
+    1909-01-21 为准、尾注 1909-02-12 差异保留）、D-1（量价统计年限未明确， 边界随卡）。本卡为 router 能力卡（预算排序第 10），split-on-evidence
+    通道保留。 R 段引文核对行号：L715/L1171/L1245/L1295/L1299/L1859/L2958。
+- capability_id: cap.dow-theory-skill.bull-bear-stage-positioning-skill
+  revision: 1
+  status: active
+  slug: bull-bear-stage-positioning-skill
+  title: 牛熊三阶段定位器（按驱动锚定位并校准风险态度）
+  importance: high
+  importance_rationale: 承载 task-06（BOOK_OVERVIEW 排序第 5）；阶段定位直接决定仓位与风险态度； 1929 年顶部即典型第三阶段判例（股息收益率 22 倍对照）。
+  one_liner: 以"信心恢复→已知收入改善→靠希望上涨"（牛市）与"希望破灭→经济萧条抛售→被迫变现贱卖优质股"（熊市） 三锚定位当前阶段并输出对应风险态度（第三阶段＝靠希望上涨，最危险应保守）；辅以价格÷股利回报倍数的
+    价值测试（1924 年约 6 倍→1927 年 11 倍→1928 年 17 倍→1929 年 22 倍的逐级抬升＝价格趋向超出价值的警标）。
+  intents:
+  - 现在是牛市的第几阶段
+  - Which stage of the bull market are we in?
+  - 熊市走到哪一步了
+  - 现在该激进还是保守
+  keywords:
+  - 牛市三阶段
+  - 熊市三阶段
+  - 阶段定位
+  - 信心恢复
+  - 靠希望上涨
+  - 被迫变现
+  - 价值测试
+  - 股息收益率
+  - market-stage
+  also_read:
+  - primary-trend-identification-skill
+  - bear-bottom-checklist-skill
+  - bull-top-exit-signals-skill
+  card: cards/bull-bear-stage-positioning-skill.md
+  resources: []
+  frontmatter:
+    description: 牛熊三阶段定位器：牛市＝信心恢复（价值回归）→股价反映已知收入改善（通常最长、欺骗性次级回调多发）→靠希望与期盼上涨（投机猖獗，最危险、应转保守）；熊市＝希望破灭→经济萧条抛售→被迫变现者贱卖优质股。辅以价值测试：价格÷股利回报倍数逐年抬升＝价格趋向超出价值的警标（A
+      股股息生态不同，只看抬升方向不作绝对阈值）。输出＝阶段编号＋依据＋对应风险态度；阶段无量化判据，牛一与熊市次级反弹须时间验证。当用户问"现在是牛市/熊市第几阶段""该激进还是保守""how far
+      along is this bull/bear market"时使用；需要买卖信号时改用底部/顶部卡，方向未定先做主要趋势判定。
+    tags:
+    - 道氏理论
+    - 技术分析
+    - 股票投资
+    - 牛熊阶段
+    - 风险态度
+  source_evidence:
+  - source_id: dow-theory-merged-transcript
+    location: 第8章（L566-572）；第9章（L647）；下篇 1923-7-2《牛市的三个阶段》（L3230-3241）；1929-4-5《价值测试》（L4010-4026）
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 过门（判据 5 弱通过：阶段无量化判据、断言以 c32/c39 判例对照为主），但与 u07/u08 信号清单近邻， 按预算排序（第 9）降为能力卡；split-on-evidence
+      通道保留。
+  covered_tasks:
+  - task-06
+  candidate_ids:
+  - f07
+  - g23
+  - p35
+  - p36
+  - p37
+  - p86
+  - p87
+  - c32
+  - c39
+  notes: 编译时更正：f07/g06《牛市的三个阶段》专栏日期按基准稿更正为 1923-7-2（A-1）； p87 转写稿"股息收益略低于 40%"系讹误，按 4% 口径引用并回查原书（B-4）；
+    p37 牛熊时长多版本口径并存，引用注明出处、仅作背景预期（B-14）。 边界（D-2）：股息收益率倍数法基于 1920s 美国股息生态，A 股适配待核查。 | 卡片 R 段三处引文经转写稿 grep
+    核对（L647 第 9 章牛市三阶段、L568 第 8 章熊市三阶段、L4018 下篇 1929-4-5《价值测试》）。 编译时更正已执行：A-1——《牛市的三个阶段》专栏日期按基准稿更正为 1923-7-2（注意：转写稿中该文标题前有
+    《巴伦周刊》1923 年 6 月 25 日标注、正文后有 1923 年 7 月 2 日标注，体例歧义；A-1 决议采纳 1923-7-2， 取得纸版书后可复核，不影响内容）；B-4——转写稿"股息收益略低于
+    40%"系讹误，按 4% 口径引用； B-14——牛熊时长多口径并存，引用注明出处、仅作背景预期；D-2——股息收益率倍数法 A 股适配待核查，随卡携带。 A1 案例用 c32（1923 年当期定位，转述判例）＋c39（1929
+    年价值测试与第三阶段，转述判例）。 E 段含判停分支：方向"待确认"不定位；三锚证据矛盾输出"无法判定"；价值测试缺股利数据则跳过并注明。
+- capability_id: cap.dow-theory-skill.bear-bottom-checklist-skill
+  revision: 1
+  status: active
+  slug: bear-bottom-checklist-skill
+  title: 熊市底部特征核查清单（图 1 九次熊市统计画像）
+  importance: high
+  importance_rationale: 承载 task-07（BOOK_OVERVIEW 排序第 6）；汉密尔顿/雷亚自称"抄底比抓顶容易"， 1921 年案例展示完整路径；图 1 统计画像独有、清单可执行性中高。
+  one_liner: 底部确认按七项勾检（谷底 60~90 天振幅 3% 内、量能提前数月萎缩、利空钝化、沉闷、 窄幅盘整向上突破、双重底不可作指标、10%/20% 时机）——齐备升"底部概率高"，任一缺省降级观察；
+    确认判据＝不再创新低＋双指数越过上次重大反弹高点。
+  intents:
+  - 现在是熊市底部吗，可以抄底吗
+  - Is this the bottom — can I buy in?
+  - 底部有哪些早期特征
+  - 牛市起点怎么确认
+  keywords:
+  - 熊市底部
+  - 抄底
+  - 底部特征
+  - 图1
+  - 利空钝化
+  - 量能萎缩
+  - 牛市起点
+  - 安全买点
+  - 谷底归一化
+  - bottom
+  also_read:
+  - primary-trend-identification-skill
+  - dual-index-confirmation-filter-skill
+  - bull-top-exit-signals-skill
+  - secondary-reaction-assessment-skill
+  card: cards/bear-bottom-checklist-skill.md
+  resources: []
+  frontmatter:
+    description: 熊市底部特征核查清单（图 1 九次熊市统计画像）：七项勾检——谷底区持续 60~90 天且振幅 3% 内（7/9）、成交量提前数月渐降（6/9；只看量会失误）、对坏消息充耳不闻、市场沉闷、窄幅盘整向上突破、双重底不作判断指标（3/3/3）、10%
+      内抄底算走运、20% 前趋势已显而易见。七项齐备升"底部概率高＋做多时机确认"，任一缺省降级观察；确认判据＝不再创新低＋双指数反弹越过上次重大反弹高点；安全买点＝回调不破熊市低点＋二次反弹上穿前次反弹高点。当用户问"是不是熊市底部""能不能抄底""is
+      this the bottom"时使用；不适用于牛市回调买点（次级运动评估）与精确最低点预测。
+    tags:
+    - 道氏理论
+    - 技术分析
+    - 股票投资
+    - 抄底
+    - 熊市底部
+  source_evidence:
+  - source_id: dow-theory-merged-transcript
+    location: 第8章图1（L604-643）；第9章（L653、L655）；第16章（L1319 双底统计）
+  promotion:
+    destination: promoted
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 五判据全过，预算排名第 5（抄底意图高频、清单可执行＋图 1 统计与 1921 完整判例证据强）。
+  covered_tasks:
+  - task-07
+  candidate_ids:
+  - f08
+  - p38
+  - p40
+  - p82
+  - c01
+  - c05
+  - c09
+  - ce21
+  notes: 编译时更正：f08 双重底 3/3/3 统计出处更正为第 16 章（L1319，候选误标第 8 章）（A-2）； c09 图 1 第 8 子图标 1921-7-19 与正文"1921-6-20
+    低点（铁路）"口径不同，图用统一标定口径照录（C-9）。 边界：图 1 样本仅 9 次熊市、无权重打分；p20/p40（熊转牛与安全买点）canonical 在 u01，卡内互参； ce21 的统计非触发器教训与
+    u12（p33/p88）互参。 | 卡片 R 段三处引文经转写稿 grep 核对（L608 第 8 章图 1 统计、L653 第 9 章利空免疫与安全买点两处）。 编译时更正已执行：A-2——双重底
+    3/3/3 统计出处更正为第 16 章（L1319，候选误标第 8 章）； C-9——图 1 第 8 子图标 1921-7-19 与正文"1921-6-20 低点（铁路）"口径不同，图用统一标定口径照录。
+    A1 案例用 c05（1921 年底部完整判读路径，转述判例，上下篇 8 篇专栏合并）＋c01（雷亚据 1921 年信号建仓， 作者亲身判例 firsthand）。E 段含判停分支：主要趋势已确认牛市则本卡不适用；量能未降不排除底部
+    （3/9 次量能失效）但结论封顶"降级观察"；确认判据任一未达成即固定输出"降级观察"。 边界：图 1 样本仅 9 次熊市、无权重打分；60~90 天/3% 参数为 1897—1923 美股口径，迁移
+    A 股须重估； ce21"统计非触发器"（42% 法则被新低证伪）与 u12 互参。 | 阶段4回归修复：E-2'降权'释义=降低该判据权重并在结论中注明，不判缺省，最终结论仍按清单整体给出
+- capability_id: cap.dow-theory-skill.bull-top-exit-signals-skill
+  revision: 1
+  status: active
+  slug: bull-top-exit-signals-skill
+  title: 牛市顶部信号分级与清仓决策（1929 年 9—10 月标本）
+  importance: high
+  importance_rationale: 承载 task-08（BOOK_OVERVIEW 排序第 6）；1929 年案例给出全书唯一完整可复制的清仓信号序列； "树不会长到与天齐高"。
+  one_liner: 顶部不做点位预测、只做信号分级响应：前兆监测→顶后首跌按次级处理→反弹高点递降＋量价背离→ 双指数破位确认→分级清仓；1929 标本给出"低于峰值 10% 执行清仓＝满分操作"的可检验标准。
+  intents:
+  - 是不是见顶了，该清仓吗
+  - Is this the top — should I exit?
+  - 牛市顶部有哪些信号
+  - 什么时候减仓/清仓合适
+  keywords:
+  - 牛市顶部
+  - 清仓
+  - 减仓
+  - 反弹高点递降
+  - 量价背离
+  - 过度活跃
+  - 逃顶
+  - 破位确认
+  - '1929'
+  - top-signal
+  also_read:
+  - bear-bottom-checklist-skill
+  - secondary-reaction-assessment-skill
+  - dual-index-confirmation-filter-skill
+  - volume-price-health-skill
+  card: cards/bull-top-exit-signals-skill.md
+  resources: []
+  frontmatter:
+    description: 牛市顶部信号分级与清仓决策：前兆监测（活期贷款率高、垃圾股飞涨、龙头股收益低于债券、量增价滞的过度活跃）→顶后首跌按次级处理→连续反弹高点递降＋量价背离→双指数破位确认→判定熊市第一阶段→分级清仓。1929
+      年标本：9/3 顶 381.17→反弹量减→回升不超前高→约 350 点（低于峰值 10%）＝清仓信号→10 月破位＝熊市读数；信号阈值可撤销/增强（反弹收复指定点位预示收回、跌破指定低点预示增强）。"低于峰值
+      10% 执行清仓＝满分操作"，不做点位预测。当用户问"是不是见顶了""该清仓吗""when to exit"时使用；本卡仅针对平均价格指数（大盘）层面；个股的清仓/减仓决策不适用（该场景转个股大盘前置检查卡）。不适用于精确逃顶点位请求与熊市做空决策。
+    tags:
+    - 道氏理论
+    - 技术分析
+    - 股票投资
+    - 逃顶
+    - 清仓
+  source_evidence:
+  - source_id: dow-theory-merged-transcript
+    location: 第9章（L665-687）；第15章（L1267）；下篇 1929-10-21/10-25（L4095-4108）
+  promotion:
+    destination: promoted
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 五判据全过，预算排名第 6（清仓意图高频、1929 双版本判例与 p84 量化阈值证据强）。
+  covered_tasks:
+  - task-08
+  candidate_ids:
+  - f09
+  - p41
+  - p42
+  - p49
+  - p84
+  - c04
+  - c40
+  - ce07
+  notes: 编译时更正：c40/ce07 引用的 1929-10-25 专栏含"6 年左右"转写疑点（应为"主要上涨市场"之讹）， 保留疑点、引用以 10-21 专栏为准（C-1，联动 C-12）。
+    边界：p41"精确预测主要运动的顶部超越任何晴雨表"（1923-6-13）为原文自认；p52 过度活跃警报互参 u05； p49（顶部线形破位撤销门槛）canonical 在本卡、与 u04 互参。
+    | 卡片 R 段三处引文经转写稿 grep 核对（L685 第 9 章 350 点清仓信号、L4101 下篇 1929-10-21 阈值、 L667 第 9 章引 1923-6-13 逃顶边界）。编译时更正已执行：C-1——1929-10-25
+    专栏"主要下跌市场持续 6 年左右" 系"主要上涨市场"之转写讹误，保留疑点、引用一律以 10-21 专栏为准（联动 C-12）。 A1 案例用 c04（1929 年 9—10 月清仓信号序列，转述判例，上篇综述版）并以
+    c40（下篇专栏原文版）互证， p84 双边阈值并入示例 2 展示"信号可撤销"。E 段含判停分支：双指数收复前高则顶后下跌证伪回到持有； 高点仍抬升且量价配合则维持次级读数；仅单指数破位按 u02
+    假象处理不下清仓结论。 边界：p84 阈值仅为 1929 年 10 月该点位判例、非通用公式；"低于峰值 10%＝满分操作"系雷亚追认的执行标尺， 书中无逐日操作记录可复核；前兆清单的活期贷款率等无
+    A 股对应指标，须换用两融利率/余额等代理指标重估。
+- capability_id: cap.dow-theory-skill.stock-preflight-market-check-skill
+  revision: 1
+  status: active
+  slug: stock-preflight-market-check-skill
+  title: 个股操作的大盘趋势前置检查（防呆闸门）
+  importance: high
+  importance_rationale: 承载 task-09（BOOK_OVERVIEW 排序第 7）；"简单、防呆价值高"；A 股价值派用户最高发失败边界 （价投＋逆势，ce20）。
+  one_liner: 任何个股操作前先过大闸门——"必须像理解公司资产负债表一样理解市场的趋势"： 主要趋势向上（或底部确认）才允许做多；熊市中绩优股同样被贱卖甚至更脆弱，不得以个股强势反推大盘。
+  intents:
+  - 大盘不好还能买个股吗
+  - Can I buy stocks when the market is weak?
+  - 买个股前要不要先看大盘
+  - 熊市里优质股抗跌吗
+  keywords:
+  - 个股
+  - 大盘趋势
+  - 前置检查
+  - 防呆
+  - 绩优股
+  - 贱卖
+  - 价值投资
+  - 相对强度
+  - stock-selection
+  also_read:
+  - primary-trend-identification-skill
+  - bear-bottom-checklist-skill
+  - trading-discipline-rules-skill
+  card: cards/stock-preflight-market-check-skill.md
+  resources: []
+  frontmatter:
+    description: 个股操作前的大盘趋势前置检查（防呆闸门）：任何个股买卖前先判主要趋势——"必须像理解公司资产负债表一样理解市场的趋势"。输出允许/不允许/条件允许＋依据。熊市中被迫变现者只能卖出有市场的优质股——绩优股比垃圾股更脆弱，"抗跌买蓝筹"是高危偏差；任意个股都可能"与平均价格指数大相径庭"，不得以个股强势反推大盘；确认规则不适用于个股。估值决定标的、趋势决定时机，两者须同时过关。被套想摊平/补仓/加仓之前也必须先过本卡大盘闸门（averaging
+      down 前置检查）。当用户问"大盘不好还能买个股吗""要不要先看大盘""套住了能不能补仓""can I buy stocks when the market is weak"时使用；不用于个股买卖点位与相对强度系统（原文未给），方向判定本身用主要趋势卡。
+    tags:
+    - 道氏理论
+    - 技术分析
+    - 股票投资
+    - 个股
+    - 大盘
+  source_evidence:
+  - source_id: dow-theory-merged-transcript
+    location: 第17章（L1335-1341）；第2章（L235）；第19章（L1399-1403）
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 过门（预算排序第 8，差一名落选）：卡片薄、闸门动作可由 u01 输出直接完成、与 u01 触发近邻度高。 是预算恢复或 split-on-evidence 时的第一顺位晋级候选。
+  covered_tasks:
+  - task-09
+  candidate_ids:
+  - f17
+  - p59
+  - p60
+  - p61
+  - c14
+  - c17
+  - ce15
+  - ce20
+  notes: 边界：个股相对强度系统性规则原文未给（仅"可能大相径庭"）；p12（确认规则不适用个股）互参 u02； ce15（信号真空期"无信号＝不动"）在本卡承载"个股指导被定义排除"面向。无 needs-review
+    强制更正项。 | 卡片 R 段三处引文经转写稿 grep 核对（L1339 第 17 章资产负债表类比、L1403 第 19 章引 1921-3-30 绩优股更脆弱、L1335 第 17 章个股大相径庭）。无
+    needs-review 强制更正项。 A1 案例用 c14（不懂趋势的价值投资者失败画像，worked_example 典型化模拟情境——非真实事件， 卡内已如实标注）＋c17（1906 年个股剧烈波动而指数振幅仅
+    2.02 点，转述判例，下篇 1906-9-6《一次不规律的运动》）。 E 段含判停分支：大盘趋势状态缺失先问不猜；熊市＋杠杆做多直接判停输出"不允许"； 发现"个股强势反推大盘"的推理即判无效证据。约定声明：三态中的"条件允许"分支
+    （无杠杆＋可承受浮亏＋预设失效条件的价值仓位）系由 ce20 的正确替代规则推导的操作约定，非原文明文。 边界：个股相对强度/背离的系统性规则原文完全未给（仅"可能大相径庭"一句），为原文固有材料缺口；
+    "个股一般随指数涨跌"基于 1900s—1920s 美股活跃大盘股样本，A 股小盘/题材股背离更常见，迁移须重估。
+- capability_id: cap.dow-theory-skill.trading-discipline-rules-skill
+  revision: 1
+  status: active
+  slug: trading-discipline-rules-skill
+  title: 交易纪律与资金管理原则包（止损/仓位/加码方向/收益预期）
+  importance: high
+  importance_rationale: 承载 task-10（BOOK_OVERVIEW 排序第 8）；落位候选 23 条（全书最多）；"固执己见是造成损失的主要原因"； "20 个人中，也就只有
+    1 个人会成功"；跨理论通用。
+  one_liner: 止损是第一课、固执己见是损失首因；上涨后加仓、禁下跌摊平、禁顶部金字塔； 仓位减到可以睡着为止；心存疑惑什么也不做、大损后彻底离场； 年收益预期 12%~20%、每 10 次交易至少
+    7 次获利且一年很少超过四五次。
+  intents:
+  - 止损怎么设、亏损了怎么办
+  - How to set stops and handle losses?
+  - 要不要摊平/加码
+  - 仓位多重合适、拿不住睡不着
+  - 一年赚多少算现实
+  keywords:
+  - 止损
+  - 仓位
+  - 摊平
+  - 金字塔加码
+  - 能睡着
+  - 收益预期
+  - 交易纪律
+  - 资金管理
+  - 独立思考
+  - position-sizing
+  also_read:
+  - volume-price-health-skill
+  - secondary-reaction-stat-baseline-skill
+  - bull-top-exit-signals-skill
+  card: cards/trading-discipline-rules-skill.md
+  resources: []
+  frontmatter:
+    description: 交易纪律与资金管理原则包：止损是第一课、固执己见是损失首因；上涨后加仓优于下跌摊平（投机头寸禁摊平， 长期仓位例外）；禁止顶部金字塔式加码——1926年算例：15 000美元盈利被20点回调抹去12
+      000； 仓位减到可以睡着为止；心存疑惑什么也不做、大损后彻底离场；年收益预期12%~20%、10次至少7胜、 一年很少超过四五次、20人中约1人成功；机械点位与靠消息重仓属赌博。 问摊平/止损/仓位/加码/收益预期时使用；不判行情方向、不适用日内短线。
+      Trigger：average down 摊平、stop loss 止损、position sizing 仓位。
+    tags:
+    - 道氏理论
+    - 股票投资
+    - 交易纪律
+    - 仓位管理
+    - 止损
+  source_evidence:
+  - source_id: dow-theory-merged-transcript
+    location: 第18章（L1349-1387）；第19章（L1393-1429）；下篇 1926-3-5 金字塔算例（L3715）
+  promotion:
+    destination: promoted
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 五判据全过，预算排名第 7（跨场景复用全书最强、算例可复算、意图高频）。
+  covered_tasks:
+  - task-10
+  candidate_ids:
+  - f19
+  - f21
+  - p08
+  - p62
+  - p63
+  - p64
+  - p65
+  - p66
+  - p67
+  - p68
+  - p69
+  - p70
+  - p71
+  - p72
+  - p73
+  - p90
+  - c15
+  - c16
+  - c34
+  - ce08
+  - ce09
+  - ce10
+  - ce11
+  notes: 边界：p90 系译者解读层（"中短期与其用道氏理论不如用波浪理论"为译者个人建议），引用时剥离并标注层级； p63 止损判例点位为 1911 年水平，当代须等比调整；无仓位量化公式、止损位设定方法原文未给。
+    f12/沉闷期时机 canonical 在 u05，卡内互参。 | A1 案例：c34（1926金字塔演算，worked_example，1926-3-5 专栏 L3715；转写稿千位空格"15
+    000/12 000"照录）、 c16（减仓到能睡着轶事，reported_case）、c15（机械2点止盈止损判赌博，worked_example）。 E 段含两处判停分支：赌博式动机判停、重大亏损后"彻底离场观望"判停；敞口测算式为标注的归纳约定（原书未给公式）。
+    编译时更正已执行：p90 译者解读层剥离标注（L1091）、p63 止损判例按 1911 年点位须等比调整。 材料缺口：仓位量化公式、止损位设定方法、组合分散规则原文均未给（固有缺口随卡）。
+- capability_id: cap.dow-theory-skill.forecast-self-training-skill
+  revision: 1
+  status: active
+  slug: forecast-self-training-skill
+  title: 预测自检训练法（盖图预测—对照汉密尔顿评论—归因差异）
+  importance: medium
+  importance_rationale: 承载 task-11（BOOK_OVERVIEW 排序第 9，元能力）；雷亚给出的唯一系统学习法； "道氏理论像代数一样，并不是随意阅读就可以轻松明白的"。
+  one_liner: 盖住历史图表先写预测与理由，再对照汉密尔顿专栏原文，归因差异并记录例外； 配套失误归因复盘：区分"信号错误"与"解读错误"（1926 标本五步程序）。
+  intents:
+  - 怎么训练自己的行情判断能力
+  - How can I train my market-reading skill?
+  - 怎么复盘自己预测的对错
+  - 道氏理论怎么自学
+  keywords:
+  - 预测自检
+  - 复盘
+  - 训练法
+  - 盖图预测
+  - 汉密尔顿专栏
+  - 归因
+  - 自学
+  - self-training
+  also_read:
+  - secondary-reaction-stat-baseline-skill
+  - secondary-reaction-assessment-skill
+  - primary-trend-identification-skill
+  - pseudo-signal-troubleshooting-skill
+  card: cards/forecast-self-training-skill.md
+  resources: []
+  frontmatter:
+    description: 预测自检训练法（元能力，不产生交易信号）：盖图预测训练环——选历史日期→盖住其后数据→写预测及理由→ 对照汉密尔顿专栏→归因差异并记录例外；配套失误归因复盘（1926年标本五步）：定位结论时点→回溯先验立场→
+      检查信号合法性（单指数未确认＝应作废）→统计基准检验→归因"解读错误"而非理论失效。 用于自学道氏理论、复盘自己预测对错、区分运气与能力；不用于当下判市、非命中率统计工具； 需自备历史指数数据与图表，缺失先问不猜。
+      Trigger：自学 self-study、复盘 review my calls、盖图预测 cover-the-chart、归因 error attribution。
+    tags:
+    - 道氏理论
+    - 自学
+    - 复盘
+    - 训练
+    - 元能力
+  source_evidence:
+  - source_id: dow-theory-merged-transcript
+    location: 第1章（L282-294）；第5章（L478-494）
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 过门（判据 1 为弱通过：意图独立但低频），频率与复用垫底、依赖自备外部数据， 按预算排序（第 13）降为能力卡。
+  covered_tasks:
+  - task-11
+  candidate_ids:
+  - f16
+  - f20
+  - p04
+  - p79
+  - ce12
+  notes: 边界：数据输入模板（p80）与运动记录表（p81）canonical 在 u12，训练时按其自备数据并互参； c02（作者自述）为 reference，阶段 3 入 book/overview
+    参考区；p78（参考区）作训练动机素材； 下篇专栏即对照材料库（表 1/2/3 数据仅至 1931-11）。无 needs-review 强制更正项。 | A1 案例：示例1 用 c03/ce01（1926
+    汉密尔顿误判复盘，reported_case；canonical 在 u03/u01，本卡按 f16 复盘程序取用为标本，已标注）；示例2 为明确标记的合成演练（1928-8-27 对照走查，原书未提供逐步演练实例）。
+    E 段含判停分支：数据/对照材料缺失即停并询问；无预测留档时输出"未留档"归因。 材料缺口：u11 候选池无 c 类专属案例（仅 f16/f20/p04/p79/ce12）——训练环演练只能用合成演练承载，
+    建议阶段 3 在 also_read 落 u03（1926 判例）与 u12（p80/p81 数据模板）链接；汉密尔顿命中率统计全书不存在 （阶段 0 批判），卡片 B 段已防"永远归因解读错误"的循环论证。
+    p80"只考虑收市价"引用时标注译者解读层（B-9，与 u12 共享）。
+- capability_id: cap.dow-theory-skill.secondary-reaction-stat-baseline-skill
+  revision: 1
+  status: active
+  slug: secondary-reaction-stat-baseline-skill
+  title: 次级反应统计基准与数据基建（35 年分布预期＋记录模板＋除数法）
+  importance: medium
+  importance_rationale: 承载 task-12（BOOK_OVERVIEW 排序第 10，增强项）；经全书最强算术检验（p31 表 2/3 各列均值实算 精确命中 42.2/95.6/58.9/55.8/57.6）；但统计基于
+    1897-1931 手工筛选、迁移当代市场须重算。
+  one_liner: 回调/反弹预期只用统计分布校准、禁止当触发器：次级运动平均 52.2 天/回升 57.6%、 73% 于 55 个交易日内结束、恐慌后反弹约 40%~60%、牛 25 个月熊 17
+    个月； 数据基建＝收盘价＋成交量输入模板、运动记录表、除数法。
+  intents:
+  - 历上次级回调一般多深多久
+  - How deep and long do secondary reactions typically run?
+  - 恐慌后反弹一般能收复多少
+  - 牛市熊市一般持续多久
+  keywords:
+  - 统计基准
+  - 回撤分布
+  - 40%~60%
+  - 钟摆收敛
+  - 25个月
+  - 17个月
+  - 时长口径
+  - 记录表
+  - 除数法
+  - data-baseline
+  also_read:
+  - secondary-reaction-assessment-skill
+  - forecast-self-training-skill
+  - bear-bottom-checklist-skill
+  card: cards/secondary-reaction-stat-baseline-skill.md
+  resources: []
+  frontmatter:
+    description: 次级反应统计基准与数据基建（雷亚35年（1897—1931）手工统计；只作预期校准、禁止当触发器/止损位）： 次级平均52.2天、回升前期主要运动的57.6%、73%于55个交易日内结束；牛市次级回调58.9%、
+      熊市反弹55.8%、合并57.6%（49.5%禁用）；分布极宽：7.1%止于10%~25%、14%超85%； 牛约25个月/熊约17个月；真恐慌后反弹约40%~60%。 数据基建＝收盘价＋成交量、表1—3记录表、除数法（禁抄"乘以20"讹式）。
+      问"这次怎么办"转次级运动评估；迁移A股须重算。 Trigger：base rate、average drawdown 回撤分布。
+    tags:
+    - 道氏理论
+    - 统计基准
+    - 回撤分布
+    - 数据基建
+    - 预期管理
+  source_evidence:
+  - source_id: dow-theory-merged-transcript
+    location: 第10章表1-3（L747-1076）；下篇 1928-9-11 除数专栏（L3909）、L3959
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 过门，但用户意图多并入 u03 的提问（"回调多深"）、作为被组合的参考卡价值最大， 按预算排序（第 12）降为能力卡。
+  covered_tasks:
+  - task-12
+  candidate_ids:
+  - p23
+  - p29
+  - p30
+  - p31
+  - p33
+  - p34
+  - p80
+  - p81
+  - p85
+  - p88
+  - p89
+  - c10
+  - c41
+  notes: 编译时更正与边界：p32（needs_review）未入池——已确证部分（55.8%/58.9%/57.6%）先行使用并注明 "49.5% 待回查英文原著"；p31 表算 1~2 天偏差注记、110.1
+    与表内加权均值 100.3 系分母不同非冲突（B-5）； p29 1906-05-19 算例 0.24 点小出入不影响比例（B-6）；p85"乘以 20"算术不通系转写讹误、仅取方法（B-3）；
+    p80"只考虑收市价"出自第 5 章后专业解析（L534）、层属译者解读（B-9）；p23 五处时长口径并存引用注明（B-13）； p88 的 42%/44% 口径不一、42% 旋被证伪（B-15）；c41
+    牛市终点两栏差异照录（C-8）。 ce21/ce18（统计滥用边界）canonical 在 u07/u03，本卡互参。 | A1 案例：c10（表1—3 统计口径形成，worked_example，L745—L759）、c41（1901
+    北太平洋恐慌对照， reported_case，L3701/L3983/L2484；牛市终点"1902年秋/年末"两栏差异照录 C-8）。 E 段含判停分支：用户要触发器/目标位即拒绝并转 u03。
+    编译时更正已执行：p32 的 49.5% 禁用、只可用 55.8%/58.9%/57.6% 并注明待回查（needs_review 唯一条目）； p85"乘以 20"除式禁抄（B-3/C-11）；p80
+    译者层标注（B-9）；p23/p37/p88 口径冲突注明出处（B-13/B-14/B-15）。 材料缺口：49.5% 的统计口径（分母定义）书内无法裁决，须回查英文原著第 10 章原句；分布缺
+    25%~40% 区间段 （原文固有）；表 1—3 转写讹误（"Dect. 29, '09"等）使用前须核对原表；全部参数迁移 A 股须重算（登记缺口）。
+- capability_id: cap.dow-theory-skill.pseudo-signal-troubleshooting-skill
+  revision: 1
+  status: active
+  slug: pseudo-signal-troubleshooting-skill
+  title: 伪信号与归因排查（前提门槛＋反模式清单）
+  importance: high
+  importance_rationale: 配套 task-01/02/09/10；对应 BOOK_OVERVIEW"可 skill 化的内容"之"伪信号排除/反模式清单（可执行性高）"； A 股语境最高频误读（庄家归因、双顶形态、头条跟风）的解毒清单。
+  one_liner: 遇"双顶双底/主力砸盘/重磅消息/黑天鹅"先过排查清单：逐项对照书中反模式与前提门槛， 输出"无效＋替代程序"判定（双顶底改用破位＋确认；操纵归因三层检验；头条只当温度计）。
+  intents:
+  - 这波下跌是主力砸盘/庄家操纵吗
+  - Is this decline caused by manipulation?
+  - 双顶/双底成立了，要不要跑
+  - 重大消息出来了该跟吗
+  keywords:
+  - 双重顶
+  - 双重底
+  - 伪信号
+  - 操纵
+  - 庄家
+  - 主力砸盘
+  - 消息
+  - 头条跟风
+  - 反模式
+  - 前提
+  - 不可抗力
+  - false-signal
+  also_read:
+  - dual-index-confirmation-filter-skill
+  - primary-trend-identification-skill
+  - secondary-reaction-assessment-skill
+  - stock-preflight-market-check-skill
+  card: cards/pseudo-signal-troubleshooting-skill.md
+  resources: []
+  frontmatter:
+    description: 伪信号与归因排查（输出无效→替代程序、或有效→转交）：双顶/双底十之八九无意义、两指数同现几乎从未发生 ——改用"未突破前高→走低、未跌破前低→走高"的破位＋确认程序；主要运动绝不可被操纵（日间可操纵、
+      次级有限）——"主力砸盘"归因按三层检验回落到指数判读；头条见报时运动已结束——消息只当温度计； "反映一切"前提自带不可抗力豁免；不接受该前提者不应使用本体系。 用于问双顶要不要跑、是否主力砸盘、消息该不该跟；双指数同步破位是真信号（转主要趋势判定），
+      个股疑问转个股前置检查。 Trigger：double top 双顶、manipulation 主力砸盘。
+    tags:
+    - 道氏理论
+    - 技术分析
+    - 股票投资
+    - 伪信号
+    - 反模式
+  source_evidence:
+  - source_id: dow-theory-merged-transcript
+    location: 第3章（L400-406）；第4章（L412-454）；第16章（L1311-1331）
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 过门，但触发词与 u01-u03 大量重叠（双顶→u01 破位、单指数→u02、消息→u02 消息降权）， 按预算排序（第 11）降为能力卡；A 股"庄家归因"场景若获路由证据，是
+      split-on-evidence 的高优先候选。
+  covered_tasks:
+  - task-01
+  - task-02
+  - task-09
+  - task-10
+  candidate_ids:
+  - f13
+  - f14
+  - f15
+  - p01
+  - p02
+  - p03
+  - p57
+  - p58
+  - c11
+  - c12
+  - c37
+  - ce03
+  - ce16
+  - ce17
+  - ce22
+  notes: 编译时更正：f13"利好不涨、利空不跌"系中文概括语非引文，编译时标注（A-4）； c11"90 天内损失 60%"与通行行情数据不尽相符，保留疑点（C-2）。 互参：ce01 的 1926
+    判例 canonical 在 u03；p04（实践科学定位）在 u11；单指数假象排查 canonical 在 u02。 | A1 案例：c37（1928 铁路双重顶警告依规使用仍被否证，reported_case，L3855/L3869；数字
+    203.35/143.44/ 144.82/145.61 已 grep 核对）、c12（890 亿美元市值操纵演算，worked_example，L406；辅 L3889"700余支"）。 E 段含判停分支：形态簇单指数未确认→立即作废转
+    u02；用户坚持"主要趋势由庄家决定"→终止。 编译时更正已执行：f13 概括语标注（A-4，"利好不涨"经 grep 确认不存在于转写稿）；c11 疑点保留（C-2）； ce01 的 1926
+    判例互参 u03。 材料缺口：c11 的"90 天内损失 60%"待核原书第 16 章与 1930 年行情；A 股双指数替代指数对选择仍是全局 落地缺口（影响本卡向 u02 转交的可运行性）；书中未给次级运动"联合力量"的量化论证（阶段
+    0 批判，随卡）。

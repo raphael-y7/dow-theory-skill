@@ -127,14 +127,14 @@
 
 ## 相关 skills（阶段 3 填充）
 
-- depends-on: primary-trend-identification-skill（u01，方向输入）、bear-bottom-checklist-skill（u07，底部确认输入）
-- contrasts-with: pseudo-signal-troubleshooting（u13）、trading-discipline-rules-skill（u10）
-- composes-with: dual-index-confirmation-filter-skill（u02，确认规则不适用个股的边界）
+- depends-on: primary-trend-identification（u01，方向输入）、bear-bottom-checklist（u07，底部确认输入）
+- contrasts-with: pseudo-signal-troubleshooting（u13）、trading-discipline-rules（u10）
+- composes-with: dual-index-confirmation-filter（u02，确认规则不适用个股的边界）
 
 ---
 
 ## 审计信息
 
-- **来源**：verified.yaml cap.dow-theory-skill.stock-preflight-market-check；候选 f17、p59、p60、p61、c14、c17、ce15、ce20
+- **来源**：verified.yaml cap.dow-theory-skill.stock-preflight-market-check-skill；候选 f17、p59、p60、p61、c14、c17、ce15、ce20
 - **引文核对**：R 段三处引文均经合并转写稿 grep 逐字核对（L1339、L1403、L1335）
 - **蒸馏时间**：2026-10-11

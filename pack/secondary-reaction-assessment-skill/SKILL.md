@@ -89,9 +89,9 @@ metadata:
 ### 与相邻能力的区分（相邻名单 = u01—u13）
 
 - 与 `primary-trend-identification-skill`（u01）的区别: u01 维护主要趋势方向状态机；本卡评估反向运动的性质与幅度。问"趋势变了吗"→u01；问"这次回调正常吗、多深多久"→本卡。
-- 与 `secondary-reaction-stat-baseline`（u12）的区别: u12 是纯统计参考卡（分布数字、时长口径、记录模板）；本卡用统计做判定之一但输出的是运动性质结论。只问历史统计数字→u12。
-- 与 `volume-price-health`（u05）的区别: u05 只判技术状态（超买/超卖）与时机语义；本卡的量价四条件用于判定运动完成，输出的是"次级/反转"结论。
-- 与 `pseudo-signal-troubleshooting`（u13）的区别: 双重顶等形态误判的排查与替代程序 canonical 在 u13；本卡在其上游（先核幅度与速度，再谈形态）。
+- 与 `secondary-reaction-stat-baseline-skill`（u12）的区别: u12 是纯统计参考卡（分布数字、时长口径、记录模板）；本卡用统计做判定之一但输出的是运动性质结论。只问历史统计数字→u12。
+- 与 `volume-price-health-skill`（u05）的区别: u05 只判技术状态（超买/超卖）与时机语义；本卡的量价四条件用于判定运动完成，输出的是"次级/反转"结论。
+- 与 `pseudo-signal-troubleshooting-skill`（u13）的区别: 双重顶等形态误判的排查与替代程序 canonical 在 u13；本卡在其上游（先核幅度与速度，再谈形态）。
 - 与 `bear-bottom-checklist-skill`（u07）的区别: u07 是熊市末端的底部特征核查；本卡覆盖牛市/熊市全程的次级运动判定。
 
 ---
@@ -148,9 +148,9 @@ metadata:
 
 ## 相关 skills (阶段 3 填充)
 
-- depends-on: primary-trend-identification-skill（反转确认出口）
+- depends-on: primary-trend-identification（反转确认出口）
 - contrasts-with: secondary-reaction-stat-baseline, volume-price-health
-- composes-with: bear-bottom-checklist-skill, bull-top-exit-signals-skill, trading-discipline-rules-skill
+- composes-with: bear-bottom-checklist, bull-top-exit-signals, trading-discipline-rules
 
 ---
 

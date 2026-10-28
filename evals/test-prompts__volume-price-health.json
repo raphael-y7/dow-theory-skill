@@ -1,0 +1,78 @@
+{
+  "skill": "volume-price-health",
+  "version": "1.0.0",
+  "capability_id": "cap.dow-theory-skill.volume-price-health",
+  "destination": "router",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "大盘最近缩量阴跌，量价是不是背离了？现在市场算超卖吗？",
+      "expected_behavior": "路由可达本卡：按行为特征清单判定（下跌量缩＝跌端迟缓→超卖倾向），附“量能不得推翻指数判读”声明与牛市/熊市语境化。",
+      "notes": "正面场景（router：经来源路由入口可达）：A2 场景1+2。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "缩量下跌我懂了，可这波回调到底是次级运动还是反转？会不会跌破前期低点？",
+      "expected_behavior": "不路由到本卡。应指向 secondary-reaction-assessment-skill（运动性质判定）；本卡只输出技术状态倾向，不判定次级/反转。",
+      "notes": "跨skill诱饵：运动性质→u03。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "别看大盘了，就看我手里这票：缩量到地量了，是不是马上要涨？",
+      "expected_behavior": "不路由到本卡（个股量价不适用，本卡规则针对平均价格指数）。",
+      "notes": "边界：个股量价。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "指数创了新高可成交量一直没放大，新高没有量能配合，是不是要警惕？",
+      "expected_behavior": "路由可达本卡：新高新低须量能配合规则——“新高而量不济，信号力度存疑”；同时声明位序（量第二位、不推翻指数判读）。",
+      "notes": "正面场景：A2 场景4，量能配合。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "量的事先不说，你就告诉我现在是牛市还是熊市。",
+      "expected_behavior": "不路由到本卡。应指向 primary-trend-identification-skill（方向判定）；本卡量能证据不能替代指数阶梯判读。",
+      "notes": "跨skill诱饵：方向问题→u01。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "最近放量但价格就是涨不动，量增价滞，是不是书上说的过度活跃？牛市是不是快到头了？",
+      "expected_behavior": "路由可达本卡：过度活跃警报（量增而价推进甚微）＋转 bull-top-exit-signals-skill 做清仓分级的衔接说明。",
+      "notes": "正面场景：位置性警报。"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "帮我用OBV能量潮看看大盘有没有顶背离。",
+      "expected_behavior": "不路由到本卡（现代量能指标体系位序相反、不在本书规则内；本卡描述明确排除OBV等）。若触发必须声明OBV非本书方法且不混用。",
+      "notes": "边界：现代指标体系不混入。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "都说“绝不在沉闷的市场做空”，可现在是熊市，反弹之后市场很沉闷，这句话还能用吗？",
+      "expected_behavior": "路由可达本卡：箴言条件化（熊市反弹后转沉闷＝做空时机，格言在熊市不成立，ce13）。",
+      "notes": "正面场景：箴言滥用边界。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "股票软件里的成交量单位“手”和“股”是怎么换算的？",
+      "expected_behavior": "不路由到本卡（常识换算问题，与技术状态判读无关）。",
+      "notes": "无关诱饵：非判读场景。"
+    },
+    {
+      "id": "edge-03",
+      "type": "edge_case",
+      "prompt": "我只导出了最近一个月的成交量数据，没管价格，帮我判断市场技术状态。",
+      "expected_behavior": "可路由到本卡但必须执行 E 段判停：无指数判读状态→“证据不足，先补指数阶梯判读”，不得唯量判市直接给超买/超卖结论。缺指数状态仍输出状态结论＝失败。",
+      "notes": "边界：位序纪律判停（E 段步骤1）。"
+    }
+  ]
+}

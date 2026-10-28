@@ -1,6 +1,6 @@
 # 伪信号与归因排查（前提门槛＋反模式清单）
 
-> 能力单元 u13（cap.dow-theory-skill.pseudo-signal-troubleshooting）｜来源：《道氏理论（专业解读版）》罗伯特·雷亚著，谢飞译。
+> 能力单元 u13（cap.dow-theory-skill.pseudo-signal-troubleshooting-skill）｜来源：《道氏理论（专业解读版）》罗伯特·雷亚著，谢飞译。
 > 本卡所有引文均出自**谢飞译本**（合并转写稿），出处标注为"（第X章）"或"（〈华尔街日报/巴伦周刊〉YYYY年M月D日专栏）"。
 > **编译时更正预警**：f13"利好不涨、利空不跌"是中文市场概括语、**非原文引文**（A-4），引用必须标注；c11"90 天内损失了 60%"与通行行情数据不尽相符，保留疑点（C-2）；ce01 的 1926 年判例 canonical 在 u03，本卡互参。
 
@@ -75,8 +75,8 @@
 - 与 `primary-trend-identification-skill`（u01）的区别：u01 用高低点阶梯＋3% 净逆转输出**方向结论**；本卡只否决伪信号并给替代程序，方向判定仍归 u01。
 - 与 `dual-index-confirmation-filter-skill`（u02）的区别：单指数未确认信号的三态判定（确认/等待/假象）canonical 在 u02——本卡在"单指数异动"场景下把请求转给 u02，并拦截"凭单指数下结论"。
 - 与 `secondary-reaction-assessment-skill`（u03）的区别："这波下跌是次级回调还是反转"由 u03 判；本卡处理的是**归因与形态标签**（谁造成的、形态可不可信），不是运动性质。
-- 与 `stock-preflight-market-check`（u09）的区别：个股异动/个股"被操纵"疑问转 u09——指数规则不适用于个股。
-- 与 `forecast-self-training`（u11）的区别：u11 复盘"我的判断流程错在哪"；本卡排查"这个信号/归因本身可不可信"。
+- 与 `stock-preflight-market-check-skill`（u09）的区别：个股异动/个股"被操纵"疑问转 u09——指数规则不适用于个股。
+- 与 `forecast-self-training-skill`（u11）的区别：u11 复盘"我的判断流程错在哪"；本卡排查"这个信号/归因本身可不可信"。
 
 ---
 
@@ -137,9 +137,9 @@
 
 ## 相关 skills（阶段 3 填充）
 
-- depends-on: 无硬依赖（排查清单与替代程序自足；作为 primary-trend-identification-skill、dual-index-confirmation-filter-skill、secondary-reaction-assessment-skill、stock-preflight-market-check 的兜底排查被组合）
-- contrasts-with: dual-index-confirmation-filter-skill（真伪过滤的 canonical）、forecast-self-training（归因对象不同）
-- composes-with: primary-trend-identification-skill、secondary-reaction-assessment-skill、stock-preflight-market-check（排查后的转交出口）
+- depends-on: 无硬依赖（排查清单与替代程序自足；作为 primary-trend-identification、dual-index-confirmation-filter、secondary-reaction-assessment、stock-preflight-market-check 的兜底排查被组合）
+- contrasts-with: dual-index-confirmation-filter（真伪过滤的 canonical）、forecast-self-training（归因对象不同）
+- composes-with: primary-trend-identification、secondary-reaction-assessment、stock-preflight-market-check（排查后的转交出口）
 
 ---
 

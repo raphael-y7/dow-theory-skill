@@ -77,10 +77,10 @@
 ### 与相邻 skill 的区分（相邻名单＝u01—u13）
 
 - 与 `primary-trend-identification-skill`（u01）/`secondary-reaction-assessment-skill`（u03）的区别：它们判定行情方向与回调性质；本卡不判行情，只检查持仓行为与资金规则是否违规。
-- 与 `volume-price-health`（u05）的区别：沉闷期"回调后买点"的**时机**判断在 u05；本卡只管这个时机到来时仓位多重、怎么加码。
-- 与 `stock-preflight-market-check`（u09）的区别：u09 是"现在允不允许做"的大盘闸门；本卡是"决定做之后怎么管"的纪律层。
-- 与 `secondary-reaction-stat-baseline`（u12）的区别：u12 的分布数字只作预期校准，不得当作本卡止损位或目标位。
-- 与 `pseudo-signal-troubleshooting`（u13）的区别：u13 排查"信号真假与归因"；本卡处理信号确定后的行为与资金纪律。
+- 与 `volume-price-health-skill`（u05）的区别：沉闷期"回调后买点"的**时机**判断在 u05；本卡只管这个时机到来时仓位多重、怎么加码。
+- 与 `stock-preflight-market-check-skill`（u09）的区别：u09 是"现在允不允许做"的大盘闸门；本卡是"决定做之后怎么管"的纪律层。
+- 与 `secondary-reaction-stat-baseline-skill`（u12）的区别：u12 的分布数字只作预期校准，不得当作本卡止损位或目标位。
+- 与 `pseudo-signal-troubleshooting-skill`（u13）的区别：u13 排查"信号真假与归因"；本卡处理信号确定后的行为与资金纪律。
 
 ---
 
@@ -147,9 +147,9 @@
 
 ## 相关 skills（阶段 3 填充）
 
-- depends-on: 无硬依赖（原则包自足，不判行情；行情方向语境来自 primary-trend-identification-skill 的输出）
+- depends-on: 无硬依赖（原则包自足，不判行情；行情方向语境来自 primary-trend-identification 的输出）
 - contrasts-with: volume-price-health（时机 vs 纪律）、secondary-reaction-stat-baseline（预期 vs 触发禁令）
-- composes-with: primary-trend-identification-skill（方向输入）、bull-top-exit-signals-skill（清仓执行层）
+- composes-with: primary-trend-identification（方向输入）、bull-top-exit-signals（清仓执行层）
 
 ---
 

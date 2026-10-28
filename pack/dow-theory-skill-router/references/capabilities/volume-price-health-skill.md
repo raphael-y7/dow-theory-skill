@@ -1,6 +1,6 @@
 # 量价关系健康度评估（超买超卖与沉闷/活跃语义）
 
-> 能力单元 u05 ｜ capability_id: cap.dow-theory-skill.volume-price-health
+> 能力单元 u05 ｜ capability_id: cap.dow-theory-skill.volume-price-health-skill
 > 引文均出自谢飞译《道氏理论（专业解读版）》（原著 Robert Rhea, 1932）合并转写稿；出处按"第 N 章"或"〈华尔街日报/巴伦周刊〉YYYY年M月D日专栏"标注，行号（Lxx）为转写稿定位。
 
 ## R — 原文 (Reading)
@@ -71,7 +71,7 @@
 - 与 `bull-top-exit-signals-skill`（u08）的区别: "过度活跃＝牛市将终"的警报在本卡发出，但清仓分级与执行在 u08。
 - 与 `trading-discipline-rules-skill`（u10）的区别: 沉闷期"该做什么动作"的仓位纪律在 u10；本卡只给"这个沉闷在当前趋势语境下意味着什么"。
 - 与通用"量在价先"类量价分析（OBV、量比指标等）的区别: 位序相反——本书量居第二位且从属指数；现代指标体系不在本书规则内，混用须声明。
-- 与 `pseudo-signal-troubleshooting`（u13）的区别: 头条消息引发的量能异动解读，消息降权逻辑在 u13；本卡只处理量价本身。
+- 与 `pseudo-signal-troubleshooting-skill`（u13）的区别: 头条消息引发的量能异动解读，消息降权逻辑在 u13；本卡只处理量价本身。
 
 ---
 
@@ -121,9 +121,9 @@
 
 ## 相关 skills (阶段 3 填充)
 
-- depends-on: primary-trend-identification-skill（指数状态输入）
-- contrasts-with: secondary-reaction-assessment-skill, pseudo-signal-troubleshooting
-- composes-with: bull-top-exit-signals-skill（过度活跃警报）, trading-discipline-rules-skill（沉闷期动作）, bear-bottom-checklist-skill（量能萎缩项）
+- depends-on: primary-trend-identification（指数状态输入）
+- contrasts-with: secondary-reaction-assessment, pseudo-signal-troubleshooting
+- composes-with: bull-top-exit-signals（过度活跃警报）, trading-discipline-rules（沉闷期动作）, bear-bottom-checklist（量能萎缩项）
 
 ---
 

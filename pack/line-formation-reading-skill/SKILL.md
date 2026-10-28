@@ -145,9 +145,9 @@ metadata:
 
 ## 相关 skills (阶段 3 填充)
 
-- depends-on: dual-index-confirmation-filter-skill（突破确认）
-- contrasts-with: primary-trend-identification-skill, bull-top-exit-signals-skill
-- composes-with: bear-bottom-checklist-skill, bull-top-exit-signals-skill
+- depends-on: dual-index-confirmation-filter（突破确认）
+- contrasts-with: primary-trend-identification, bull-top-exit-signals
+- composes-with: bear-bottom-checklist, bull-top-exit-signals
 
 ---
 
