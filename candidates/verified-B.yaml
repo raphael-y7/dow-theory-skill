@@ -1,0 +1,1767 @@
+# 阶段 1.5 三重验证产出 — B组（原则/规则/计算口径候选）
+# 验证依据: methodology/03-stage1.5-triple-verify.md (task-first-v2)
+# 基准文本: 道氏理论（专业解读版）_合并转写稿.md（4155行，location 中 Lxx 为该文件行号）
+# 候选来源: candidates/principle.md（90 条，逐条回核）
+#
+# ── 统计 ─────────────────────────────────────────────
+# 总数 90 | verified 85 | reference 4 | needs_review 1 | rejected 0
+# ─────────────────────────────────────────────────────
+#
+# 冲突保留说明: 候选自注的四处口径冲突（p23 时长口径族 / p32 牛熊互换 / p37 牛熊时长多版本 / p88 熊市总跌幅口径）
+#   经回核全部属实。p32 因"全体反弹均值49.5%"无法由书内任何口径复算（表算合并均值为57.6%，与书内 L755 自洽）转 needs_review；
+#   其余三条冲突已在 reason 中保留并限定"引用须注明出处"。
+# 算术裁决记录: p32 的牛熊互换方向已用表2/表3实算裁决（表2牛市 n=42 均值 58.9%、表3熊市 n=29 均值 55.8%），
+#   证实候选解读方向正确，仅余 49.5% 一处待回查英文原著。
+# 层级标注: p43、p90 涉及"专业解析"译者解读层，来源层均已显式标注，未冒充雷亚本人方法论。
+# rejected 为 0: 90 条均找到真实原文依据，无错误归因，故无 rejected-B/ 文件产出。
+
+- id: p01
+  title: 人为操纵的三层次公理
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第2章 L340、第3章 L384/L398/L406/L400
+  V1_source_sufficiency:
+    passed: true
+    reason: "三层次引文逐字命中（L340/L384）；理据亦核实——1929-09-01 纽交所总市值逾 890 亿美元（L406）、1923-04-27 财政部与美联储联合也无法操纵 40 支活跃股票（L398）、'仅次于缺乏耐心'的第二大亏损原因（L400）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——'某日涨停潮由庄家拉抬造成，因此主要趋势将反转'的归因主张"
+    observed: "按本条三层范围逐层检验：日间波动归因于操纵可保留为可能，主要趋势反转归因于操纵则判为无效归因，要求改用两指数读数解释——判定分支明确"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "排除'庄家决定趋势'这一业余最大误判来源，减少错误归因类亏损"
+  decision: verified
+
+- id: p02
+  title: 平均价格指数反映一切（含使用门槛）
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第4章 L412/L454、第2章 L346
+  V1_source_sufficiency:
+    passed: true
+    reason: "'否定这一原理的人……不要尝试使用道氏理论'（L412）、'必须绝对相信'（L454）、不接受假设则'被彻底地误导或产生困惑'（L346）三处均逐字命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——使用者对'指数已消化某利空'表示怀疑并拟按消息面逆向操作"
+    observed: "按本条先检核使用者是否接受前提：不接受则输出'不应使用该体系'的边界结论；接受则回到指数判读——检验路径完整"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "确立体系使用前提与边界，防止信条与操作割裂；是所有判读规则的总开关"
+  decision: verified
+
+- id: p03
+  title: 交易基于可预见的最佳消息，而非众所周知消息
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第4章 L424/L444、第3章 L400
+  V1_source_sufficiency:
+    passed: true
+    reason: "1913-01-20 引文（L424）与 1906-06-29 引文（L444）均逐字命中；'重大新闻刊登时影响力早已被消化'及'除非处于超买超卖，头条引发的反应站不住脚'（L400/L404）在 ch3 命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——某重大利好见报当日，使用者拟追买"
+    observed: "按本条输出：见报即滞后，除非指数同时处于超卖状态，否则不作为买点依据，转回两指数阶梯读数——判定可检验"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "抑制读报跟风操作，统一'消息服从指数'的判读次序"
+  decision: verified
+
+- id: p04
+  title: 道氏理论并非真理（实践科学定位）
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第5章 L478（另见前言 L187、第2章 L344）
+  V1_source_sufficiency:
+    passed: true
+    reason: "引文逐字命中（L478）；实践科学类比（外科/飞行）与'主观愿望不得超越理性'同段在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——使用者因一次按规则操作亏损而质疑整套体系"
+    observed: "按本条输出两种分支：误读信号或理论少数失灵期，均指向 p73 的处置（接受损失、停手观望）而非弃用或改规则——边界检验通过"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为体系设定正确预期与失败归因框架，防止'失败即弃用/胜利即神化'两个极端"
+  decision: verified
+
+- id: p05
+  title: 主观判断不得凌驾指数信号（1926年汉密尔顿教训）
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第5章 L500/L520、第19章 L1405
+  V1_source_sufficiency:
+    passed: true
+    reason: "'依靠双重顶……迎合了自己的观点'（L520）逐字命中；数值口径核实——工业/铁路分别拉回 55% 和 53%、'从 40% 到 60% 都属于正常值'同句在（L520）；1925 年秋后一年走势图作反面教材（L500）；1919-08-08'背离……大部分都是错误的'（L1405）命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——单指数形成疑似双顶、使用者本已倾向看空"
+    observed: "按本条检验三要件：另一指数是否确认（p11）、回撤是否处 40%~60% 正常区间、判断是否先于信号形成——1926 案例三要件全破，判为次级回调——可复制检验"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "提供'愿望当信号'的检错程序与历史标本，直接对应初学者第二大亏损模式"
+  decision: verified
+
+- id: p06
+  title: 三种运动并存与重要性排序
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第6章 L542/L544、第2章 L191/L350
+  V1_source_sufficiency:
+    passed: true
+    reason: "三种运动并存与时长定义逐字命中（L542，另见 L191/L350）；'刹车/油门'汽车类比在 ch6 L544"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——某日大跌 2%，使用者询问'趋势反转了吗'"
+    observed: "按本条先分层：若属日间波动层级则输出'不构成推论对象'（转 p21），若是 3 周以上反向运动则进入次级评估（转 p22）——分层前置检查可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "强制判读前先锁定运动层级，减少把日间波动/次级运动误当主要趋势的低级错误"
+  decision: verified
+
+- id: p07
+  title: 判断方向是关键，持续时间不可预测
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第7章 L560、第10章 L695、下篇 L4101
+  V1_source_sufficiency:
+    passed: true
+    reason: "ch7 引文逐字命中（L560）；'晴雨表从来不预示持续时间'（L4101）与'能预报哪天下雪、不能预报降雪 3.5 英寸'（L695）两处类比在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——'牛市已运行 18 个月，何时见顶'的提问"
+    observed: "按本条输出：持续时间为不可预测项，仅给方向读数与风险状态（转 p37 时长背景值辅助风险意识），拒绝给时点——边界明确"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "划定预测范围，避免把体系用于其无力回答的问题，节省无效分析"
+  decision: verified
+
+- id: p08
+  title: 看不懂就先做旁观者
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第7章 L564、第18章 L1371
+  V1_source_sufficiency:
+    passed: true
+    reason: "'有疑问……先做一个旁观者'逐字命中（L564）；与 ch18'心存疑惑就什么也不要做'（L1371）互证"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——两指数信号矛盾、无法判定趋势状态"
+    observed: "按本条输出默认动作=空仓观望，直至信号清晰；判停条件明确（信号可读为止）"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "给体系加装默认空仓规则，消除'必须时刻在场'的行为偏差"
+  decision: verified
+
+- id: p09
+  title: 两种指数必须相互确认（第一纪律）
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第12章 L1097-1103、第2章 L215/L362、《股市晴雨表》引文 L1153
+  V1_source_sufficiency:
+    passed: true
+    reason: "定义处（L215/L362）与展开章（L1099）逐字命中；'一天都不能忘记的部分'（L1101）、'承认一种指数而未获确认是最容易犯的错误之一'（L1153）均在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——仅工业指数创新高"
+    observed: "按本条输出'未确认=不产生可靠结论'，等待另一指数跟进或否认（衔接 p10/p11）——过滤器可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "全书第一操作纪律，直接服务 task-04，消除单指数误读"
+  decision: verified
+
+- id: p10
+  title: 消极保险规则——单指数指示不如不判断
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第12章 L1131（1928-07-27）
+  V1_source_sufficiency:
+    passed: true
+    reason: "引文逐字命中且日期 1928-07-27 标注在引文内（L1131）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——任一双指标体系中只有指标A给出信号"
+    observed: "按本条输出：按'无信号'处理，不入场不等同于反向——可直接移植为通用过滤器规则"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "把'未确认'统一降级为无信号，减少边界情况下的随意裁量"
+  decision: verified
+
+- id: p11
+  title: 未确认的新高新低几乎是假象
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第12章 L1135（1913-06-04）、第13章、第8章 L612、下篇 L2873（1921-05-10）
+  V1_source_sufficiency:
+    passed: true
+    reason: "定义句逐字命中（L1135）；'自平均价格指数建立起，在每次主要运动前，两个指数都会同时创下新高或新低'（1921-05-10，L2873）与'可能发生的趋势变化只是次级运动趋势'（ch8 L612）均在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——铁路指数跌破前期低点，工业指数未破"
+    observed: "按本条输出：读作次级运动信号而非主要趋势反转，待工业确认后才升级——与 1922-11-27 案例（L3210 铁路破位工业未确认）同构，检验通过"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "对最常见假信号（单指数新高低）给出即刻读数，防过早改判"
+  decision: verified
+
+- id: p12
+  title: 两指数方向一致、力度可异（适用边界）
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第12章 L1157（《股市晴雨表》引文）
+  V1_source_sufficiency:
+    passed: true
+    reason: "引文逐字命中，且同句明确边界——适用于主要运动与次级运动及反弹，不适用于日间波动，用于个股'也许会出现严重的误导'（L1157）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——拟将双指数确认规则套用于某只个股与指数之间"
+    observed: "按本条输出：禁止该用法（个股不在确认规则适用范围）——负向检验通过"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "防止把指数规律错用到日级或个股层面，划清确认规则的适用域"
+  decision: verified
+
+- id: p13
+  title: 确认不必同日；确认后单指数独行无妨
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第12章 L1155、第13章 L1171（1921-12-30）、下篇 L3404（1924-08-11 前后专栏）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'绝对没有必要同一天'与'也无妨'（L1155）、'不必在同一天，或者甚至不在同一周'（1921-12-30，L1171）逐字命中；'同日同周只是巧合'见于 1924 专栏（L3404，转写稿未标日期，内容与阶段0档案记 1924-08-11 相符）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——工业周一创新高、铁路周四创新高"
+    observed: "按本条输出：确认成立（不必同日），且此后工业再创新高无需铁路逐次跟随——时间窗口处理规则明确"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "解决确认判定中最常见的时间差疑问，避免机械要求同日而错判"
+  decision: verified
+
+- id: p14
+  title: 相互确认主要出现在主要运动初期
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第12章 L1115（1926-04-06）
+  V1_source_sufficiency:
+    passed: true
+    reason: "引文逐字命中且日期 1926-04-06 标注在引文内（L1115）；'晴雨表一贯保守，谨慎好过张扬'同段在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——主要趋势中途的次级回调中两指数暂不同步"
+    observed: "按本条输出：次级阶段不同步属常态，不据此否定主要趋势——防止把'初期限定'误读为'全程要求'"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "界定确认失灵的合法场景，减少次级阶段被误判为趋势反转"
+  decision: verified
+
+- id: p15
+  title: 两指数都失守才能断言趋势改变
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 下篇第20章 L3857（《巴伦周刊》1928-03-05，标题行 L3853）
+  V1_source_sufficiency:
+    passed: true
+    reason: "引文逐字命中，出处《巴伦周刊》1928-03-05 与标题行一致；'单板块跟随失败强烈暗示改变'同段在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——工业未创新高而铁路创新高"
+    observed: "按本条输出：单板块失败=警告级，两指数同时失守才升格为趋势改变预测——信号分级可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "过滤单板块背离的过度解读，与 p11/p84 构成分级体系"
+  decision: verified
+
+- id: p16
+  title: 指数失真期剔除与替代品禁用
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第12章 L1159（章末）、脚注 L1103/L1105、下篇 L3284-3306（免税债券专栏，转写稿未标日期）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'把这段时期排除在外是极其明智的'及铁路国有化失真机制（L1159）逐字命中；公用事业指数不可替代的脚注（'受一两支股票的直接影响'，L1105）命中；免税债券/所得税扭曲的内容在 ch20 专栏存在（L3284/L3288/L3306）——1923-08-29 具体日期转写稿未标注，保留待核但不影响规则成立"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——含失真期的双指数历史序列（如停牌期、成分大调整期）"
+    observed: "按本条输出：先标记失真期并剔除再检验确认规则；替代指数需先做联动性检验——数据处理前置步骤可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为 A 股双指数替代与历史数据清洗提供数据质量规则，避免在失真数据上校验理论"
+  decision: verified
+
+- id: p17
+  title: 信号持续到被抵销或增强为止
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第13章 L1175（1929-09-23）、下篇 L4084
+  V1_source_sufficiency:
+    passed: true
+    reason: "引文逐字命中且日期 1929-09-23 在引文内（L1175）；ch20 同旨段（L4084）互证；'前期牛市信号依然有效'的推断规则同段在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——牛市中单指数回调跌破前期低点、另一指数未确认"
+    observed: "按本条输出：原牛市信号维持有效，直到出现被确认的抵销行为——状态机规则（有效/抵销/增强三态）可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "给趋势状态定义'保持默认'语义，消除信号有效期歧义，减少反复改判"
+  decision: verified
+
+- id: p18
+  title: 趋势判定的操作定义（高点/低点阶梯＋3%净逆转）
+  type: calculation
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第13章 L1169、第2章 L219/L364
+  V1_source_sufficiency:
+    passed: true
+    reason: "牛市/熊市阶梯定义与'超过 3% 的净逆转'、'须两指数确认'、'不必同一天'四要素在 ch13（L1169）与 ch2（L219/L364）逐字命中，输入/输出在原文内完整"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "假设两指数收盘序列——工业 100→103.5（+3.5%，超 3%，标记回升完成）→101.4（-2.0%，未超 3%，不构成标记运动）→106.2（超前高）→102.8（-3.2%，回落完成）；铁路 50→51.8→50.9→53.1→51.6（对应 +3.6%/-2.8%）"
+    expected: "工业：高点 106.2＞103.5、低点 102.8＞101.4=阶梯抬升；铁路：53.1＞51.8、51.6＞50.9=同步抬升；双指数确认→牛市信号成立；3% 仅为标记单位，不产生买卖触发"
+    observed: "与预期一致；反向演练（工业反弹 105 未超前高、回落 102.0 破前低且铁路同步破位）按同一定义输出熊市信号，分支完备"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "把'趋势'从描述变程序，直接服务 task-01，统一不同使用者对同一段行情的判定"
+  decision: verified
+
+- id: p19
+  title: 牛转熊确认规则
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第13章 L1177/L1181（1928-06-25）、下篇 L3875
+  V1_source_sufficiency:
+    passed: true
+    reason: "引文逐字命中且日期 1928-06-25 在引文内（L1181）；'检验过去35年……包含一些例外'（L1177）同段在——更正：ch20 对应专栏标题记《巴伦周刊》1928-06-25（L3875），候选标《华尔街日报》有误，已保留更正"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——牛市剧烈次级运动后双指数跌破前期次级低点且合理时间内未创新高"
+    observed: "按本条输出：可'比较肯定地假设'牛转熊，但须记忆'包含一些例外'——判定带置信级别而非绝对结论，与原文一致"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "给主要趋势反转提供双指数确认判据，服务 task-01/task-08"
+  decision: verified
+
+- id: p20
+  title: 熊转牛确认规则
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第13章 L1177、第8章 L600、下篇 L2932（1921-09-21 前后专栏）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'不再创新低＋双指数反弹越过上次重大反弹高点'判据逐字命中（L1177）；'两个平均价格指数的新高点甚至略高于它们上次记录的高点，那么我们处在一个牛市中或许是一条合理的规则'（L2932）在 1921-09-21 研究专栏内（ch8 L600 明确援引该日研究）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——熊市中新一波下跌双指数均未创新低，随后反弹双双越过上次反弹高点"
+    observed: "按本条输出：推断熊转牛成立——判据为二值检验（破/不破、越/未越），可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "与 p19 对称构成趋势反转的双向判据，直接服务 task-07"
+  decision: verified
+
+- id: p21
+  title: 日间波动禁止单日推论
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第11章 L1079、L1083（1929-07-29）、第2章 L211
+  V1_source_sufficiency:
+    passed: true
+    reason: "引文逐字命中（L1079，另见 L211）；'日间波动没有逻辑'（1929-07-29，L1083）与'仍须每日记录研究，一系列日间运动可发展出形态'同段在——禁令与记录义务两面齐全"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——单日暴跌 3% 的读数请求"
+    observed: "按本条输出：单日运动不产生趋势推论，仅记录入图表；唯形成线态窄幅盘整时例外（转 p44）——例外条件明确"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "压制初学者最常见的日间波动交易冲动（对应 p72 亏损模式一）"
+  decision: verified
+
+- id: p22
+  title: 次级运动定义与33%~66%回调口径
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第2章 L207/L358、第10章 L691/L695/L727、第13章 L1179
+  V1_source_sufficiency:
+    passed: true
+    reason: "定义与 33%~66% 口径三处逐字命中（L207/L691/L1179）；'追回 1/3 到 2/3 甚至更多'、'定出精确限度者注定失败'（3.5 英寸类比 L695）、'务必考虑交易量'（L727）均命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——牛市主要运动涨幅 100 点，当前回调 45 点"
+    observed: "按本条输出：回撤 45% 处 33%~66% 正常区间，倾向次级运动；结合 p27 量价序列与 p24 速度特征进一步定性——区间判定可执行，且明确不提供精确点位"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "统一'回调多深属正常'的判读基准，服务 task-02"
+  decision: verified
+
+- id: p23
+  title: 次级运动持续时间的口径族谱
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第13章 L1179（3~12周）、第10章 L729/L731、第2章 L207、下篇 L1465（1904-09-17：20~60天）、L552/L1803（1909-02-26：1~3个月）、L2852（1921-06-16：3周~3个月）
+  V1_source_sufficiency:
+    passed: true
+    reason: "五处口径全部找到且与候选所记出处一致——3周至数月（L207）、3~12周（L1179）、20~60天（1904-09-17，L1465）、1个月到3个月（1909-02-26，L552 雷亚正文引述+L1803）、3周到3个月（L729/L2852）；'超过8周的次级运动与 line 特征一致'（L731）在——口径族冲突真实存在，候选已自注"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——某次级运动已运行 7 周"
+    observed: "按本条输出：处各口径共同覆盖带内（均含 3 周~2 月以上），未到任一口径上界，不据此判定异常；引用时须注明所采用口径——冲突管理规则本身可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "把同书口径分歧集中登记，防止下游引用时口径漂移"
+  decision: verified
+
+- id: p24
+  title: 速度不对称原则
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第8章 L582（1910-03-19）、第10章 L711、下篇 L2061（1910-08-30）
+  V1_source_sufficiency:
+    passed: true
+    reason: "1910-03-19 引文逐字命中（L582）；'反弹趋于猛烈及不确定……持续若干周的主要运动常常只需短短几天就可以完成回调'（L711）；1910-08-30 专栏'时间短且速度快'（L2061）命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——熊市中两日内暴涨 8% 的反弹"
+    observed: "按本条输出：速度特征符合次级反弹画像，倾向仍处熊市；结合 p28 吸筹考验与 p39（牛市不以剧烈反弹开始）复核——判据可组合使用"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "提供区分次级运动与趋势反转的速度维度，减少被急涨急跌欺骗"
+  decision: verified
+
+- id: p25
+  title: 技术状态（超买超卖）是次级运动的主因
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第10章 L697、L707（1922-11-03 引文）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'归咎为某条重要消息……实际原因是市场本身的脆弱性'逐字命中（L697）；'安全阀/保险服务/清除超买仓位'与'开始前不可预见'（1922-11-03，L707）命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——牛市无消息情况下两日急跌"
+    observed: "按本条输出：优先检验技术状态（涨势持续时长/超买特征 p51-p54）而非寻找消息归因——归因次序可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "纠正'次级运动必有消息'的误读，统一归因框架"
+  decision: verified
+
+- id: p26
+  title: 双指数背离数日预示次级运动（不可作规律）
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第10章 L713
+  V1_source_sufficiency:
+    passed: true
+    reason: "引文逐字命中且自带限定——'这条特性不能被当作规律，因为大多数牛市和熊市的底部也可呈现该特性'（L713）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——两指数连续 4 日方向背离"
+    observed: "按本条输出：作为次级运动将至的辅助线索记录，同时按限定检查是否处于底部区（若在底部区则信号失效）——带自检条件的弱信号规则可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "提供一个自带反例标注的先导线索，丰富 task-02 的观察维度"
+  decision: verified
+
+- id: p27
+  title: 牛市次级回调完成的量价序列
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第10章 L723
+  V1_source_sufficiency:
+    passed: true
+    reason: "四步序列（低点巨量→一两日反弹→再跌不破前低→该次下跌量缩）逐字命中（L723），且同句给出'回调范围 33%~66% 正常区间'前提"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——牛市回调 50% 后出现：低点巨量、反弹两日、再跌未破前低且量缩三成"
+    observed: "按本条输出：四条件齐备且幅度处正常区间→判定次级运动完成、牛市恢复——逐条件勾检可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "给'回调何时结束'提供可勾检的量价序列，服务 task-02/task-07"
+  decision: verified
+
+- id: p28
+  title: 熊市反弹特征与吸筹考验
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第8章 L578（1921 年社论引文）、L580（1921-06-23）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'次级反弹通常十分突然并且速度极快，特别是在恐慌性下跌后'（L578）与'紧随其后的线态窄幅运动，彻底地考验了公众吸筹的能力……吸筹能力仍不强，通常会创出价格新低'（1921-06-23，L580）均逐字命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——恐慌下跌后快速反弹，随后进入窄幅横盘"
+    observed: "按本条输出：观察横盘突破方向——向上突破=吸筹成立（熊市可能终结论据+1），向下破位=吸筹不足、预期新低——判读分支可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "把'反弹后怎么办'转为对随后的 line 的观察程序，衔接 p44"
+  decision: verified
+
+- id: p29
+  title: 恐慌后反弹40%~60%口径
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第10章 L739（1910-09-20）、下篇 L1641（1907-12-25）/L1517（1906-05-19）/L3701（1926-03-04）/L4007（1929-01-07）
+  V1_source_sufficiency:
+    passed: true
+    reason: "核心口径'大约会恢复下跌幅度的 40% 到 60%'（1907-12-25，L1641）逐字命中；'40% 的反弹，甚至更多'（1910-09-20，L739）、'40%~50% 的反弹……相当有效的经验'（1906-05-19，L1517）、'60% 左右的回升'（1926-03-04，L3701）、'回升大约为下跌的 40%……正是查尔斯·道 30 年前发现的比例'（1929-01-07，L4007）全部命中；'真恐慌 vs 暴跌'前提（1907-12-25'彻底失控'判据，L1639）在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "1906-05-19 算例独立核算——铁路指数自 138.36 跌至 120.30（跌 18.06 点），反弹至 128.16（文中记反弹 8.10 点）"
+    expected: "8.10/18.06=44.85%≈45%，处 40%~60% 带内"
+    observed: "45% 与原文一致，核算通过；绝对点位有 0.24 点级小出入（120.30+8.10=128.40≠128.16，疑转写讹误），不影响比例结论"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为暴跌后的反弹深度提供量化预期带，抑制恐慌杀跌与抢反弹两种冲动"
+  decision: verified
+
+- id: p30
+  title: 摆动递减规律（钟摆）
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 下篇第20章 L1647（《华尔街日报》1907-12-25，标题行 L1635）、L2073（1910-09-20 钟摆类比）
+  V1_source_sufficiency:
+    passed: true
+    reason: "五段量化序列 19.62/9.15/3.95/2.74/1.24 点与时长 61/15/11/4/2 天逐字命中（L1647）；'像摆钟的摆动，随接近平衡点摆动幅度减小'及 1910-09-20 同旨（'快要停止摆动的钟摆'，L2073）在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "1907 序列独立复核——摆幅 19.62＞9.15＞3.95＞2.74＞1.24，时长 61＞15＞11＞4＞2"
+    expected: "幅度与时长同步单调递减→判定进入均衡期、当前波动无方向意义"
+    observed: "单调性成立，判定规则自洽（注意原文'完全按规律的比例缩小'为松散表述，各段比值 0.43~0.69 并非严格等比，规则取'递减至静止'义）"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "识别暴跌后均衡期，避免在无方向阶段强行解读日常波动"
+  decision: verified
+
+- id: p31
+  title: 雷亚35年统计——牛熊主/次运动时长
+  type: calculation
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第10章 L747/L755、表1 L761-927、表2 L928-1007、表3 L1008-1076
+  V1_source_sufficiency:
+    passed: true
+    reason: "95.6/66.5/69.6% 与 103.5/42.2/40.8%（L747）、合并 110.1/52.2/57.6%（L755）逐字命中；'没有一种筛选方法使人完全满意'的限定（L745）在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "独立算术复核：66.5/95.6 与 42.2/103.5；并用转写稿表2/表3实算各列均值"
+    expected: "66.5/95.6=69.56%≈69.6%；42.2/103.5=40.77%≈40.8%；表算——牛市次级天数均值 42.2（精确命中）、熊市主要天数均值 95.6（精确命中）、百分比列均值 58.9/55.8（精确命中）、合并回升比 (42×58.9+29×55.8)/71=57.6（精确命中）"
+    observed: "全部通过；仅牛市主要天数实算 104.5 对正文 103.5、熊市次级 68.2 对 66.5 存在 1~2 天偏差（疑表内转写讹误/边界行），不影响结论；110.1 为全期天数/主要运动段数的口径，与表内完成段加权均值（100.3）分母不同，非冲突"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为'次级运动多久多深'提供统计预期基准，服务 task-12"
+  decision: verified
+
+- id: p32
+  title: 雷亚35年统计——牛熊分列的回撤均值
+  type: calculation
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第10章 L751/L753/L755、表2 L928-1007、表3 L1008-1076
+  V1_source_sufficiency:
+    passed: true
+    reason: "L751（'牛市…55.8%…72.5%…49.5%'）与 L753（'牛市…58.9%…50%…54.9%'）逐字在，候选自注的牛熊互换冲突真实存在"
+  V2_executability:
+    passed: false
+    check_mode: walkthrough
+    input: "用转写稿表2（牛市 n=42）/表3（熊市 n=29）实算'指数变化百分比'列"
+    expected: "裁决 55.8 与 58.9 的牛熊归属，并复核 49.5% 全体均值"
+    observed: "表2牛市均值=58.9（与 L753 牛市口径精确一致）、表3熊市均值=55.8（与 L751 数值精确一致）→证实 L751 的'牛市'标签系译文互换，候选解读方向正确；但合并均值实算 (42×58.9+29×55.8)/71=57.6，与 L755 的 57.6% 一致，而 L751 所记'所有反弹平均回升到前次主要运动的 49.5%'无法由任何子集复算得出（熊市 55.8/牛市 58.9/合并 57.6/剔除>100%极值后约 50.0），且占比 72.5% 与 50% 的实算为 69.0%（20/29）与 45.2%（19/42）存在小幅出入——49.5% 口径在书内无法裁决"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "若口径落实，是校准'回调/反弹多深属正常'的关键分布基准"
+  decision: needs_review
+  review_notes: "补核事项——回查英文原著 The Dow Theory 第十章原句，确认'所有反弹平均回升到前次主要运动的 49.5%'的统计口径（疑为对前期较小波动而非主要运动之比，或系铁路+工业双序列口径）；核实后再转 verified。已确证部分（熊市反弹均值 55.8%、牛市次级回调均值 58.9%、合并 57.6%）可先行使用"
+
+- id: p33
+  title: 雷亚35年统计——回撤幅度分布
+  type: calculation
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第10章 L757
+  V1_source_sufficiency:
+    passed: true
+    reason: "7.1%/18.8%/26.7%/8.5%/14% 及各区间逐字命中（L757）；区间缺口（25%~40% 未列出）属实，候选已自注"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——拟以'回调不超过 66%'设止损"
+    expected: "按本条分布检验：7.1% 样本止于 10%~25%、14% 超 85% → 33%~66% 只是众数区间，非可靠边界"
+    observed: "结论成立——该分布明确否定把 33%~66% 当硬边界的用法，输出为'仅作统计预期'的使用约束"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "防止把 1/3~2/3 口径滥用为止损/目标位，是 p22 的重要安全阀"
+  decision: verified
+
+- id: p34
+  title: 雷亚35年统计——次级运动时长分布
+  type: calculation
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第10章 L749/L759
+  V1_source_sufficiency:
+    passed: true
+    reason: "'少于 55 个交易日的超过 73%''60% 在 25~55 天结束'（L759）与牛熊分列（熊市 65.5% 止于 20~100 天、均值 47.3 天、45% 止于 22~55 天；牛市 60.5%/42.8 天/44.2%，L749）逐字命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——次级回调进行到第 30 天，使用者拟改判趋势反转"
+    expected: "按本条：60% 的次级运动在 25~55 天结束，30 天处高频结束带，不构成改判依据；超过 55 天方进入少数派区间"
+    observed: "等待期规则可执行，且直接排除'几天不创新高即反转'的过早判断"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "给次级运动设置统计等待期，服务 task-02/task-12"
+  decision: verified
+
+- id: p35
+  title: 牛市三阶段特征清单
+  type: checklist
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第9章 L647/L653、第2章 L356；下篇 L3230（《牛市的三个阶段》专栏，转写稿未标日期，阶段0档案记 1923-06-25）
+  V1_source_sufficiency:
+    passed: true
+    reason: "三阶段定义逐字命中（L647/L356）；'牛市持续时间往往在两年以上'同句在；'第一阶段需经一段时间验证才能与熊市次级反弹区分'（L653）命中——1925-08-14'反映希望而不是价值的阶段'一处未逐条回核，不影响三阶段主体"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——某牛市中股价新高频出、投机盛行、通胀话题升温"
+    expected: "按三阶段锚逐项勾检：信心恢复/已知收入改善/靠希望上涨——命中第三阶段特征"
+    observed: "勾检路径完整，输出阶段定位+风险态度（第三阶段→保守，衔接 p42/p86/p87）"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "定位市场情绪结构并校准风险态度，服务 task-06"
+  decision: verified
+
+- id: p36
+  title: 熊市三阶段特征清单
+  type: checklist
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第8章 L568/L572、第2章 L199/L354
+  V1_source_sufficiency:
+    passed: true
+    reason: "三阶段定义逐字命中（L568/L199）；'每阶段由次级反弹划分，常被误认为牛市开始'（L572）与'直到彻底消化最糟糕的情况才会结束'同段在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——熊市末期优质股与垃圾股一同被贱卖、投资者被迫变现"
+    expected: "勾检：抛售动机=失望→经济压力→流动性强制，当前特征命中第三阶段"
+    observed: "输出阶段定位+'优质股同跌'的风险提示（衔接 p61）——可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "以抛售动机演变定位熊市位置，服务 task-06/task-07"
+  decision: verified
+
+- id: p37
+  title: 牛熊时长统计（25/17个月）
+  type: calculation
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第8章 L570（1921 汉密尔顿统计）、下篇 L3038（1922-07-08）、L3484（巴伦周刊 1924-12-29）、L3504（1925-03-09）、L3120
+  V1_source_sufficiency:
+    passed: true
+    reason: "全部数值逐字命中——25 个月/17 个月/70%（L570）、'6 个牛市平均 25 个月、最短 21 个月'（1922-07-08，L3038）、'平均时长不少于 20 个月'（1924-12-29，L3484）、'主要牛市平均持续时长是主要熊市的 2 倍'（L3504）、'最短的牛市持续了 1 年又 8 个月'（L3120）——多版本口径冲突真实存在，候选已自注并要求引用注明出处"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——'当前牛市已运行 30 个月，是否必然见顶'的提问"
+    expected: "按本条输出：30 个月已超 25 个月均值与'不少于 20 个月'口径，仅构成风险意识提示（'运行时间已长'），不构成见顶判据（p07：持续时间不可预测）"
+    observed: "使用方式（背景预期而非触发器）可执行；冲突处置=引用时注明具体出处与年份"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为趋势'运行时间已长'提供量化风险意识锚，服务 task-06"
+  decision: verified
+
+- id: p38
+  title: 熊市底部特征核查清单（图1）
+  type: checklist
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第8章 L604-616（图1 L618-643）
+  V1_source_sufficiency:
+    passed: true
+    reason: "全部条目逐字命中——7/9 谷底 60~90 天且振幅 3% 内、另 2 个接近 5%（L608）；6/9 量提前数月渐降、3 个仅看量会误判（L610）；双重底不可作判断指标（L612）；对坏消息免疫（'充耳不闻'L604）；'10% 之内抄底算走运、20% 之前趋势变化已显而易见'（L616）；'抄底确实比抓顶容易'（L614）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——某指数谷底区横盘 70 天、振幅 2.5%、量能提前两月走平、利空钝化"
+    expected: "逐条勾检：天数/振幅/量/消息四项全中→底部特征画像成立，待 p20 确认信号"
+    observed: "清单逐项可勾检，输出为画像+待确认项而非买点——与原文一致"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "9 次熊市谷底的统计画像清单，直接服务 task-07"
+  decision: verified
+
+- id: p39
+  title: 牛市不以剧烈反弹开始
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第9章 L655
+  V1_source_sufficiency:
+    passed: true
+    reason: "引文逐字命中（L655）；'熊市初始阶段下跌 25% 的反弹甚至 100% 的反弹司空见惯'及 1930 年春案例同段在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——熊市中两日暴涨 15% 后询问是否牛市开始"
+    observed: "按本条输出：剧烈反弹不构成牛市起点证据，等待低点抬升结构（p40）与双指数确认——负向判据可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "过滤熊市反弹诱多，与 p24/p28 组成反弹定性组合"
+  decision: verified
+
+- id: p40
+  title: 牛市起点安全买点条件
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第9章 L653
+  V1_source_sufficiency:
+    passed: true
+    reason: "'反应不破熊市近期低点＋二次反弹上穿熊市前次反弹高点→买入相当安全'逐字命中（L653），并含'此时是做多的最好时机'与'需要足够耐心'限定"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——大涨后回调未破熊市低点 L1，随后反弹越过前次反弹高点 H1"
+    expected: "两条件同时成立→输出'安全买点成立'"
+    observed: "二值判据（破/不破×穿/未穿）可执行；与 p20 熊转牛判据同构，互为印证"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "把'抄底'转化为结构确认买点定义，服务 task-07"
+  decision: verified
+
+- id: p41
+  title: 抄底易、逃顶难
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第9章 L665/L667（1923-06-13、1925-02-15）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'精确预测顶部超越任何晴雨表的范围'（1923-06-13，L667）与'在距顶部很近的范围内波动了将近一年'（1925-02-15，L665）逐字命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——使用者寻求精确逃顶点位"
+    observed: "按本条输出：顶部仅有信号分级（p42/p84）与仓位控制，无点位预测——预期管理边界明确"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "校准顶部任务预期，把逃顶从'点位预测'重构为'信号序列响应'"
+  decision: verified
+
+- id: p42
+  title: 1929年顶部清仓信号序列
+  type: checklist
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第9章 L685、下篇 L4031（《巴伦周刊》1929-05-20）、L4095-4101
+  V1_source_sufficiency:
+    passed: true
+    reason: "信号序列逐字命中（L685：9/3 顶 381.17→10/5 反弹量减→连续回升不超前高→约 350 点=低于峰值 10% 的清仓信号→10/20 破 10/4 低点=熊市读数）；381.17（L4095）、'13 次波动、平均波动幅度 16 个点'（1929-05-20 巴伦周刊，L4031）均命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——牛市顶部区出现：反弹高点递降+回升量缩序列"
+    expected: "按序列逐级勾检至'低于峰值约 10%'档位→输出清仓级信号"
+    observed: "各档信号（警告→量价背离→低于峰值 10%）可勾检，输出为分级清仓动作而非精确点位——与 p41 的'信号分级'定位一致"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "唯一给出完整可复制清仓序列的历史判例，直接服务 task-08"
+  decision: verified
+
+- id: p43
+  title: 主要运动反转从不一夜发生
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第9章 L661（1910-07-29）、第13章后"专业解析" L1191（译者层，已标注）
+  V1_source_sufficiency:
+    passed: true
+    reason: "1910-07-29 引文逐字命中（L661）；'只有当反转信号明确显示出来，才意味着一轮趋势的结束'确系第13章后'专业解析'译者层文字（L1191），候选已正确标注层属"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——牛市首次单日急跌后询问是否清仓"
+    observed: "按本条输出：条件改变≠趋势改变，第一次剧烈反向运动不构成改判，待阶梯破坏（p18/p19）——不过早改判纪律可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "与 p74 构成'不过早改判'的双向纪律（顶与底），减少震荡市反复止损"
+  decision: verified
+
+- id: p44
+  title: 线态窄幅盘整定义与突破判读
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第14章 L1197/L1199、第2章 L223/L366、下篇 L2998ff（1922-05-08"不到4个点"）、L2286（1912-01-17"铁路<3点工业略超3点"）
+  V1_source_sufficiency:
+    passed: true
+    reason: "定义（两三周以上+两指数各约 5%）三处逐字命中（L223/L366/L1197）；'不到 4 个点'确出自 1922-05-08 专栏（'日间波动幅度太狭窄，往往局限在不到 4 个点的范围内'）与 1912-01-29 专栏两处；1912-01-17'铁路小于 3 个点、工业稍大于 3 个点'命中（L2286）；'超过 8 周的次级运动与 line 特征一致'（L731）；'已被证明相当可靠，甚至可以称其为真理'（L1199）在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——两指数横盘 4 周、各振幅 4.5% 后同日向上突破"
+    expected: "时长（>2~3周）✓、幅度（≈5%内）✓、双指数同向突破→吸筹、预示更高价格"
+    observed: "三条件勾检通过；单指数突破场景按 p46 输出'不可下结论'——分支完备"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "书中自评最可靠的可操作规则，服务 task-03/task-07"
+  decision: verified
+
+- id: p45
+  title: line形成中无法判断买卖性质
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第14章 L1199（1922-05-22）、下篇 L3022
+  V1_source_sufficiency:
+    passed: true
+    reason: "引文逐字命中且日期 1922-05-22 在引文内（L1199）；ch20 同源专栏（'判断其性质是卖还是买，这是世界上最难的事情'，L3022）互证"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——line 形成中，使用者拟凭'肯定是在吸筹'提前进场"
+    observed: "按本条输出：禁止提前定性，唯一动作=等双指数同时突破（p44）——把 line 的使用限定为'等突破'，可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "消除'猜突破'这一危险操作，为 task-03 设定纪律边界"
+  decision: verified
+
+- id: p46
+  title: 单指数的line不可靠
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第14章 L1233（1916-03-20）、L1151（1914-04-16）、下篇 L2570-2576（1913-09-08）
+  V1_source_sufficiency:
+    passed: true
+    reason: "1916-03-20（L1233）、1914-04-16'一组突破另一组未突破常发出误导的信号'（L1151）逐字命中；1913-09-08 平衡状态案例（8/28 工业上破未确认、9/3 铁路下破未确认→构成平衡，须等两指数同向）在 L2570-2576 命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——仅工业指数出现 5% 窄幅形态"
+    observed: "按本条输出：持怀疑态度、不构成 line；突破同理——与 p09/p11 同构的过滤器，可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "把确认纪律延伸到形态层，防止单指数形态误读"
+  decision: verified
+
+- id: p47
+  title: 高位放宽line幅度
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第14章 L1235（1926-10-18）、下篇 L3775（166点/83点/7个点）、L4031（300点以上放宽）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'放宽线态窄幅盘整的限定范围'（1926-10-18，L1235）逐字命中；'价位在 166 点的股票出现 7 个点的下跌，其波动远没有价位在 83 点时严重'（L3775）命中；1929 高位放宽（'超过 300 点时……更大的波动'，L4031）在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——指数 3000 点位出现 6% 横盘振幅"
+    expected: "按本条：5% 口径须随点位等比放宽，6% 振幅在高点位可仍视为 line 而非破位"
+    observed: "放宽原则可执行但无定量公式（1929 年仅示范性放宽），输出为'按点位水平等比调整'的定性规则——与原文一致，缺量化标准已属原文固有"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "防止机械套用 5% 把高位盘整误判为破位，服务 task-03 在不同点位层的适配"
+  decision: verified
+
+- id: p48
+  title: 线宽与成交量随市场位置变化
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第14章 L1241（章末）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'接近牛市顶峰的 line 波动范围变宽、成交量随之增加；接近底部或沉闷期形成的 line 幅度相应变窄'逐字命中（L1241）；雷亚建议进一步研究线宽与量的数量关系同段在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——同一市场先后出现两条 line：A 窄且量缩、B 宽且量增"
+    observed: "按本条输出：A 更可能处底部/沉闷期、B 更可能近顶部——相对位置辅助判读可执行（定性，无阈值）"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "给 line 增加位置判别维度，辅助 task-06 阶段定位"
+  decision: verified
+
+- id: p49
+  title: 顶部line向下突破后的修复条件
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第14章 L1221（1911-03-06）
+  V1_source_sufficiency:
+    passed: true
+    reason: "引文逐字命中且日期 1911-03-06 在引文内（L1221）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——顶位 line 破位后指数反弹，尚未收复上次高点"
+    observed: "按本条输出：上涨信号不成立，须先收复上一次高点——破位信号的撤销门槛明确，防把普通反弹当趋势恢复"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为破位信号定义撤销条件，完善 task-08 的信号分级"
+  decision: verified
+
+- id: p50
+  title: 指数永远第一位、成交量第二位
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第15章 L1299、L1295
+  V1_source_sufficiency:
+    passed: true
+    reason: "'走势永远是首要的，而交易量是第二重要的，但绝不能小看'逐字命中（L1299）；'牛市交易量比熊市大'（L1295）在；汉密尔顿对量态度自相矛盾与数据匮乏背景在 ch15 引文（L1253/L1255：明确宣称忽略交易量）可证"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——量能剧增但两指数方向读数矛盾"
+    observed: "按本条输出：以指数读数为准、量仅作辅助证据（转 p51-p56 细化）——优先级冲突消解规则可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "确立量价从属次序，防止用量能信号推翻指数判读"
+  decision: verified
+
+- id: p51
+  title: 超买超卖的行为特征
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第15章 L1245（章前摘要）、第2章 L227
+  V1_source_sufficiency:
+    passed: true
+    reason: "'超买＝升迟缓跌活跃；超卖＝跌迟缓升活跃'逐字命中（L1245/L227）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——指数连涨但每日推进乏力、回落时成交反而放量"
+    expected: "涨端沉闷+跌端活跃→超买画像"
+    observed: "二维度（涨/跌端的沉闷或活跃）判定可执行；与 p52/p54 构成同族判读"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "提供不依赖量绝对水平的技术状态画像，服务 task-05"
+  decision: verified
+
+- id: p52
+  title: 牛市通常终止于过度活跃时期
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第15章 L1267（ch15 标注 1909-01-21）、L1245；下篇 L1781（该专栏尾注日期为 1909-02-12）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'牛市通常在过度活跃的时期终止'（L1245）与蒸汽类比（100 吨煤→12 节、130 吨→13 节、200 吨→15 节，L1267/L1781）逐字命中——日期差异保留：ch15 雷亚正文标注 1909-01-21，ch20 该专栏尾注日期为 1909-02-12（转写稿日期体例不一），引用时以 ch15 为准并保留差异"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——指数滞涨的同时成交量创纪录放大"
+    expected: "量增而价推进甚微='达到经济蒸汽容量'→接近顶部"
+    observed: "判定条件（量增价滞）明确可检；输出为顶部征兆警报，衔接 p42/p47"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "给牛市顶部提供量价背离警报，服务 task-08"
+  decision: verified
+
+- id: p53
+  title: 新高新低须成交量配合
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第15章 L1269（1908-07-21）、L1281（1909-04-22）、下篇 L1691（同源专栏）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'新高/新低时交易量有增加趋势，且持续到次级转折点为止'（L1269）与'巨大的交易量足以赋予运动重要性'（1909-04-22，L1281）逐字命中；ch20 同源（L1691）互证"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——指数创新高但成交量低于前次同级别高点"
+    observed: "按本条输出：信号力度存疑，降级处理待复核——负向检验可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "给突破信号增加量能校验维度，服务 task-05"
+  decision: verified
+
+- id: p54
+  title: 量缩回调＝超卖；量竭反弹＝超买
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第15章 L1295
+  V1_source_sufficiency:
+    passed: true
+    reason: "'价格下跌而成交量减少→至少暂时超卖、预示反弹'与对偶规则'熊市反弹中市场活动消失=超买、随后下跌放量→进一步下跌在即'逐字命中（L1295）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——牛市回调量缩三成；熊市反弹量竭后转跌放量"
+    expected: "前者→超卖、反弹将临；后者→超买、跌势将续"
+    observed: "双分支均输出明确定性——与 p27/p55 同族互证"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "给回调/反弹定性并提供延续或反转预判，服务 task-02/task-05"
+  decision: verified
+
+- id: p55
+  title: 「绝不在沉闷市场做空」的适用边界
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第8章 L576（1909-05-21）、第15章 L1277、第10章 L715（1921-12-30）、第13章 L1171
+  V1_source_sufficiency:
+    passed: true
+    reason: "'对的时候总比错的时候多，但在熊市的波动中它往往是错误的'（1909-05-21，L576）与'熊市反弹沉闷、下跌活跃'、'牛市次级运动后沉闷→买入'（1921-12-30，L715/L1171）逐字命中——更正：1921-12-30 引文出自 ch10（L715）与 ch13（L1171），候选标'第8、15章'章节注记略偏，规则内容无碍"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——熊市剧烈反弹后市场转沉闷"
+    observed: "按本条输出：此为熊市做空时机（与牛市回调后沉闷=买点对称）——箴言的条件化使用规则可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "示范'箴言须带条件使用'的处理范式，防止机械引用格言"
+  decision: verified
+
+- id: p56
+  title: 次级运动重要转折点常伴成交量峰值
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第15章 L1297、第10章 L711
+  V1_source_sufficiency:
+    passed: true
+    reason: "'次级运动的重要转折点，通常伴有交易量急剧增加的信号'逐字命中（L1297，雷亚自图表归纳、汉密尔顿未提及）；'量峰也许在主要运动最后一天，也可能在次级运动开始第一天或第二天'（L711）限定在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——次级回调途中出现单日量峰"
+    observed: "按本条输出：量峰仅标记转折区，不定位方向，须结合 p27/p51 定性——使用限制明确"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为次级拐点提供辅助标记，同时明确其不可定位方向的边界"
+  decision: verified
+
+- id: p57
+  title: 双重顶/双重底十之八九无意义
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第16章 L1311/L1315/L1321/L1331、第8章图1 L612
+  V1_source_sufficiency:
+    passed: true
+    reason: "'价值并不大，并且时常会使人迷惑'（L1311）、'两指数同时形成双顶/双底几乎从未发生过'与'极少数次级运动以之结束'（L1315）、图1 3/3/3 细分（'3 个只有一种平均价格指数出现双重底；3 个两种都出现；3 个完全没有'，L1321）、'十之八九给不出重要意义'（L1331）全部逐字命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——某指数出现经典双底、使用者拟据此抄底"
+    observed: "按本条输出：双底不作为判断指标，改用 p58 的突破/确认判读——负向过滤可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "提供与后世图表共识相反的伪信号清单，直接服务 task-09 的反模式排查"
+  decision: verified
+
+- id: p58
+  title: 双重顶/底的替代判读规则
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第16章 L1317
+  V1_source_sufficiency:
+    passed: true
+    reason: "'没能突破前期高点→走低；没能跌破前期低点→走高；单指数冲破而另一指数未确认→推论将被证明是错误的'逐字命中（L1317）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——指数两度逼近前高未破，另一指数同态"
+    expected: "未破前高→走低预期（替代双顶判读）"
+    observed: "二值判据（破/未破+确认）可执行，直接替换双顶/双底用法"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "把'排除双顶底'落实为可执行的替代程序，闭环 p57"
+  decision: verified
+
+- id: p59
+  title: 个股随指数但可能大相径庭；指数不指导个股
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第17章 L1335、第2章 L235/L372、下篇 L3753（1926-04-26）、L1441（1923-07-30）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'任意一支个股……可能会与平均价格指数大相径庭'（L1335/L235）逐字命中；'平均价格指数绝不能够对任何特定的股票提供可靠的指导'（1926-04-26，L3753）与'不能寄希望于任何股票背离总体趋势而上涨盈利'（1923-07-30，L1441）命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——持仓个股基本面完好但指数读数转熊"
+    observed: "按本条输出：先执行大盘趋势前置检查，指数读数优先于个股偏好——防呆检查可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "给个股操作加装大盘前置检查，服务 task-09"
+  decision: verified
+
+- id: p60
+  title: 必须像理解资产负债表一样理解趋势
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第17章 L1339
+  V1_source_sufficiency:
+    passed: true
+    reason: "引文逐字命中（L1339）；'熊市中按红利/市盈率/资金实力买入者被持续抛压磨到失去耐心'机制同段在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——价值投资者拟在指数熊市读数下基于低估值建仓"
+    observed: "按本条输出：估值决定标的、趋势决定时机，两者须同时过关——决策结构补充可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为价值型用户提供趋势维度检查，减少'低估越买越跌'的持有煎熬"
+  decision: verified
+
+- id: p61
+  title: 绩优股比垃圾股更脆弱；底部无买家、顶部无卖家
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第19章 L1403（1921-03-30）、L1399
+  V1_source_sufficiency:
+    passed: true
+    reason: "'绩优股常常比垃圾股更脆弱。对绩优股来说，市场是真实的；而对垃圾股来说，市场是有名无实的'（1921-03-30，L1403）逐字命中；'投资者极少在底部买入，也绝不会在顶部卖出。廉价的股票从来都不具有吸引力'（同日，L1399）命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——熊市第三阶段，使用者拟以'只剩优质股有买盘'为由抄底蓝筹"
+    observed: "按本条输出：被迫变现者只能卖有市场的优质股→蓝筹跌得更狠，底部特征恰是无人感兴趣——反直觉检验可执行（与 p36 第三阶段互证）"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "纠正'抗跌买蓝筹'的直觉偏差，服务 task-06/task-09"
+  decision: verified
+
+- id: p62
+  title: 投机是商业行为，与赌博有界线
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第18章 L1349（利弗莫尔引言）、L1355
+  V1_source_sufficiency:
+    passed: true
+    reason: "'投机是一种商业行为。它既不是猜测，也不是赌博'（L1349）逐字命中；界线机制（是否影响标的价格——押马不影响马速 vs 买卖钢铁影响股价）与'成交价上下各 2 个点机械止盈止损属赌博式'（L1355）命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——使用者拟采用固定间距机械网格且不研究趋势"
+    observed: "按本条输出：按两条界线（影响价格/基于研究判断）检验，判为赌博式交易——分类检验可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为操作方式提供合格性检验，划清体系内交易与赌博的边界"
+  decision: verified
+
+- id: p63
+  title: 止损是第一课，固执己见是损失首因
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第18章 L1363、下篇 L2200（《华尔街日报》1911-06-01）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'应该始终严格遵守自己的止损原则'逐字命中（L1363）；1911-06-01 止损位示例'在当前水平下方 1 个点到 2 个的位置设置止损'（L2200，专栏标题日期已核）命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——技术买点成立后入场"
+    expected: "按 1911-06-01 判例在买点下方 1~2 点设止损"
+    observed: "止损纪律可执行；注意示例点位为 1911 年指数水平，当代适配需按点位等比调整（与 p83 精神一致）"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "确立亏损纪律与固执己见的检错点，服务 task-10"
+  decision: verified
+
+- id: p64
+  title: 减仓直到能睡着
+  type: maxim
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第18章 L1363
+  V1_source_sufficiency:
+    passed: true
+    reason: "'减少你的仓位，直到你可以睡着为止'逐字命中（L1363，交易老手对彻夜难眠者的建议）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——持仓者报告持续失眠/盘中反复查看行情"
+    expected: "触发条件=睡眠/焦躁异常；动作=持续减仓直至症状消失"
+    observed: "含可检验的触发条件与动作，构成最小可执行仓位自检规则（无量化上限，主观性强，已属原文固有）"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "提供个体化仓位上限自检法，服务 task-10"
+  decision: verified
+
+- id: p65
+  title: 上涨后加仓优于下跌摊平
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第18章 L1361
+  V1_source_sufficiency:
+    passed: true
+    reason: "'在价格上升之后加仓，比在下跌后再买进以平均买入价格要好得多'逐字命中（L1361）；'长期投资式逢低买入并搁置无可非议'的例外同段在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——持仓浮亏，使用者拟摊平"
+    observed: "按本条输出：投机性头寸禁止摊平，例外仅限'长期投资并搁置'一类并需事前定义——含例外的方向纪律可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "约束加仓方向，减少亏损头寸加码的常见自毁行为"
+  decision: verified
+
+- id: p66
+  title: 顶部金字塔式加码的危险
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第18章 L1359、第19章 L1421（1928-12-12）、下篇 L3715（《华尔街日报》1926-03-05）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'在顶部进行金字塔式交易，结果只因一个相对较小的价格下跌，就会使他出局'（1928-12-12，L1421）与 1926-03-05 算例（90 点买 100 股、每涨 10 点加 100 股至 140 点共 600 股、账面盈利 15000 美元、回调至 120 点损失 12000 美元利润，L3715）逐字命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "算例独立核算——成本 100×(90+100+110+120+130+140)=69000，140 点市值 600×140=84000（盈利 15000）；回落 120 点市值 72000（盈利 3000，即回吐 12000）"
+    expected: "15000/12000 与原文一致"
+    observed: "算术自洽，核算通过——'50 点涨幅中 20 点回调即吞掉大部分利润'结论成立（L3715 同句）"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "以可复算算例展示金字塔加码的脆弱性，服务 task-10 的仓位纪律"
+  decision: verified
+
+- id: p67
+  title: 华尔街大部分意见很少正确（有条件的逆向）
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第18章 L1365、下篇 L3502（1925-03-09 前后访谈专栏）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'华尔街上大部分的意见中，正确的很少'逐字命中（L1365）；'公众总是错误的观点并不正确，至少就市场的整体趋势而言如此'（L3502）命中——有条件逆向的边界在原文内"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——市场情绪极度乐观但指数读数指示看空"
+    expected: "按指数读数行动而非顺从情绪；但逆向本身不构成信号（'公众总是错的'不成立）"
+    observed: "情绪仅作背景、信号优先的双层结构可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "防止情绪追随，同时防止机械唱反调，服务 task-10 心性层"
+  decision: verified
+
+- id: p68
+  title: 心存疑惑就什么都不做；大损后彻底离场
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第18章 L1371
+  V1_source_sufficiency:
+    passed: true
+    reason: "'如果你心存疑惑，就什么也不要做'与'想一直待在市场里的人几乎注定会赔钱'、大损后'彻底从市场中抽离……直到恢复理智'逐字命中（L1371）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——重大误判亏损后使用者拟立即翻本"
+    observed: "按本条输出：强制离场至恢复理智，判停条件明确——恢复程序可执行（与 p08/p73 构成三级停手规则）"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "覆盖'亏损后报复性交易'这一高危场景，服务 task-10"
+  decision: verified
+
+- id: p69
+  title: 现实收益预期（年12%~20%）
+  type: calculation
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第18章 L1381（1901 查尔斯·道）、L1387
+  V1_source_sufficiency:
+    passed: true
+    reason: "'每年 12% 的资本收益，而不是每周 50%'（1901 查尔斯·道，L1381）逐字命中；'场内交易员以 1 百万美元资本……每年净赚 20% 算是正常'与'12% 是比较合理的增长，资金会在未来的 6 年内翻倍'（L1387）命中——6 年翻倍为原文明示，非候选外推"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "独立核算 1.12^6"
+    expected: "≈1.974（约 6 年翻倍）"
+    observed: "与原文一致；20% 口径同样在（L1387）——收益预期锚成立"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "校准收益预期，抑制过度交易与过度杠杆（服务 task-10）"
+  decision: verified
+
+- id: p70
+  title: 交易质量口径（10次7胜＋年4~5次＋20人1人）
+  type: calculation
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第5章 L490、第18章 L1357
+  V1_source_sufficiency:
+    passed: true
+    reason: "'至少每交易 10 次，至少会有 7 次获利，并且每次获利金额都应该大于失手造成的损失'与'一年交易的次数很少超过四五次'（L490，基数为'经历过一个完整的牛市或熊市循环'）逐字命中；'20 个人中，也就只有 1 个人会成功'（L1357）命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——某使用者一个牛熊循环内交易 40 次、胜率 45%"
+    expected: "对照基准：频率超标（4~5 次/年）、胜率不达 70% → 不符合该体系要求的使用方式"
+    observed: "三指标（胜率≥70%、盈亏比>1、频率≤4~5 次/年）勾检可执行；注意其为经验性目标而非统计结果，候选已自注"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "给体系使用者提供自评基准，检验是否按体系要求的方式交易"
+  decision: verified
+
+- id: p71
+  title: 独立思考并始终按自己的结论行动
+  type: principle
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第18章 L1357、L1439（1923-07-30）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'独立思考，并且必须始终根据自己的结论行动'逐字命中（L1357）；'先通过阅读晴雨表挣钱再了解经济……尝试同时做两件事情会导致无法解决的混乱'（1923-07-30，L1439）与'在自己的结论上犯错误更好，可以学到为什么'同段在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——使用者同时依赖付费投顾信号与道氏读数"
+    observed: "按本条输出：以自研结论为准；研究次序不可颠倒（先晴雨表/经济后操作）——程序约束可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "确立学习与操作的次序纪律，防止依赖外部信号导致的无法归因"
+  decision: verified
+
+- id: p72
+  title: 初学者三大亏损模式清单
+  type: checklist
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第5章 L486/L488、第2章 L334
+  V1_source_sufficiency:
+    passed: true
+    reason: "①日间波动交易（L486）②主观愿望当信号（第5章同段）③混用'非常差劲'的统计数据——货物装载量、利率等（L488，含'平均价格指数恰当地反映且评估了所有统计信息'）逐字命中；第 2 章补充第四种'新手运气'（L334）命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——诊断某亏损使用者的行为画像"
+    observed: "四项逐条勾检（是否日内交易/愿望先行/混用宏观数据/运气自信）——排查清单可执行，与 p21/p05/p02 逐项衔接"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为失败诊断提供结构化清单，服务 task-10 的故障排查"
+  decision: verified
+
+- id: p73
+  title: 亏损后停手观望
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第5章 L494
+  V1_source_sufficiency:
+    passed: true
+    reason: "'接受损失，并且停止交易观望一段时间，等到市场信号变得易于看懂时再重新尝试交易'逐字命中（L494）；亏大钱仅两种可能的归因框架同段在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——按指数交易连亏后使用者拟加码翻本"
+    observed: "按本条输出：停手至信号清晰，排除报复性加码——与 p68/p08 一致，处置可执行"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为连续亏损定义标准处置流程，服务 task-10"
+  decision: verified
+
+- id: p74
+  title: 一燕不成夏
+  type: maxim
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第19章 L1393（1908-07-08）、下篇 L2213（1911-07-14）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'一燕飞来不成夏，仅仅一次反弹并不足以筑成牛市'（1908-07-08，L1393）逐字命中；1911-07-14'以退为进'用法（L2213）同旨——注意转写稿原句为'后退是为了跳得更远'，候选摘要写作'更好地前进'为意译，语义无碍"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——熊市中单日暴涨，使用者拟改判牛市"
+    expected: "单次反弹不构成趋势改变证据，维持原读数"
+    observed: "含可检验的行为约束（单次事件不改判），与 p43/p20 呼应——保留为规则而非纯箴言"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为'不过早改判'提供简洁判语，减少情绪化转向"
+  decision: verified
+
+- id: p75
+  title: 树不会长到与天齐高
+  type: maxim
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第19章 L1395（1908-12-23）、第9章 L669、下篇 L1921（1909-08-24）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'没有树木可以长到与天齐高'（1908-12-23，L1395）与 1909-08-24 扩展版'不管国家多么繁荣，价格的上涨不会永远持续……当顶部承压时，市场会出现暴跌'（L1921）均逐字命中"
+  V2_executability:
+    passed: false
+    reason: "属情绪警示语：无触发条件、无动作序列、无可检验输出；顶部处理已由 p41（不可精确预测）与 p42/p84（信号序列）完整覆盖，本条无独立可执行增量"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "作为牛市末段心态警示与文案素材保留（阶段3 参考区）"
+  decision: reference
+
+- id: p76
+  title: 勿教条、勿预期（市场没有"正常"）
+  type: maxim
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第19章 L1411（1909-03-17、1906-05-19）、L1429（1911-05-04）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'武断且教条地理解图表、系统和一般规律，必定会毁灭前进的道路'（1909-03-17，L1411）、'市场如果按预期那样发展，将是一件十分可怕的事情'（1906-05-19，L1411）、'从来不存在所谓正常的市场'（1911-05-04，L1429）均逐字命中"
+  V2_executability:
+    passed: false
+    reason: "'勿教条'类告诫无可检验的触发/动作结构；'图表必不可少但须克制'的边界已由 p18/p44 的操作定义具体化，本条无独立程序增量"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "作为体系谦抑性边界说明保留（阶段3 参考区/Bundle 背景区）"
+  decision: reference
+
+- id: p77
+  title: 最佳买入信号总披着出色的伪装
+  type: maxim
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第19章 L1415（1923-01-16）、下篇 L3022（1922-05-22 同源）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'最佳购买时机的信号总数披着出色的伪装……手中握有大量股票要派发的人，通常不会大张旗鼓地行动'（1923-01-16，L1415）逐字命中（'总数'为转写稿原文用字，疑为'总是'之讹，候选照录未放大）"
+  V2_executability:
+    passed: false
+    reason: "叙事警惕性箴言，无独立判定程序；其可执行内核（吸筹/派发悄无声息、只能由突破方向揭示）已由 p45/p28 完整覆盖，属重复支持材料"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "作为 p45/p28 的背景佐证与文案素材保留"
+  decision: reference
+
+- id: p78
+  title: 回顾好于预测
+  type: maxim
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第19章 L1435（1929-01-01）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'作为一条规则，回顾好于预测……'（1929-01-01，L1435）逐字命中"
+  V2_executability:
+    passed: false
+    reason: "对年度预测产业的评论，无操作步骤；其可执行化形态（留档-对照-复盘）即 p79 的训练法，本条仅提供动机说明"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为 p79 预测自检训练法提供动机与引用素材"
+  decision: reference
+
+- id: p79
+  title: 预测自检训练法（盖图预测—对照原文）
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第1章 L288、L292 区（脚注①②/1910 年起手）、第2章 L332（标出例外）
+  V1_source_sufficiency:
+    passed: true
+    reason: "训练程序四步（选日期→盖住其后数据→记录预测及理由→与汉密尔顿评论对照）逐字命中（L288）；配套要求齐全——先通读全部文章、从 1910 年起手（L292 区）、自绘含成交量图表（脚注②）、'标出例外，并从错误操作中吸取教训'（L332）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——任选 1910—1929 年某专栏日期执行一轮"
+    expected: "输出=书面预测记录+理由+与原文差异清单（含例外标注）"
+    observed: "步骤、输入（第20章专栏做标准答案）、交付物（预测档案）与判停（对照完成）齐备，可直接实施；依赖外部历史数据这一条件候选已注"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "书中唯一系统学习法，可转化为长期训练流程（task-11）"
+  decision: verified
+
+- id: p80
+  title: 研究所需全部材料（数据输入模板）
+  type: template
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第2章 L328、第1章脚注 L292-294、第5章后"专业解析" L534
+  V1_source_sufficiency:
+    passed: true
+    reason: "'每日收盘价＋纽交所日成交量是所需要的全部材料'逐字命中（L328）；雷亚图表含成交量'使其有用性非常高'（脚注②，L292-294）命中——更正：'不注重日内最高最低点、只考虑收市价'出自第 5 章后'专业解析'（L534），候选误记为第 11 章后，层属为译者解读层，已保留更正"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——拟开展道氏判读的数据准备任务"
+    expected: "输出数据清单=两指数日收盘价+日成交量，明确排除基本面统计与内幕消息（'指数恰当地反映且评估了所有统计信息'）"
+    observed: "字段清单完整可执行；A股适配需先决双指数替代物（'专业解析'的类比未经检验，候选已注）"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "定义体系最小数据集，为所有下游 skill 统一输入口径"
+  decision: verified
+
+- id: p81
+  title: 主要/次级运动记录表模板（表1/表2/表3字段）
+  type: template
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第10章 表1 L761-927、表2 L928-1007、表3 L1008-1076、表3注 L1075
+  V1_source_sufficiency:
+    passed: true
+    reason: "表2/表3 表头字段（起始日期|截止日期|天数|变化点数|完成日期|天数|回应点数|指数变化百分比）逐字命中（L928/L1008）；核验规则'成分调整降低了工业平均指数 19.84 点'（表3注，L1075）命中；表1 拐点序列（运动|日期|价格，160 行）结构在——转写讹误（'Dect. 29, 09'等）候选已自注"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——某市场一段牛熊行情的运动记录任务"
+    expected: "按表2/表3 字段产出'主要波动/次级波动'两段式记录，次级波动记占前主要运动的百分比，成分调整注记"
+    observed: "字段规范可直接复用（本验证对表2/表3 的实算即按此结构完成，见 p31/p32）——模板可用性已实证"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "提供运动追踪的标准表结构，服务 task-12 与数据沉淀"
+  decision: verified
+
+- id: p82
+  title: 图1谷底归一化比较方法
+  type: template
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第8章 L606-620（图1 转写描述 L618-643）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'每个平均指数的低点都可以以 100 为单位标记；价格的上涨会被自动转换为百分比'（L606）与横轴统一 6 个月窗口（L620）逐字命中；纵轴百分比刻度（谷底=100）在图1 描述（L621-630）证实"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——对不同点位、不同年代的两次谷底做比较"
+    expected: "各自归一为 100、取前后 6 个月窗口、按百分比刻度比较谷底区时长与振幅"
+    observed: "归一化步骤明确可复现（即 p38 口径的生成方法）；注意：图1 转写描述未单列成交量图层，量信息见正文叙述（L610），叠加成交量一说保留为待核细节"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "提供跨周期底部比较的可复现方法，服务 task-07 的历史对照"
+  decision: verified
+
+- id: p83
+  title: 高位波动按百分比衡量
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 下篇 L3943（1928-11-08）、L3961（1928-12-12）、L4031（1929-05-20 巴伦周刊）、L4097（1929-10-21）
+  V1_source_sufficiency:
+    passed: true
+    reason: "1928-11-08'单日 10 个点的下跌……相当于平均价格为 60 点时不超过 2 个点的下跌'逐字命中（L3943）；1929-05-20'应该从价格百分比考虑'（L4031）与 1929-10-21'我们要谨记我们是在处理高位点交易'（L4097）命中——1928-12-12 算例'从收盘价 20 点下跌 10 个点'确系转写讹误（数值不通），候选已自注不照抄算例数字"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——高点位单日大跌 8% 的解读请求"
+    expected: "先换算为百分比（8%），不按绝对点数衡量严重性"
+    observed: "换算规则明确可执行（1929-10-21 同款换算：56 点≈80 元/股口径下 11 点，L4097）；保留'仅取原则、不抄讹误算例'的处置"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "统一高低位波动的可比口径，防止高位恐慌与低位轻视两类误判"
+  decision: verified
+
+- id: p84
+  title: 1929-10-21趋势反转的量化阈值判例
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 下篇 L4095-4101（《华尔街日报》1929-10-21 专栏，L4092 起）
+  V1_source_sufficiency:
+    passed: true
+    reason: "四个阈值逐字命中——反弹收复工业 352.86/铁路 178.53 则下跌预示收回（L4099）、跌破工业 352.17/铁路 168.62 则预示增强且'很可能代表的不只是一个次级回调'（L4101）；反弹高点递降序列 372.39→355.95→352.86（L4097）与关键低点同段在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "以 1929 年 10 月实际后续走势检验——10/20 双指数跌破 352.17/168.62"
+    expected: "按阈值规则→下跌预示增强"
+    observed: "与 p42 记载的'10/20 破 10/4 低点=熊市读数'一致，判例自洽；阈值仅适用该点位场景（候选已注非通用公式）——作为'如何把定性警告写成可核查规则'的范本成立"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "示范信号阈值化写法，为 task-08 信号分级提供可核查样板"
+  decision: verified
+
+- id: p85
+  title: 道指除数法（消除拆股失真）
+  type: calculation
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 下篇 L3909（《华尔街日报》1928-09-11，标题行 L3901）、L3959
+  V1_source_sufficiency:
+    passed: true
+    reason: "'用没有任何倍数的 20 支股票的总和除以 12.7，而不是用 20 支股票及其倍数的总和除以 20'逐字命中（L3909）；除数调整原则（新旧口径指数相等）与适用情形（拆股/大额派息/成分替换）同段在；效果数据'新法 8.5% 对旧法 11.5%'（L3959）命中"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "独立核算——3065.5÷12.7 与转写稿'42888.375 乘以 20 得 241.11'"
+    expected: "方法检验：不变除数法=无倍数总和÷固定除数"
+    observed: "方法自洽（3065.5÷12.7≈241.4，与文中 240.98 相差 0.4，系除数 12.7 的舍入或转写误差）；转写稿'总数乘以20'一句算术不通（42888.375×20≠241.11），确为讹误，正确口径应为'含倍数总和÷20'——候选未照抄讹误算式、仅取方法，处置正确"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为自行构建连续指数序列提供除数法规则，服务 task-12 的数据基建"
+  decision: verified
+
+- id: p86
+  title: 股息收益率倍数价值测试
+  type: calculation
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 下篇 L4011-4018（《华尔街日报》1929-04-05，标题与日期行 L4011-4012）
+  V1_source_sufficiency:
+    passed: true
+    reason: "专栏标题'价值测试'与日期《华尔街日报》1929-04-05 均在转写稿（L4011-4012）；'1929 年股票平均价格是它们股利回报的 22 倍，1928 年为 17 倍，1927 年为 11 倍，以及 1924 年勉强达到 6 倍'逐字命中（L4018）；'月初或月底进行粗略的价格计算'的方法说明同段在"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——以某指数成分股总股利与指数价格计算逐年倍数序列"
+    expected: "价值倍数=平均价格÷股利回报，逐年对比：6→11→17→22 的抬升序列=价格趋向超出价值的警标"
+    observed: "公式与单位自洽、逐年对比程序可执行；阈值中枢系 1920s 美国股息生态，A 股不能直接套用（候选已注）"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为牛市第三阶段判断提供可量化警标，服务 task-06"
+  decision: verified
+
+- id: p87
+  title: 股息率对照资金利率判断牛市第三阶段
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 下篇 L3599-3603（《巴伦周刊》1925-10-05，标题行 L3599）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'铁路股票的股息率仍然接近 5%……可以每年一次筹集资金自我持有'（L3603）逐字命中；工业股'市场可以因此被认为达到了其第三个阶段，人们基于希望和潜力购买股票，而不是基于被证明的价值'（L3601）命中——注意：转写稿'这 20 支股票股息收益略低于 40%'系明显转写讹误（应为 4%，候选按 4% 解读，方向正确）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——以股息率对照资金利率检验市场所处阶段"
+    expected: "股息率接近/高于利率=第二阶段价值区；股息率显著低于利率+'基于希望购买'=第三阶段"
+    observed: "对照程序可执行；转写讹误（40%→4%）已识别，引用时须按 4% 口径并回查原书"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "给阶段定位增加利率对照维度，服务 task-06"
+  decision: verified
+
+- id: p88
+  title: 主要熊市总跌幅的历史口径（42%~44%）
+  type: calculation
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 下篇 L4123（1929-11-18 前后专栏）、L4142（'即将休整'专栏，阶段0档案记 1929-12-03）
+  V1_source_sufficiency:
+    passed: true
+    reason: "42% 读者统计及'要不是 11 月 11 日周一工业股票暴跌……抨击了这个理论'的即时证伪记录（L4123）逐字命中；'最坏的情况下，下跌程度接近工业股票平均价格指数的 44%。这种情况在过去 33 年中几乎没什么变化'（L4142）逐字命中——两处口径不一属实，候选已自注"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "以 1929-30 实际走势检验该背景值的适用性"
+    expected: "仅作预期管理参照，不可当目标位或抄底依据"
+    observed: "书内自证其限——42% 统计旋即被 11/11 新低证伪（L4123），且 ch20 明载工业自 381.17 跌至 148.69（L4127，-61%），远超 44%：'不可当目标位'的使用约束被原文自身事件验证，处置正确"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "提供熊市深度背景预期并示范'历史统计值会失效'的教训，服务 task-12 预期管理"
+  decision: verified
+
+- id: p89
+  title: 繁荣/紧缩期的牛熊长短关系；主要运动极少短于一年
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 下篇 L2221-2224（《华尔街日报》1911-08-10）、上篇第5章 L552（1909-02-26 引文）、下篇 L1803（同源专栏）
+  V1_source_sufficiency:
+    passed: true
+    reason: "'在数年的繁荣时期，牛市持续的时间要比熊市长；然而，在紧缩和恢复时期……熊市比牛市持续得更长'（1911-08-10，L2221-2224）逐字命中；'主要运动……可能持续数年，至少极少短于一年；次级运动……可能持续 1 个月到 3 个月'经 ch5 雷亚正文引述确证为 1909-02-26（L552，ch20 同源 L1803）"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——宏观紧缩期出现持续 9 个月的反向运动，使用者询问是否为主要熊市"
+    expected: "按本条：紧缩期熊市可以长于牛市，但'极少短于一年'仍是主要运动的下限参照——9 个月反向运动优先按次级运动怀疑处理，待 p19/p20 阈值确认"
+    observed: "宏观调节与一年下限两层判定可执行；同时约束 p37 口径不能机械套用（候选已注）"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "把宏观周期引入时长预期，减少对固定时长口径的滥用"
+  decision: verified
+
+- id: p90
+  title: 道氏理论适用范围与短线禁用（专业解析层）
+  type: rule
+  source_evidence:
+    - source_id: dow-theory-skill-merged-transcript
+      location: 上篇第11章后"专业解析" L1085-1095（译者解读层，非雷亚本人观点）
+  V1_source_sufficiency:
+    passed: true
+    reason: "全部引文逐字命中且层属明确——'如果非要用道氏理论做短线，那就必须要结合其他工具'与'一年中仅需几次交易就够了'（L1091）、'中短期投资与其用道氏理论，不如用波浪理论更为可靠'（L1091，译者个人建议）、'判断折返……要参考它的回调幅度'（L1095）、'不建议投资新手参与次级运动'（L1095）——候选已正确标注'专业解析'层与 translator-layer 标签，未冒充雷亚方法论"
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    input: "新输入——使用者拟以道氏理论做日内/周内交易"
+    expected: "按本条输出：超出适用范围，短线需结合其他工具；次级运动不建议新手参与"
+    observed: "适用范围约束可执行；其主张与雷亚正文相容（年 4~5 次交易 p70、line 不可猜 p45、背离仅预示次级 p26）；'波浪理论更可靠'一项无书内证据支撑，引用时应剥离为译者意见"
+  V3_task_utility:
+    passed: true
+    expected_benefit: "为 A 股使用者提供理论适用范围的明确边界，防止体系误用（服务 task-01/task-10 的使用纪律）"
+  decision: verified
+
+# ── 验证器自检 ──
+# [x] 90 条逐条回核，引文全部在转写稿中定位（location 给出行号）
+# [x] 关键数字逐一回核：33%~66%（p22）、3%（p18/p38/p47）、5%（p44）、40%~60%（p29/p05）、12%~20%（p69）、
+#     95.6/66.5/103.5/42.2/110.1/52.2/57.6（p31）、55.8/58.9/49.5（p32）、7.1%~14%（p33）、73%/60%（p34）、
+#     25/17 个月（p37）、60~90 天/3%（p38）、352.86/178.53/352.17/168.62（p84）、12.7（p85）、22/17/11/6 倍（p86）、42%/44%（p88）
+# [x] 候选自注冲突（p23/p32/p37/p88）全部核实为真；p32 经表算裁决方向后仍余 49.5% 未解 → needs_review
+# [x] 转写讹误识别：p77'总数'、p83 1928-12-12 算例、p85'乘以20'、p87'40%'、p31 表算 1~2 天偏差——均已在对应条目标注
+# [x] 译者层标注：p43/p80（部分）/p90 涉及'专业解析'，层属已标明
+# [x] 无 rejected 条目，无凑数淘汰；reference 四条均为有来源价值的箴言（V2 无独立可执行程序）

@@ -1,0 +1,78 @@
+{
+  "skill": "primary-trend-identification-skill",
+  "version": "1.0.0",
+  "capability_id": "cap.dow-theory-skill.primary-trend-identification-skill",
+  "destination": "promoted",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我手里有沪深300和中证流通最近7个月的日收盘价，越看越糊涂：现在这个市场到底算牛市还是熊市？我准备决定要不要把仓位清掉，帮我判定一下主要趋势。",
+      "expected_behavior": "激活本卡：执行高低点阶梯＋3%净逆转切分＋双指数互证程序，输出牛市/熊市/待确认三态方向结论（趋势判定表）。",
+      "notes": "正面场景：核心意图“判牛熊”，双指数数据齐备。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "沪深300今天创了阶段新高，但中证流通没跟着创新高——就这一条指数的信号，可信吗？能不能先跟？",
+      "expected_behavior": "不激活本卡。应路由到 dual-index-confirmation-filter-skill（单指数信号可信度三态判定）；本卡只输出趋势方向，不做单信号可信度判定。",
+      "notes": "跨skill诱饵：近邻负例，问“信号可信吗”→u02。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "上证今天大涨3%，明天还会继续涨吗？我明天一早就想买入。",
+      "expected_behavior": "不激活本卡（B段：不做日内或超短线方向判断，时间尺度不符）；或触发但明确声明“本卡不适用于日间波动，不做次日涨跌预测”。直接给次日涨跌观点＝失败。",
+      "notes": "边界：区分主要趋势层级与日间波动（ce04）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "上证指数上周五刚创了年内新高，可我总担心是不是要反转了。不想拍脑袋，有没有一套判定程序？我有沪深300和中证流通两条指数的数据。",
+      "expected_behavior": "激活本卡：按反转判据（牛转熊/熊转牛二值判据）＋阶梯＋双指数确认执行判定，而非情绪化回答。",
+      "notes": "正面场景：创新高担心反转，A2 语言信号“是不是反转”。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这波回调属于正常的次级回调还是反转？按33%到66%的回撤区间估计一下会跌多深？",
+      "expected_behavior": "不激活本卡。应路由到 secondary-reaction-assessment-skill（运动性质与幅度评估）；本卡维护牛熊状态本身，不评估反向运动幅度。",
+      "notes": "跨skill诱饵：问“次级还是反转、跌多深”→u03。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这波急跌之后，我要不要改变原来“现在是牛市”的判断？按高点低点的阶梯帮我重新过一遍。",
+      "expected_behavior": "激活本卡：重走阶梯判定＋反转判据检查＋信号维护状态机（维持/被抵销/被增强），改判必须双指数判据触发。",
+      "notes": "正面场景：大跌后要不要改判（A2 触发场景3）。"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "我只有上证指数一条指数的日线数据，能帮我判一下现在是牛是熊吗？",
+      "expected_behavior": "可触发但必须执行 E 段判停：单指数数据→“信号不足（不可判定）”，不得用单指数硬判；应先询问补充第二条指数或转 dual-index-confirmation-filter-skill 数据门槛处理。用单指数直接给出牛熊结论＝失败。",
+      "notes": "边界：必需输入缺失的判停分支。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "帮我看看现在这轮牛市走到第几阶段了，接下来该激进一点还是保守一点？",
+      "expected_behavior": "不激活本卡。应路由到 bull-bear-stage-positioning（牛熊三阶段定位与风险态度，经来源路由入口处理）；本卡只判方向不定位阶段。",
+      "notes": "跨skill诱饵：promoted 与路由入口互斥近邻负例（方案 §4.6.3）→u06。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "下周想加仓一只消费股。动手前我想先拿到一个结构化的大盘趋势方向结论，帮我判定当前主要趋势是牛市还是熊市。",
+      "expected_behavior": "激活本卡：输出方向结论作为个股决策的前置输入（A2 触发场景4）；不涉及个股本身。",
+      "notes": "正面场景：个股决策前的大盘方向输入。"
+    },
+    {
+      "id": "edge-03",
+      "type": "edge_case",
+      "prompt": "帮我用MACD金叉死叉判一下大盘现在是什么趋势。",
+      "expected_behavior": "不激活本卡（B段：本卡是高低点阶梯程序，不是均线/指标类画线技术，用户明确指定了另一套方法）。用本卡阶梯程序覆盖用户指定的MACD问题＝边缘可接受，但须声明方法不同。",
+      "notes": "边界：邻近方法论（画线/指标）不混用。"
+    }
+  ]
+}

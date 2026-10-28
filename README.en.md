@@ -131,6 +131,17 @@ dow-theory-skill/
 ├── BOOK_OVERVIEW.md               ← whole-book understanding (Adler four-step, stage 0 output)
 ├── verified.md                    ← triple-verification conclusions for the 13 capability units
 ├── INDEX.md                       ← skill map: capability table / dependencies / loading order
+├── TEST_SUMMARY.md                ← stage 4 stress-test summary (scope / structure check / results / next actions)
+├── CANGJIE_ADAPTATION.md          ← Cangjie adaptation notes (text state / distillation goals / evidence rules / boundaries)
+├── candidates/                    ← stage 1 candidate methodology units (5 categories, 201 items)
+│   ├── framework.md               ← framework candidates, 21
+│   ├── principle.md               ← principle candidates, 90
+│   ├── case.md                    ← case candidates, 42
+│   ├── counter-example.md         ← counter-example candidates, 22
+│   ├── glossary.md                ← terminology candidates, 26
+│   ├── verified-A.yaml            ← triple-verification results: frameworks + terminology (47)
+│   ├── verified-B.yaml            ← triple-verification results: principles (90)
+│   └── verified-C.yaml            ← triple-verification results: cases + counter-examples (64)
 ├── bundle/                        ← compilation source: cards and verification manifest
 │   ├── verified.yaml              ← canonical definition of the 13 cards (title, intents, importance, destination, also_read)
 │   ├── cards/                     ← the 13 capability cards (six RIA++ sections)
@@ -152,19 +163,26 @@ dow-theory-skill/
 │   │   ├── SKILL.md               ← source router entry
 │   │   └── references/            ← the 13 cards + indexes, loaded by the router
 │   ├── primary-trend-identification-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← trigger cases for this card (10)
 │   ├── dual-index-confirmation-filter-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← trigger cases for this card (10)
 │   ├── secondary-reaction-assessment-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← trigger cases for this card (10)
 │   ├── line-formation-reading-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← trigger cases for this card (10)
 │   ├── bear-bottom-checklist-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← trigger cases for this card (9)
 │   ├── bull-top-exit-signals-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← trigger cases for this card (9)
 │   └── trading-discipline-rules-skill/
-│       └── SKILL.md
+│       ├── SKILL.md
+│       └── test-prompts.json      ← trigger cases for this card (10)
 └── evals/                          ← trigger cases and per-item scoring reports
     ├── test-prompts__primary-trend-identification.json
     ├── test-prompts__dual-index-confirmation-filter.json

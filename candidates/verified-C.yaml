@@ -1,0 +1,1431 @@
+# C 组候选三重验证结果（阶段 1.5）— 道氏理论（专业解读版）
+# 验证员：cangjie-skill stage-1.5 verifier ｜ 验证日期：2026-10-11
+# 方法论：cangjie-skill/methodology/03-stage1.5-triple-verify.md（task-first-v2）
+# 原文基准：道氏理论（专业解读版）_合并转写稿.md（4155 行 / 约 73 万字节）；下方 L 数字均为该稿行号
+#
+# 统计：候选 64 条（case 42 + counter-example 22）
+#   verified: 63 ｜ reference: 1（c02）｜ needs_review: 0 ｜ rejected: 0
+#   rejected-C/ 目录未建（无 rejected 条目）
+#
+# 回核方式：任务指定五个重点区（1926 误判序列 / 1929 顶部信号序列 / 1907 钟摆收敛 /
+#   1921 底部路径 / 1911-1914 线形）全部逐点回核命中；其余候选按引文抽查 + source_line
+#   直接命中核验（ce 组 20+ 处 source_line 逐一命中，零落空）。
+# 转写疑点处理：5 处疑点全部在原文中证实存在且无法从转写稿排除，按方法论"保留疑点"处理，
+#   未因此降级（疑点均不影响候选核心机制）；记录于各条 transcription_flags。
+# 另发现转写稿 2 处原文算术/措辞讹误（c42 除数句、ce01 措辞差异），已在对应记录注明。
+
+- id: c01
+  title: 雷亚依 1921 年底部信号买入股票与债券
+  type: case
+  example_kind: firsthand
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 8 章 L602；结果句见下篇 1922-2-28 专栏 L2978-2980
+  V1_source_sufficiency:
+    passed: true
+    reason: 引文逐字命中；背景/信号/推理/结果四要素齐（1921 底部信号→买入→购房资金），1922-2-28 专栏"工业涨约 20 点、铁路涨约 15 点"结果句独立回核命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 支撑 task-07 底部识别的推理展示（量缩+线形+利空钝化→建仓依据），与 c05 互为亲历/判读两面
+    bound_to: ["task-07 熊市底部识别", "task-04 配套信念"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 为"底部信号可执行"提供作者亲历校准与可信度锚，减少对底部清单的抽象怀疑
+  transcription_flags: []
+  decision: verified
+
+- id: c02
+  title: 雷亚自述跨周期操作记录（1920 空仓—1921 买入—崩盘后放空）
+  type: case
+  example_kind: firsthand
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 前言 L159
+  V1_source_sufficiency:
+    passed: true
+    reason: 引文逐字命中；但作者自认"不知是受道氏理论的影响还是运气"，无具体信号、无盈亏数字——来源真实但判例要素不完整
+  V2_executability:
+    passed: false
+    check_mode: walkthrough
+    reason: 无信号→推理→结果的可展示链条（作者本人把因果归为"影响或运气"），不能作为阶段定位的推理展示材料
+    bound_to: ["task-06 阶段定位（仅行为佐证）", "task-11 研究路径（仅背景）"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 仅提供作者资格与"知行一致"的可信度背景，供 overview/词汇参考区使用，不作 A1 判例
+  decision: reference
+
+- id: c03
+  title: 1926 年汉密尔顿把牛市次级回调误判为熊市（双重顶教训）
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 5 章 L504（1925-10-5 引文）、L520（复盘全数字）
+  V1_source_sufficiency:
+    passed: true
+    reason: 47.8/20.14 点上涨、26.88/10.71 点回调（55%/53%）逐点命中 L520；"唯一一次借助双重顶""追随者遭受惨重损失"均在 L520
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 支撑"次级回调 vs 趋势反转"与"伪信号"的完整推理展示（回调幅度核对统计区间→判次级），与 ce01（B 字段）、c34（专栏原文）互参
+    bound_to: ["task-02 次级运动识别", "task-01 配套伪信号排除", "第 5 章假设（主观愿望不凌驾信号）"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 全书头号失败判例，为回调幅度核对与双顶禁用提供判例校准
+  transcription_flags:
+    - "摘要称'1926-1-26 工业指数双重顶未获铁路确认'；原文（L3677）实为铁路侧双顶（113.12/111.36）+工业新高 160.53 未获确认——机制不受影响，下游引用以引文及 L3677 原文为准"
+  decision: verified
+
+- id: c04
+  title: 1929 年顶部判读与清仓信号序列（上篇综述版）
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 9 章 L685
+  V1_source_sufficiency:
+    passed: true
+    reason: “约 350 点=低于峰值 10% 清仓信号”及“8 个交易日回升递降+量减”逐字命中 L685；9-3 见顶 381.17 见 L914/L4095
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 信号链①—⑥可逐步复述并与 c40 专栏原文互证；350 点清仓锚为本条独有承载（c40 无此句）
+    bound_to: ["task-08 顶部信号与清仓", "task-05 量价", "task-04 两指数确认"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 提供"低于峰值 10% 处执行即满分"的操作锚，纠正精确逃顶预期
+  transcription_flags: []
+  decision: verified
+
+- id: c05
+  title: 1921 年熊市底部完整判读路径
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L596（64.90/65.52）、L2916（16 个交易日 70~73）、L2928（63.90 新低）、L2930（74.30 突破）、L2942-2944（反映一切）、L570（25/17 个月）
+  V1_source_sufficiency:
+    passed: true
+    reason: 底部路径全部关键数字与日期逐点命中；"警告被收回"（L2930）与"距低点 4 个点"（L2916）均证实
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 吸筹线形→未确认新低→利空钝化→突破确认的判读链完整可复述，是 task-07 清单的样板判例
+    bound_to: ["task-07 底部特征清单", "task-04 未确认=假象", "task-12 牛熊时长预期"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 提供"抄底比逃顶易"的完整正面判例，与 1929 顶部序列构成对称校准
+  transcription_flags: []
+  decision: verified
+
+- id: c06
+  title: 1931 年 6—7 月熊市次级反弹判例
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 10 章 L721；表 1 L920-922
+  V1_source_sufficiency:
+    passed: true
+    reason: 194.36→121.70、156.93/88.31、45%/48%、4 周及量能"到达顶峰前数天减少"逐字命中 L721
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 幅度区间核对+量能衰竭判次级反弹的推理可完整展示，含三波反弹—回落结构
+    bound_to: ["task-02 熊市反弹识别", "task-12 幅度基准", "task-05 量价"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 恐慌后反弹规律的标准应用判例，校准"反弹多深该卖"的预期
+  transcription_flags: []
+  decision: verified
+
+- id: c07
+  title: 1931 年 6 月与 10 月：被消息"归因"的两次次级运动
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 4 章 L458
+  V1_source_sufficiency:
+    passed: true
+    reason: “即使小麦价格没有上涨…平均价格指数是冷酷无情的”逐字命中 L458；10 月卖空限制+小麦投机归因叙事同段证实
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: “消息是事后标签、次级运动源于技术状态”的推理展示清晰，含时序核对逻辑
+    bound_to: ["task-04 哲学层", "task-02 次级运动成因"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 防止头条归因干扰方向判断（与 ce17 互为正反面）
+  transcription_flags: []
+  decision: verified
+
+- id: c08
+  title: 1928 年 5—6 月牛市次级回调判例
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 10 章 L719；下篇 L3877-3897、L3968
+  V1_source_sufficiency:
+    passed: true
+    reason: 147.05/220.88 互不确认、220.96 未确认新高、202.65/134.78、201.96/133.51、量缩至约 100 万股（正常 200~400 万）、147.65 确认条件、148.29 完成确认——全部命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: “未确认新高→正常回调区间核对→量能确认→等待铁路新高”的完整信号修正流程可复述
+    bound_to: ["task-02 次级运动识别", "task-04 两指数确认", "task-05 量价"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 牛市中段"假回调识别+确认条件预设"的标准判例
+  transcription_flags:
+    - "书内自身小差异：1928-6-12 工业低点第 10 章作 202.65（L719）、专栏作 202.56（L3881）；候选采用第 10 章口径，差异 0.09 点不影响机制"
+  decision: verified
+
+- id: c09
+  title: 图 1：九次熊市底部特征统计画像
+  type: case
+  example_kind: worked_example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 8 章 L608（7/9、3%、另 2 次接近 5%）、L610（6/9 量能提前萎缩）、L618-643（图 1 九子图日期）
+  V1_source_sufficiency:
+    passed: true
+    reason: 九个谷底日期（1897-4-9 至 1923-9-15，含 1914-12-22 标 WAR）与转写稿图 1 描述逐项一致；"7/9 谷底 60~90 天且振幅 3% 内""6/9 量能提前萎缩"逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 输入（9 次谷底统一标定 100、6 个月窗口）与统计产出齐备，可支撑 task-07 清单的推理展示；原书未给逐次数据表（候选已注明）
+    bound_to: ["task-07 底部特征清单", "双重底不可靠"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 底部核查清单的统计依据；同时证明双底不可作指标（3/3/3 分布）
+  transcription_flags:
+    - "图 1 第 8 子图标注谷底 1921-7-19，与汉密尔顿正文'1921-6-20 低点（铁路）'口径不同——图用统一标定口径，候选照录原图，无需解决"
+  decision: verified
+
+- id: c10
+  title: 表 1—表 3：35 年次级运动统计口径的形成逻辑
+  type: case
+  example_kind: worked_example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 10 章 L747-759
+  V1_source_sufficiency:
+    passed: true
+    reason: 110.1/52.2/57.6%、58.9%/54.9%、55.8%（72.5%）/49.5%、95.6/66.5（69.6%）、103.5/42.2（40.8%）、7.1%/18.8%/26.7%/8.5%/14%、73%（<55 日）、60%（25~55 日）全部逐字命中 L747-759
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 统计产出可作为"次级运动多久多深"的预期基准展示；筛选口径未公开且作者自认不满意——该边界候选已如实记录，下游只使用分布结论、不复演筛选
+    bound_to: ["task-12 统计基准", "task-02 回撤区间证据"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 把回撤预期从感觉变为有分布的基准；与 ce14（禁精确化）、ce21（禁当触发器）配套形成使用纪律
+  transcription_flags:
+    - "L751 转写稿'牛市中所有的次级运动平均回调到前期下跌的 55.8%'一句主语内在混乱（按上下文与雷亚原表应为熊市反弹）；候选解读（熊市反弹 55.8%）与雷亚原表一致，引用时以 L753 牛市 58.9%/L751 反弹 55.8% 的分列口径为准"
+  decision: verified
+
+- id: c11
+  title: 35 年双重顶/双重底清点与 1930、1931—32 年失效判例
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 16 章 L1323（1898/1900/1902 等清单、9 顶中仅 1899/1909 双顶）、L1329（1930 双底、90 天 60%、1931-32 三重顶）
+  V1_source_sufficiency:
+    passed: true
+    reason: 清单逐例与引文逐字命中；"十之八九"结论在第 2/16 章
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 正误并列的历史判例组可支撑"形态相似≠供需转变"的推理展示；与 ce03（失败模式）、c03/c37（单次判例）互补，无完全覆盖
+    bound_to: ["task-01 配套伪信号排除", "task-02 反弹与反转区分"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 提供双顶底失效的历史样本库，校准反转判断依据
+  transcription_flags:
+    - "L1329'工业平均价格指数在 90 天内损失了 60%'与通行行情数据不尽相符（提取说明疑点②）；从转写稿无法排除，保留疑点——不影响'双底失效'机制"
+  decision: verified
+
+- id: c12
+  title: 1929 年 9 月纽交所市值 890 亿美元"操纵不可能"演算
+  type: case
+  example_kind: worked_example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 3 章 L406
+  V1_source_sufficiency:
+    passed: true
+    reason: “890 亿美元”“操纵 10%”引文逐字命中；辅助汉密尔顿引证（1908-11-28 等）在书内各处
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 量级推理（市值→操纵资金不可行）可完整展示；分层结论（日间可操纵/次级有限/主要不可）候选已保留
+    bound_to: ["第 3 章人为操纵假设边界"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 排除"庄家决定趋势"的业余误读（与 ce16 配套）
+  transcription_flags: []
+  decision: verified
+
+- id: c13
+  title: 两指数必须相互确认的经济循环模拟推理（高炉—铁路—零售）
+  type: case
+  example_kind: worked_example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 12 章 L1109
+  V1_source_sufficiency:
+    passed: true
+    reason: 高炉—砖石—铁路—工资—零售推理链逐字命中 L1109；雷亚自认"冒昧地以简单的逻辑推理"（合理化非证明）亦在书内
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 模拟推理链可完整复述并解释"为何铁路先于工业改善"；其"合理化"属性本身即使用边界（候选已注明）
+    bound_to: ["task-04 确认规则理据"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 为 A 股双指数替代品选择提供"成分间经济先行关系"的选择逻辑（铁路—工业关系即模板）
+  transcription_flags: []
+  decision: verified
+
+- id: c14
+  title: 不懂趋势的价值投资者——失败者模拟情境
+  type: case
+  example_kind: worked_example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 17 章 L1341（人物例）、L1337（价值投资者论断）
+  V1_source_sufficiency:
+    passed: true
+    reason: “既不懂资产负债表也不想弄懂它”人物例逐字命中 L1341；“必须像理解资产负债表一样理解市场趋势”在 L1337 段
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 两类失败者画像（懂价值不懂趋势/两者皆不懂）可支撑 task-09 前置检查的推理展示；无行情结果属模拟情境固有属性（候选已注明）
+    bound_to: ["task-09 个股前置大盘趋势检查"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 把"个股操作前先判大盘"从口号变为具体失败画像（与 ce20 实录判例配套）
+  transcription_flags: []
+  decision: verified
+
+- id: c15
+  title: 100 股钢铁股上下各 2 点止盈止损＝投机还是赌博之辨
+  type: case
+  example_kind: worked_example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 18 章 L1355
+  V1_source_sufficiency:
+    passed: true
+    reason: 韦氏定义+"上下 2 个点"例+赛马对照全部逐字命中 L1355
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 判别机制可讲清（是否影响标的价格、是否有研究依据），可支撑 task-10"投机=商业行为"的边界推理展示
+    bound_to: ["task-10 投机与赌博界线"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 识别"无研究依据的机械点位进出"这一失败边界（与 ce14 教条化配套）
+  transcription_flags: []
+  decision: verified
+
+- id: c16
+  title: "减少你的仓位，直到你可以睡着为止"
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 18 章 L1363
+  V1_source_sufficiency:
+    passed: true
+    reason: 轶事逐字命中 L1363（与止损原则同段）
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 机制可讲清：失眠=仓位超心理承受力→减仓以恢复执行指数信号的客观性；触发条件（睡眠）可自查
+    bound_to: ["task-10 仓位纪律"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 提供唯一可自查的仓位超载触发器，被 ce22（不可抗力缓冲）引用为操作规则
+  transcription_flags: []
+  decision: verified
+
+- id: c17
+  title: 1906 年 8—9 月：个股剧烈波动而指数振幅仅 2.02 点
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1906-9-6 专栏 L1571-1575
+  V1_source_sufficiency:
+    passed: true
+    reason: 联合太平洋 +7/-5 点、指数最大振幅 2.02 点、137.06（8-25）及"距前高不到 1 点"逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: “指数平滑个股波动、反映整体供需”的推理展示清晰，含量能递减佐证
+    bound_to: ["task-09 个股与指数关系", "第 11 章日间波动"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 防止以个股异动误读大盘（task-09 防呆判例）
+  transcription_flags: []
+  decision: verified
+
+- id: c18
+  title: 1930 年春天的强力反弹为何不是牛市起点
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 9 章 L655
+  V1_source_sufficiency:
+    passed: true
+    reason: “牛市不是以剧烈反弹作为开始”“下跌 25% 的反弹，甚至 100% 的反弹司空见惯”逐字命中 L655
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 熊市初段剧烈反弹 vs 牛市起点"缓慢上升+量缩"的形态对比推理可展示；与 c05/c09 底部正面判例互补
+    bound_to: ["task-02/task-07 反弹与起点区分"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 校准抄底者对"强力反弹=反转"的误判（与 ce21 配套）
+  transcription_flags: []
+  decision: verified
+
+- id: c19
+  title: 1911 年 5—7 月线形：击穿下端后的下跌被证明是熊市结束
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 14 章 L1215 附近；下篇 1911-7-14 L2207；表 1 L829；1911-6-1 止损 L2200
+  V1_source_sufficiency:
+    passed: true
+    reason: 铁路 121.09~123.31/6 周、工业 85.28~87.06 逐字命中 L2207；73.03（1911-9-25）命中表 1 L829；"下方 1~2 个点设止损"逐字命中 L2200
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 线形形成中无法判向（"世界上最难的事"）→突破方向定论的推理展示完整；含可操作止损细节
+    bound_to: ["task-03 线形判读", "task-10 配套止损"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 向下突破判例；证明线形突破信号在熊市终点同样有效（低点被确认后转牛）
+  transcription_flags: []
+  decision: verified
+
+- id: c20
+  title: 1912 年线形：近 4 个月窄幅横盘→向上突破确认（吸筹判例）
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 14 章引 1912-1-17 L1225；下篇 4-1 L2330/2334；表 1 L832
+  V1_source_sufficiency:
+    passed: true
+    reason: 铁路 115~118、工业 79.19~82.48 逐字命中 L1225；"3 月 8 日工业摆脱…周五又超过 119 点"逐字命中 L2334；94.24（1912-9-30）命中表 1 L832；铁路单独跌破 115 未获确认判假信号在书内
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: “极窄一致线形=精心组织的吸筹或派发→单指数假突破→双指数确认”完整推理链可复述
+    bound_to: ["task-03 线形吸筹判读", "task-04 单指数突破不可靠"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 向上突破吸筹判例，与 c19/c21 构成 1911/1912/1914 线形三联样本
+  transcription_flags: []
+  decision: verified
+
+- id: c21
+  title: 1914 年线形：70 个交易日派发判断与"德国人战前派发"之说
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 14 章 L1229（70 个交易日、德国人派发）；下篇 1914-4-16 L2684、6-8 前后 L2720、二线 61 天 L2724
+  V1_source_sufficiency:
+    passed: true
+    reason: 工业 81~84/70 个交易日、双指数 4-14 同时向下突破、4-25 的 99.24/76.97、第二条线形 61 天（工业 79~82、铁路 101~104）与"低于 101 点的微小警告立刻被收回"全部命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 派发判读→同时突破确认→未确认突破降级处理的推理链完整；战争停牌结局为历史特殊边界（候选已注明）
+    bound_to: ["task-03 线形派发判读", "task-04 未确认突破降级"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 派发线形标准判例；其"警告 vs 确认"分级对处理单指数破位有直接操作价值
+  transcription_flags:
+    - "铁路窄幅时长：上篇引文作'20 个交易日'（L1229），下篇两处作'40 天'（L2684/L2720）——提取说明疑点⑤证实存在，从转写稿无法裁定，保留疑点；不影响派发机制"
+  decision: verified
+
+- id: c22
+  title: 1913 年 9 月与 1916 年 3 月：单指数假突破的"对峙"判例
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 14 章 L1227（1913-9-8）、L1233（1916-3-20）
+  V1_source_sufficiency:
+    passed: true
+    reason: 两段引文逐字命中；方向相反的两次单指数假突破与"除非同时创造线态窄幅盘整，否则持怀疑态度"均在
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: “矛盾信号相互抵销→等待同步运动”的处理规则可展示；1916 例给出通用怀疑原则
+    bound_to: ["task-03/task-04 单指数信号不可靠"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 为"单指数突破如何降级处理"提供对峙判例（等待而非反做）
+  transcription_flags: []
+  decision: verified
+
+- id: c23
+  title: 1909 年 3 月超窄线形突破后 29% 上涨
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 第 14 章 L1217；1909-3-17 专栏 L1817
+  V1_source_sufficiency:
+    passed: true
+    reason: “波动幅度不超过 1% 的 3/8”“市价有了 29% 的上涨”逐字命中 L1217；0.55/0.19 点日波幅细节命中 L1817
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 极端收敛→重大前兆的推理可展示；同时例证"线形宽度须与点位高低挂钩"（ce14 的佐证判例）
+    bound_to: ["task-03 线形突破预测价值"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 线形突破预测力上限的标定样本
+  transcription_flags: []
+  decision: verified
+
+- id: c24
+  title: 1922 年春线形：对"内部人派发"解读的驳斥
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1922-5 月专栏 L3004-3022（转写稿该区段专栏标题缺失，内容与 5-8/5-22 日期自洽）
+  V1_source_sufficiency:
+    passed: true
+    reason: 铁路 83~85/24 个交易日、工业 91~94/22 天、"世界上最难的事情"、市场大于所有"合伙经营与内部人士"之和、看空解读被收回——全部逐字命中 L3004-3022
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: “形成中不判性质→突破方向定论→同日双突破确认”的操作程序可复述；操纵叙事排除逻辑清晰
+    bound_to: ["task-03 突破方向优先", "第 3 章操纵假设"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 给出"如何回应庄家叙事"的标准判例（与 ce16 配套）
+  transcription_flags:
+    - "转写稿第 20 章该区段缺专栏日期标题（前一标题 1922-2-28、后一标题 1922-7-8），候选按内容与《价格运动》系列体例定为 5-8/5-22——合理但以转写稿结构缺陷为前提，注明备查"
+  decision: verified
+
+- id: c25
+  title: 1923—1924 年：所得税扭曲下的吸筹线形与"修正晴雨表"
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1923-8-29 L3270 前后；1923-10-15 L3278 附近（60 个交易日 77~81）；1924-2-4 L3306；1924-3-10《修正晴雨表》L3312 附近
+  V1_source_sufficiency:
+    passed: true
+    reason: “火热煤炭/温度计水银球上的冰”逐字命中；铁路 60 个交易日 77~81（上限前伸至 7 月初）、工业约 4 点、81/91 确认条件、“8 个月最短熊市”“最一致的吸筹窄幅盘整”全部命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: “指数失真存在时线形仍可判读+预设双向确认条件”的推理展示完整；同时是确认机制制度边界的实证（ce05 同源）
+    bound_to: ["task-03 线形吸筹判读", "task-04 边界（数据扭曲）"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 为"指数口径受外部扭曲时怎么办"提供唯一书中判例，直接服务 A 股指数替代品选择
+  transcription_flags: []
+  decision: verified
+
+- id: c26
+  title: 1904 年：以次级运动时间不对称判定主要趋势向上
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1904-9-17 L1471-1477；1904-10-20 专栏在书内
+  V1_source_sufficiency:
+    passed: true
+    reason: 32 天/12 天 vs 42 天/87 天引文逐字命中 L1477；134.52/86.68/88.80/47.85 及 99.78→91.31→97.58→93.55→108.12 摆动序列全部命中 L1471-1473
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: “逐段统计反弹/下跌天数与点数→时间不对称反转”的演算可完整复述，是 task-01 节律判定的最早完整演算
+    bound_to: ["task-01 趋势判定", "task-02 次级运动节律"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 提供"用次级运动节律判定主要趋势"的可复制演算模板
+  transcription_flags: []
+  decision: verified
+
+- id: c27
+  title: 1906 年旧金山地震：不可抗力、恐慌后反弹与哈里曼股息的预期定价
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1906-5-2 L1503、5-19 L1517、7-6 L1559、8-21 L1565、9-6 L1571-1577、12 月 L1591-1607
+  V1_source_sufficiency:
+    passed: true
+    reason: 11 个交易日 10.77 点下跌、120.30（5-3）、128.16（45% 反弹）、121.76（距低点 1.46 点钟摆平衡）、哈里曼 40% 股息领先定价、137.06/137.84/137.56 与 138.36 前高——全部逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 不可抗力→恐慌后 40%~60% 反弹→钟摆回落→预期定价→前高两度受阻的完整信号链可复述
+    bound_to: ["第 4 章不可抗力边界", "task-04 预期定价", "task-12 反弹规律"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: “消息见报时运动已结束”的最佳实证；灾后行情处理模板（与 ce22 配套）
+  transcription_flags: []
+  decision: verified
+
+- id: c28
+  title: 1907 年恐慌：从熊市确认、抛物下跌到钟摆式筑底
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1907-2-2 L1611/1615、7-12 L1615 附近、10-14/12-25 L1637-1649、1908-1-10 L1655
+  V1_source_sufficiency:
+    passed: true
+    reason: 跌破 120.30 确立熊市、两次冲高 138.36 失败建假说、98.27 条件位、101.03→83.49→81.41、总跌 19.62 点、钟摆收敛 9.15（46%）→3.95→2.74→1.24、时长 61/15/11/4/2 天、摩根 2500 万美元贷款 10% 托市、1908-1-10 恢复全部损失——全部逐字命中（钟摆五数字在 L1647）
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 条件式反转判定→恐慌辨识→钟摆筑底观察的推理链完整，五段收敛数字可独立复核（已复核一致）
+    bound_to: ["task-01 条件式判定", "task-07 底部识别", "task-12 反弹规律"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: “恐慌后市场如何筑底”的最完整判例；钟摆收敛为底部休整期识别提供形态锚
+  transcription_flags: []
+  decision: verified
+
+- id: c29
+  title: 1908—1909 年：牛市确认（新高+量能）与 1909 年顶部预警
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1908-7-21 L1691、7 月 L1701、1909-9-11 L1927-1931、10-28/12-18 在书内
+  V1_source_sufficiency:
+    passed: true
+    reason: 105.20 超前高 0.75 点+量能更活跃、"不能构成熊市，却很容易标志出大牛市运动的结束"、跌破前低 128.71 逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 新高+量能确认牛市 vs 反弹未过前高+跌破前低的顶部分级预警推理可展示；含"信号曾被证伪"的诚实记录（9-9）
+    bound_to: ["task-01 新高低阶梯", "task-08 顶部预警分级", "task-05 量价"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 顶部预警信号分级的原始判例（预警≠清仓，清仓需确认）
+  transcription_flags:
+    - "书内自身小差异：1908-7-20/21 铁路高点相邻两栏分别作 105.25（L1701）与 105.20（L1691）；不影响机制"
+  decision: verified
+
+- id: c30
+  title: 1910 年熊市次级反弹判读系列（30% 反弹、量能衰竭与"反弹后沉闷"）
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1910-2-19 L1987、7-29 L2049、8-30 L2061、9-20 L2071；1 月确认 L1995 前后
+  V1_source_sufficiency:
+    passed: true
+    reason: “4 个月下跌约 4 周反弹 30%~40%”、9.88 点反弹耗尽、8-22 起工业 1.36 点/铁路 2.31 点极致沉闷全部逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: “熊市反弹 30%~40% 后转沉闷→专业者卖空；低位沉闷后反弹须重视”的条件式框架可展示
+    bound_to: ["task-02 熊市反弹识别", "task-05 量价与超买超卖"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 沉闷/活跃的牛熊语义反转判例（与 ce13 配套形成完整规则）
+  transcription_flags: []
+  decision: verified
+
+- id: c31
+  title: 1919 年"牛市到头了吗"：33 点上涨后快速回调的次级判定
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1919-8-6 L2814、8-8 L2826、10-9 L2838；表 1 L979（33.08）
+  V1_source_sufficiency:
+    passed: true
+    reason: 79.15→112.23（+33.08 点）、"短暂而激烈，与熊市的快速反弹极其相似"、证伪条件（月余双指数线形+向下突破）逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: “可证伪的判定结构”（先判非反转+预设转熊条件）完整可复述；10-9 新高兑现、冬季条件触发的结果链齐备
+    bound_to: ["task-02 次级判定", "task-03 线形突破确认反转"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 教科书级的"预设证伪点"判例，直接服务任何条件式信号的构造
+  transcription_flags: []
+  decision: verified
+
+- id: c32
+  title: 1923 年 6—7 月：牛市三阶段的当期定位判例
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1923-6-25《牛市的三个阶段》L3230-3238；上篇第 9 章引同文 L657
+  V1_source_sufficiency:
+    passed: true
+    reason: “已看到完整的第一个阶段…还没看到最后一个阶段”逐字命中 L3238；1923-6-13“精确预测顶部超越晴雨表范围”另见 L3216
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 三锚（信心→已知价值→希望）定位法的当期应用可展示；与 c39（1929 第三阶段）构成首尾样本
+    bound_to: ["task-06 牛熊三阶段定位"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 阶段定位的当期判例，校准风险态度与第三阶段过热识别
+  transcription_flags: []
+  decision: verified
+
+- id: c33
+  title: 1925 年 2—5 月柯立芝牛市次级回调判读系列（做空点—收回—确认）
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1925-2-23 L3510（做空点收回+通用电气认股权）、3-16/3-23/4-20 L3564-3566、5-25 L3573
+  V1_source_sufficiency:
+    passed: true
+    reason: 10.68/8 点回调、115/92.98 新低、回升 6 点/近 4 点、"傲作的指数和图表系统"（转写稿原文如此）逐字命中；做空点收回的技术原因（通用电气认股权扣除）命中 L3510
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 做空点→收回→真实次级回调确认→铁路未确认不改判的信号修正流程完整可复述
+    bound_to: ["task-02/task-04 次级回调与确认", "task-01 信号修正流程"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 展示"信号给出—撤销—再确认"的动态使用，防止把单次信号当终身判决
+  transcription_flags:
+    - "3 月低点日期：4-20 专栏作'3 月 3 日创 115/92.98 新低'（L3566），5-25 专栏作'回调结束于 3 月 30 日'且另提 3-3 的 100.96（L3573）——提取说明疑点③证实为书内两栏自相矛盾，保留疑点；不影响信号修正机制"
+  decision: verified
+
+- id: c34
+  title: 1926 年春季暴跌判读与金字塔账户演算（含 1901 年北太平洋对照）
+  type: case
+  example_kind: worked_example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1926-3-4 L3703-3711、3-5 L3715、3-29 L3733 附近
+  V1_source_sufficiency:
+    passed: true
+    reason: 金字塔演算（90→140 点、600 股、盈利 15000 美元、回调 120 点损失 12000 美元）逐字命中 L3715；"决议公布前已下跌 6 天""60% 回升通过测试"、1901 北太平洋对照命中 L3711/L3703
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 演算可独立复核（加仓序列与盈亏数字自洽，已复核）；"正常回调摧毁金字塔仓位"的量化展示完整
+    bound_to: ["task-10 顶部金字塔危险", "task-02 技术成因", "c03 互参"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 唯一量化仓位脆弱性的书中演算，可迁移为"正常回调下我的账户会怎样"的自查
+  transcription_flags: []
+  decision: verified
+
+- id: c35
+  title: 1926 年 9 月：飓风损失评估与通用汽车股息剔除的指数口径判例
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1926-9-20 L3759、9-27 L3767-3769
+  V1_source_sufficiency:
+    passed: true
+    reason: 指数 -3.19 点 vs 股息剔除 -3.35 点、飓风损失 6 亿美元的 1/4、打断市场 1 天左右全部逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: “解读指数前剔除公司行为造成的机械位移”与“不可抗力损失可被指数快速评估”两个小机制均可展示
+    bound_to: ["task-01 指数口径前提", "第 4 章不可抗力边界"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: A 股应用中处理分红除息、调样等指数噪声的直接判例（与 c42 衔接）
+  transcription_flags: []
+  decision: verified
+
+- id: c36
+  title: 1927 年牛市中段：滞后确认与"接近主要跌幅的次级回调"
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1927-10-4 L3845、L3851
+  V1_source_sufficiency:
+    passed: true
+    reason: “铁路直到上周六才确认工业新高”“至少有两个回调…几乎与实际的主要下跌运动的幅度一样大”逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 确认时间窗（不必同日/同周）与高位回调幅度剧烈化的推理可展示；拒绝确认=等价双重顶的看空条件明确
+    bound_to: ["task-04 确认时间窗", "task-02/task-12 高位回调预期"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 防止把"滞后确认"误读为背离；给出点位换算意识（300 点时代 10 点≈60 点时代 2 点）
+  transcription_flags: []
+  decision: verified
+
+- id: c37
+  title: 1928 年 3 月铁路双重顶警告被否证
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1928-3-5 L3855、5-4 L3869
+  V1_source_sufficiency:
+    passed: true
+    reason: 203.35 新高未确认+铁路 143.44 双顶警告、4-27 铁路 145.61 创新高否定警告并转强烈做多点——逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: “依规使用双重顶（仅警告非定论）仍被否证”的推理展示完整，补齐双顶证据链（误用受罚 c03/依规亦失效本条/系统失效 c11）
+    bound_to: ["task-01 配套伪信号排除", "task-04 未确认新高降级"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 证明问题不在"用没用对双顶"而在双顶本身不可依赖——强化伪信号清单
+  transcription_flags: []
+  decision: verified
+
+- id: c38
+  title: 1928-12 至 1929-1：恐慌式三日暴跌后的 40% 回升测试
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1928-12-19 L3968、12-31 L3979、1929-1-7 L3983
+  V1_source_sufficiency:
+    passed: true
+    reason: 148.29 确认、40% 回升"严格按照先例"、工业须过 295.62/铁路须过 152.70 的确认条件、铁路次日即创新高——全部逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 恐慌后 40%~60% 测试+预设确认条件+快速验证的推理链完整可复述
+    bound_to: ["task-12 恐慌后回升规律", "task-02 确认条件预设"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: “暴跌后如何判定趋势未变”的标准判例（1923-1929 牛市收官段）
+  transcription_flags: []
+  decision: verified
+
+- id: c39
+  title: 1929 年 4—7 月：第三阶段判读、价值测试与未确认新高警告
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1929-4-5 L4018、5-20/5-21 L4031-4035、7-1/7-8 在书内
+  V1_source_sufficiency:
+    passed: true
+    reason: 22/17/11/6 倍股利对照、327.08 未确认新高、铁路低近 11 点、4 个月 13 次波动均值 16 点、"次级运动逐渐增加的脆弱性…警告提示"逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 价值测试（只提醒不给信号）+脆弱性计数+高位宽幅线形界定的分级预警推理可展示；A股适配缺口候选已注明
+    bound_to: ["task-06 第三阶段定位", "task-04 未确认新高警告", "task-06 配套价值测试（A股待核查）"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 顶部前的阶段定位判例；与 c04/c40 构成 1929 全程信号链
+  transcription_flags: []
+  decision: verified
+
+- id: c40
+  title: 1929 年 9—12 月：崩盘与"42% 熊市终止"假说被否证（下篇原文版）
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1929-10-21 L4095-4101、10-25 L4103-4108、10-26、11-18 L4123-4129、12-3 L4142
+  V1_source_sufficiency:
+    passed: true
+    reason: 372.39→355.95→352.86 递降序列、352.17/168.62 条件位、10-23 铁路确认、220.39 新低否证 42% 假说、做空点高 100 多点、44% 主跌段——全部逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 条件式信号（越过则收回/跌破则增强）+双指数确认+统计假说被新低否证的完整结构可复述；与 c04 互为原文/综述，各自承载独有内容（本条：条件结构+42% 否证）
+    bound_to: ["task-08 顶部信号序列", "task-01 条件式证伪", "task-02 不言底纪律"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 展示"信号如何被增强/收回"的动态判定，及统计规律须让位于新低的纪律
+  transcription_flags:
+    - "1929-10-25'在主要下跌市场持续了从未有过的 6 年左右的时间后'（L4106）——提取说明疑点①证实存在；上文 10-21（L4097）作'牛市持续 6 年'，应为'主要上涨市场'之讹；从转写稿无法排除，保留疑点；不影响信号序列机制"
+  decision: verified
+
+- id: c41
+  title: 历史恐慌对照：1899 年 12 月与 1901 年 5 月北太平洋恐慌
+  type: case
+  example_kind: reported_case
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1906-5-2 L1511（1899）/L1507（1901 量化）、1926-3-4 L3701-3703、1928-12-31 L3983
+  V1_source_sufficiency:
+    passed: true
+    reason: 1899 恐慌（9-5 至 9-22 跌超 13 点、仅反弹 6 点余、前高第二年末才超越）、1901 铁路 5-1 至 5-9 跌 14.49 点且恐慌日仅占小部分、"麦金利第二次当选…直到 18 个月后 1902 年 9 月才结束"全部逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: “恐慌不等于趋势反转”的历史对照推理可展示；两例结果（次级级别中断）明确
+    bound_to: ["task-02 恐慌与反转区分", "task-12 反弹规律历史样本"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 为"暴跌后该等确认还是抢反弹"提供跨周期对照样本（与 ce18/ce21 配套）
+  transcription_flags:
+    - "1901 恐慌后牛市终点：1926-3-4 作'1902 年 9 月'（L3703）、1928-12-31 作'1902 年年末'（L3983）——书内两栏口径差异，候选采用前者；不影响'未改主要趋势'结论"
+  decision: verified
+
+- id: c42
+  title: 1928 年 9 月除数改革演算与 12 月 200 股市值验证
+  type: case
+  example_kind: worked_example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: 下篇 1928-9-11 L3909、12-12 L3957、L3959
+  V1_source_sufficiency:
+    passed: true
+    reason: 引文逐字命中；新法 3065.5/12.7=240.98 与旧法 241.11 衔接、+52.66 点（+22%）对 200 支股票市值 +21%、12 月 6-8 日新法 8.5%/旧法 11.5% 均独立核验一致
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: “口径变更须做连续性衔接+与全市场互证”的方法机制可讲清并可迁移；演算锚点值已独立复核
+    bound_to: ["task-01 指数口径前提", "task-04 配套（A股替代品口径意识）"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 为 A 股双指数替代与自定义指数提供"口径变更连续性"检查模板
+  transcription_flags:
+    - "转写稿 L3909'用这个总数乘以20，得到…241.11点'一句算术不自洽（42888.375÷20≈2144.4），疑为'除以（旧）除数'之转写讹误；候选摘要复述为'42888.375/20=241.11'——下游引用时不得照抄该除式，只引用锚定结果 241.11/240.98 衔接一致这一事实"
+  decision: verified
+
+# ---------- counter-examples（B 字段边界材料） ----------
+
+- id: ce01
+  title: 1926 年汉密尔顿双重顶误判——主观愿望凌驾于信号之上
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L500-520、L3607、L3667-3673、L3747 等 source_line 全部命中
+  V1_source_sufficiency:
+    passed: true
+    reason: 复盘引文、1925-11-09 预言、1926-1-26 双顶、4-12"推论不撤销"逐条回核命中；47.8/20.14/26.88/10.71/55%/53% 与 L520 一致
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 三重错误机制（愿望先行→信号降级→无视冲突证据）+正确替代四条可完整支撑边界条件；4-12 引文与转写稿措辞略有出入（"推论是不会被撤销的" vs "肯定不用收回…推断"），语义一致
+    bound_to: ["主要趋势判定程序", "双指数确认过滤器", "次级运动识别", "伪信号排除"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 全书头号失败边界：先有结论再找证据的完整解剖，附 warning_signs 可自查
+  transcription_flags: []
+  decision: verified
+
+- id: ce02
+  title: 单一指数的未确认信号＝假象
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L1099-1103、L1173、L2524、L2874-2880、L3210-3212、L3897 全部命中
+  V1_source_sufficiency:
+    passed: true
+    reason: “几乎是假象”“一半的预示不比没有好”、1921 赫斯特例、1923 路易斯维尔派息 2.68 点机械位移例全部逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 机制（两组同经济体样本+公司行为噪声）与正确替代（只交易确认信号、单指数默认假象）支撑边界条件
+    bound_to: ["双指数确认过滤器", "主要趋势判定", "线形判读", "A股替代品选择"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 第一操作纪律的失败边界，附指数噪声（派息/拆股）识别信号
+  transcription_flags: []
+  decision: verified
+
+- id: ce03
+  title: 用双重顶/双重底作趋势改变线索的系统性失效
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L1311-1331、L612、L2838 已直接命中；L3753/L3424 同段体例一致
+  V1_source_sufficiency:
+    passed: true
+    reason: “十之八九”、1898/1902/1930 判例、9 次熊市底 3/3/3 分布、1919-10-09 图表参考者引文逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 机制（形态相似=回调区常态+单指数假象+双底无稳定对应）与替代（改判突破+确认）支撑边界条件
+    bound_to: ["主要趋势判定", "底部/顶部清单", "伪信号排除"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 把"双顶底"从大众经典形态降级为应警惕伪信号——对图表派用户的核心纠偏
+  transcription_flags: []
+  decision: verified
+
+- id: ce04
+  title: 用日间波动下结论、做日内交易
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L1079-1083 已命中；L1091-1095（中文版"专业解析"层）、L2213、L2826 一致
+  V1_source_sufficiency:
+    passed: true
+    reason: 第 11 章"几乎都会得出误导性的结论"、1911/1919 专栏、中文版解析引文均命中（注：L1091-1095 属译者解读层，非雷亚原文，引用时须标注层级）
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 尺度错配机制（月 K 级工具做日 K 决策）与替代（日间数据只用于构成形态）支撑边界条件
+    bound_to: ["主要趋势判定", "全部能力卡的日内化限制", "预测自检训练"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 为所有下游 skill 划定时间尺度红线，防止误用投诉
+  transcription_flags: []
+  decision: verified
+
+- id: ce05
+  title: 一战铁路国有化期间：双指数确认的结构性失真期
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L1159、L3416-3418、L3789-3791 全部逐字命中
+  V1_source_sufficiency:
+    passed: true
+    reason: “波动与债券一样”“排除在外极其明智”、1924/1926 两栏实录（18 年回撤伴随工业上涨）全部命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 制度前提失效→规则失效的机制清晰；识别信号（收益率属性/管制变化）可操作
+    bound_to: ["双指数确认过滤器", "A股替代品选择边界"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 规则制度前提的边界判例，直接约束 A 股替代指数的适用条件
+  transcription_flags: []
+  decision: verified
+
+- id: ce06
+  title: 公用事业指数禁用——连锁股权扭曲的对照指数
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L1103-1105 逐字命中
+  V1_source_sufficiency:
+    passed: true
+    reason: 正文"起不到有效的作用"与脚注"连锁关系…受一两支股票直接影响"均命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 独立性要求机制清晰；替代检验（单日波动能否被一家公司事件解释）可操作
+    bound_to: ["双指数确认过滤器", "A股替代品选择"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 为替代指数选择提供排除标准（成分交叉/权重集中）
+  transcription_flags: []
+  decision: verified
+
+- id: ce07
+  title: 精确逃顶不可能——"抄底易、逃顶难"
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L592、L665-667、L3216、L685-687、L4095-4129 全部命中
+  V1_source_sufficiency:
+    passed: true
+    reason: 1923-6-13"超越晴雨表范围"、1925-2-15"距顶部很近范围内波动近一年"、"没有任何一条知识可告知绝对转折点"、1929 信号序列全部命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 确认式而非预测式的机制+信号分级替代方案完整；"低于峰值 10% 清仓=满分操作"给出可检验标准
+    bound_to: ["顶部信号与清仓", "三阶段定位"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 纠正逃顶预期，把清仓执行标准从点位改为信号分级
+  transcription_flags:
+    - "引用的 1929-10-25 专栏含'主要下跌市场持续 6 年'转写疑点（见 c40）；不影响本条机制"
+  decision: verified
+
+- id: ce08
+  title: 顶部金字塔式加码——利润清算的算术死刑
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L1359、L3715 已命中；L3963/L1885/L3951 同主题引文
+  V1_source_sufficiency:
+    passed: true
+    reason: 1926-3-5 算例与 1928-12-12 引文命中；算术独立复核自洽（600 股/15000/12000）
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 机制（平均成本逼近顶部+正常回调触发清算）与替代（越加越少/能睡着/预先测算）完整
+    bound_to: ["资金与交易纪律", "次级运动幅度评估"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 用可复算的演算把"禁金字塔"从忠告变为可自查的仓位约束
+  transcription_flags: []
+  decision: verified
+
+- id: ce09
+  title: 下跌摊平——把"看好"变成"套牢后加码"的借口
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L1361 逐字命中
+  V1_source_sufficiency:
+    passed: true
+    reason: “上升之后加仓比下跌后再买进好得多”+永久投资豁免条款均命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 机制（资金持续加到趋势错误一侧+承接强制清算盘）与替代（区分永久仓位/交易仓位）清晰
+    bound_to: ["资金与交易纪律", "个股前置检查"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 封堵"摊平"这一最常见亏损借口的边界
+  transcription_flags: []
+  decision: verified
+
+- id: ce10
+  title: 固执己见不止损；记住损失却忘记买入理由
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L1363/1371/1377、L2862（1921-3-30）、L3994（1929-1-1 盖茨例）命中
+  V1_source_sufficiency:
+    passed: true
+    reason: “始终严格遵守止损”“固执己见是造成损失的主要原因”“忘记的不是损失而是买入原因”“抓住了市场的尾巴却不能放开”均命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 心理机制链（自尊卷入→找理由→错过退出→被迫清算）与替代（预设失效条件、心存疑惑不做）完整
+    bound_to: ["资金与交易纪律", "个股前置检查"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 止损与归因纪律的失败边界；"写下失效条件"为可检查行为
+  transcription_flags: []
+  decision: verified
+
+- id: ce11
+  title: 初学者三大亏损模式（追高、日间交易、混合劣质数据）
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L484-488、L1385 逐字命中
+  V1_source_sufficiency:
+    passed: true
+    reason: 三类初学者引文（神秘阻力点图表/日间交易/混合货物装载量利率）全部逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 共同机制（时间尺度与证据等级错位）与替代（买点定义、只做主要趋势、统计从属）清晰
+    bound_to: ["主要趋势判定", "伪信号排除", "资金纪律"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 新手自查三联清单；与 ce04 分工（本条覆盖面广、ce04 机制深）
+  transcription_flags: []
+  decision: verified
+
+- id: ce12
+  title: 新手运气与错误归因
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L334、L1357 逐字命中
+  V1_source_sufficiency:
+    passed: true
+    reason: “错误的时候蒙出正确的结果更糟糕”“犯一些错误更好”均命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 机制（小样本盈亏与决策质量弱相关+错误归因使流程不修正）与替代（记录预测对照复盘）清晰
+    bound_to: ["预测自检训练", "资金纪律"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 为 task-11 复盘纪律提供动机边界
+  transcription_flags: []
+  decision: verified
+
+- id: ce13
+  title: “绝不在沉闷市场做空”——箴言在熊市中失效
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L1859、L2958 逐字命中
+  V1_source_sufficiency:
+    passed: true
+    reason: 1909-5-21"熊市里大错特错"与 1921-12-30 正确用法（反弹后转沉闷再做空）均命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 阶段依赖机制（同一表象牛熊含义相反）与替代（先判趋势再解释量能）完整
+    bound_to: ["量价健康度", "熊市阶段定位", "主要趋势判定"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 教条化箴言的典型解毒判例
+  transcription_flags: []
+  decision: verified
+
+- id: ce14
+  title: 教条化与精确数字迷信——"一律在脚背向上 38 英寸处切阑尾"
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L1201、L1821、L3471 命中；L3775（1926-10-18 放宽）同主题
+  V1_source_sufficiency:
+    passed: true
+    reason: 38 英寸外科比喻、1909-3-17"基于这类基础的交易都是赌博"、1924-11-24"数学精确性自担风险"均逐字命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 机制（讨论单位≠阈值+点位数量级改变含义）与替代（相对比例+波动率校准、记录例外）完整；有 c23/c25/c38 的高位放宽实例支撑
+    bound_to: ["线形判读", "次级运动评估", "主要趋势判定"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 防止把 3%/5%/40-60% 机械化为买卖阈值的误用边界
+  transcription_flags: []
+  decision: verified
+
+- id: ce15
+  title: 预测成瘾与期望值过大——"晴雨表不会一直给出交易信号"
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L4084、L3268-3270、L1435 命中；L3639/L3126/L3751 同主题
+  V1_source_sufficiency:
+    passed: true
+    reason: “常常错在期望值太大”“信号直到被抵销或增强都有效”、1923-10-15 停栏事件均命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 低频确认器机制+个股指导被定义排除+替代（无信号=不动；个股另建两层结构）完整
+    bound_to: ["双指数确认", "预测自检训练", "个股前置检查"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 管理信号真空期的行为预期，防止过拟合噪声
+  transcription_flags: []
+  decision: verified
+
+- id: ce16
+  title: 庄家/操纵幻想——"仅次于缺乏耐心"的亏损原因
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L400-406、L3887-3891、L3022 命中；L2960 同主题
+  V1_source_sufficiency:
+    passed: true
+    reason: “第二大原因”、1928-7-30 分公司经理反驳（700 余支股票/放弃其他持仓）、“没有比人为操作更幼稚的词语”均命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 分层操纵事实（日间可/次级有限/主要不可）与替代（用回调区间与量价理解转折）完整
+    bound_to: ["三大假设前提", "伪信号排除"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: A 股语境高发误读（庄家叙事）的解毒边界
+  transcription_flags: []
+  decision: verified
+
+- id: ce17
+  title: 消息见报才行动与头条跟风——因果谬误
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L400-404、L2942-2944、L3707-3711、L3767-3769、L4073-4077 全部命中
+  V1_source_sufficiency:
+    passed: true
+    reason: “影响力早已被消化”“职业人士开始出货游戏结束”、1926 镍牌决议先行 6 天、1929 小麦反向解读均命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 预期定价机制+时序核对方法（事件与运动先后）+替代（头条当温度计）完整
+    bound_to: ["反映一切前提边界", "伪信号排除"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 防止新闻驱动交易的时序检查清单
+  transcription_flags: []
+  decision: verified
+
+- id: ce18
+  title: 恐慌与暴跌混淆——机械套用"恐慌后 40%~60% 反弹"抢反弹
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L1639-1641、L2075 逐字命中
+  V1_source_sufficiency:
+    passed: true
+    reason: “真正恐慌后总恢复 40%~60%”“1907 年并未失控…10 月危机后买入者 11 月处于更低价格”均命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 前提检验机制（规则适用范围由"真恐慌"定义）+预设证伪点（跌破恐慌低点离场）完整
+    bound_to: ["次级运动评估", "底部清单"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 统计规律适用前提的边界判例（规则滥用方向的镜像）
+  transcription_flags: []
+  decision: verified
+
+- id: ce19
+  title: 唯成交量判市——三分之一熊市底部的量能信号失效
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L610、L1299、L727 逐字命中
+  V1_source_sufficiency:
+    passed: true
+    reason: “另外 3 个熊市只看交易量会陷入误区”“指数首要、交易量第二”“成交量并不具有统一性”均命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 从属性证据机制与替代（指数定方向、量做状态修正、冲突服从指数）完整
+    bound_to: ["量价健康度", "底部清单"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 封堵"唯量论"误用的证据等级边界
+  transcription_flags: []
+  decision: verified
+
+- id: ce20
+  title: 不懂趋势的"价值投资"——熊市买便宜好公司，割在最底部
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L1337-1341、L2860-2864 逐字命中
+  V1_source_sufficiency:
+    passed: true
+    reason: 第 17 章价值投资者失败链与 1921-3-30"绩优股比垃圾股更脆弱""美国钢铁不足净资产 1/3"均命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 流动性驱动无差别抛售机制+前置检查替代完整；"个股不随大盘是例外而非权利"边界明确
+    bound_to: ["个股前置大盘检查", "熊市阶段定位"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: A 股价值派用户最高发的失败边界（价投+逆势）
+  transcription_flags: []
+  decision: verified
+
+- id: ce21
+  title: 把次级反弹当牛市开始、过早抄底——"42% 法则"被新低击碎
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L655、L4123-4127 命中；L572/L691 同主题
+  V1_source_sufficiency:
+    passed: true
+    reason: 1929-11-18 加拿大读者 42% 假说被 11-11 新低 220.39 否证、"做空点高 100 多个点"、1930 春反弹两原因均命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 机制（次级反弹特征与牛市起点相反+小样本统计被新低证伪）与底部确认三件套替代完整
+    bound_to: ["次级运动评估", "底部清单", "task-12 使用方式"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 统计基准只能校准预期、不能当触发器的边界判例
+  transcription_flags: []
+  decision: verified
+
+- id: ce22
+  title: 不可抗力黑天鹅——"反映一切"前提自带豁免条款
+  type: counter-example
+  validation_version: task-first-v2
+  source_check:
+    quote_verified: true
+    location: L342、L1367、L1517、L1591、L3837 全部命中
+  V1_source_sufficiency:
+    passed: true
+    reason: 假设二"不可抗力因素除外"原文、1906 地震实录、"没有一种理论能预见旧金山大地震"、1927 高位次级更剧烈（两例外）均命中
+  V2_executability:
+    passed: true
+    check_mode: walkthrough
+    reason: 公理豁免机制+仓位缓冲替代（能睡着原则）+灾后按次级运动规则处理完整
+    bound_to: ["反映一切前提边界", "资金与交易纪律"]
+  V3_task_utility:
+    passed: true
+    expected_benefit: 给"指数已消化一切"的满仓杠杆论证划出明文豁免边界
+  transcription_flags: []
+  decision: verified
+
+# ---------- 汇总 ----------
+# verified: 63（c01,c03-c42 共 41 条 case + ce01-ce22 共 22 条 counter-example）
+# reference: 1（c02——作者前言自述，来源真实但无信号/结果链条，作者自认可能纯属运气；转 references.md，
+#   供 book/overview 参考区记作者资格背景）
+# needs_review: 0 —— 5 处转写疑点全部按方法论"保留疑点"随条记录，均不影响对应候选核心机制；
+#   其中 1929-10-25"主要下跌市场持续 6 年"（c40/ce07）与 1930"90 天损失 60%"（c11）两处若未来
+#   取得纸版/原版书核对，仅需更新 transcription_flags，不需重跑验证。
+# rejected: 0 —— 未发现无原文依据、错误归因或被完整覆盖的候选；同行情多候选（1921 底部、1926 误判、
+#   1929 顶部等）均各有独有承载内容（亲历面/复盘面/专栏原文面/演算面），已通过 bound_to 与互参
+#   显式标注分工，不构成重复转述。
+# 验证中的附加发现（供阶段 2 使用）：
+#   1. c03 摘要"工业指数双重顶未获铁路确认"与原文（铁路双顶+工业未确认新高，L3677）归属有偏差；
+#   2. c42 摘要"42888.375/20=241.11"沿袭转写稿算术讹误，下游禁抄该除式；
+#   3. ce01 对 1926-4-12 引文措辞与转写稿略有出入（语义一致）；
+#   4. c08/c29 各存在书内自身小数字差异（202.65/202.56；105.25/105.20），已注明。

@@ -1,0 +1,78 @@
+{
+  "skill": "dual-index-confirmation-filter-skill",
+  "version": "1.0.0",
+  "capability_id": "cap.dow-theory-skill.dual-index-confirmation-filter-skill",
+  "destination": "promoted",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "沪深300上周三收出了阶段新高，中证流通到现在还没创新高。这个新高信号可信吗，能不能加仓？",
+      "expected_behavior": "激活本卡：三态判定（已确认/等待确认/按假象忽略）＋写明确认观察清单＋消极保险规则。",
+      "notes": "正面场景：A2 触发场景1，未确认新高可信度。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "确认的事先放一边，我就想知道：现在大盘整体到底是牛市还是熊市？两条指数半年的数据都有。",
+      "expected_behavior": "不激活本卡。应路由到 primary-trend-identification-skill（方向问题）；本卡是“过滤器”不是“方向判断器”。",
+      "notes": "跨skill诱饵：问趋势方向→u01。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "招商银行创了新高，兴业银行也跟着新高了，两只银行股互相确认了吧？可以买了？",
+      "expected_behavior": "不激活本卡（确认规则不适用于个股，“应用到个股也许会出现严重的误导”）；若触发必须声明个股不适用并转个股前置检查。用“两股互认”输出确认结论＝失败。",
+      "notes": "边界：个股不适用确认规则。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "只有沪深300发出了突破信号，中证流通还在原地，我是先动还是等？要是等的话，等到什么时候算彻底错过？",
+      "expected_behavior": "激活本卡：仅一方信号按“无信号”处理（消极保险，不入场也不反向）＋给出观察窗口约定（3周至数月口径并明示为约定）＋超时未确认按假象归档。",
+      "notes": "正面场景：A2 触发场景2，单指数信号纠结。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "两个指数都已经横盘窄幅震荡快一个月了，这是吸筹还是派发？会往哪边突破？",
+      "expected_behavior": "不激活本卡。应路由到 line-formation-reading-skill（线态盘整形态专门卡）；本卡处理任意单指数信号确认，不处理线形形态判读。",
+      "notes": "跨skill诱饵：线形吸筹/派发→u04。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我想在A股照道氏理论搞双指数互相确认，选哪两个指数合适？怎么验证它们确实联动有效？",
+      "expected_behavior": "激活本卡：给指数对选择逻辑（成分交叉少、权重分散、单日波动不可被一家公司事件解释）＋禁用标准（受个别股票绑架的替代指数）＋“替代指数对须经联动性检验、检验前附未经检验声明”。",
+      "notes": "正面场景：A2 触发场景3，A股替代指数对选择。"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "两条指数都跌破前期低点了，趋势是不是就此反转了？",
+      "expected_behavior": "边缘：合理判断为路由 primary-trend-identification-skill 走完整反转判据（方向/反转问题归 u01）；选本卡则只应做“两指数都失守”的反转断言门槛核对并声明改判须走 u01 程序。不核对门槛也不转 u01、直接断言“已反转”＝失败。",
+      "notes": "边界：反转断言门槛（本卡）与反转判据（u01）的分界。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "指数那天异动，恰好赶上大批成分股分红除息。这个信号会不会是除息砸出来的假信号？帮我看看该不该信。",
+      "expected_behavior": "激活本卡：先走数据质量门槛（剔除公司行为机械位移，参照1926年通用汽车除息判例），再判三态。",
+      "notes": "正面场景：A2 触发场景4，除息日信号怀疑。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "帮我写个Python脚本，批量下载几只指数的日线数据存成CSV。",
+      "expected_behavior": "不激活本卡（纯工程任务，与信号判读无关）。",
+      "notes": "无关诱饵：非判读场景。"
+    },
+    {
+      "id": "edge-03",
+      "type": "edge_case",
+      "prompt": "新闻说北向资金今天大幅流出，市场要变天了吧，要不要清仓？",
+      "expected_behavior": "不激活本卡。应路由到 pseudo-signal-troubleshooting（头条消息降权、“消息只当温度计”）；确认过滤器只做指数之间的确认，不处理消息面归因。",
+      "notes": "边界：头条消息场景→u13。"
+    }
+  ]
+}

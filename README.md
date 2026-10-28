@@ -131,6 +131,17 @@ dow-theory-skill/
 ├── BOOK_OVERVIEW.md               ← 整书理解（Adler 四步拆解，阶段 0 产出）
 ├── verified.md                    ← 13 个能力单元的三重验证结论
 ├── INDEX.md                       ← skill 地图：能力总表 / 依赖关系 / 加载顺序
+├── TEST_SUMMARY.md                ← Stage 4 压力测试摘要（用例范围 / 结构检查 / 结果 / 后续动作）
+├── CANGJIE_ADAPTATION.md          ← 仓颉适配说明（文本状态 / 蒸馏目标 / 证据规则 / 使用边界）
+├── candidates/                    ← 阶段 1 候选方法论单元（5 类 201 条）
+│   ├── framework.md               ← 框架候选 21 条
+│   ├── principle.md               ← 原则候选 90 条
+│   ├── case.md                    ← 案例候选 42 条
+│   ├── counter-example.md         ← 反例候选 22 条
+│   ├── glossary.md                ← 术语候选 26 条
+│   ├── verified-A.yaml            ← 三重验证结果：框架 + 术语（47 条）
+│   ├── verified-B.yaml            ← 三重验证结果：原则（90 条）
+│   └── verified-C.yaml            ← 三重验证结果：案例 + 反例（64 条）
 ├── bundle/                        ← 编译源：能力卡与验证清单
 │   ├── verified.yaml              ← 13 张卡的规范定义（标题、意图、重要度、去向、also_read）
 │   ├── cards/                     ← 13 张能力卡原稿（RIA++ 六段）
@@ -152,19 +163,26 @@ dow-theory-skill/
 │   │   ├── SKILL.md               ← 来源路由入口
 │   │   └── references/            ← 13 张卡 + 索引，供 router 内部调用
 │   ├── primary-trend-identification-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 本卡触发用例（10 条）
 │   ├── dual-index-confirmation-filter-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 本卡触发用例（10 条）
 │   ├── secondary-reaction-assessment-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 本卡触发用例（10 条）
 │   ├── line-formation-reading-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 本卡触发用例（10 条）
 │   ├── bear-bottom-checklist-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 本卡触发用例（9 条）
 │   ├── bull-top-exit-signals-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 本卡触发用例（9 条）
 │   └── trading-discipline-rules-skill/
-│       └── SKILL.md
+│       ├── SKILL.md
+│       └── test-prompts.json      ← 本卡触发用例（10 条）
 └── evals/                          ← 触发用例与逐项评分结果
     ├── test-prompts__primary-trend-identification.json
     ├── test-prompts__dual-index-confirmation-filter.json
