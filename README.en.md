@@ -214,4 +214,5 @@ All numeric criteria in the book (3% net reversal, the 33%–66% retracement ban
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT)
+[MIT](./LICENSE)
+
